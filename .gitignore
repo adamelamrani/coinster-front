@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 
+.vscode
+.DS_Store
+.scannerwork
+coverage
 # testing
 /coverage
 
