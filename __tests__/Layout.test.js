@@ -12,7 +12,6 @@ describe("Given a Layout component", () => {
       const expectedOutput = screen.getByRole(expectedElement, {
         name: "Test",
       });
-      console.log(expectedOutput);
       expect(expectedOutput.textContent).toBe(expectedText);
     });
   });
