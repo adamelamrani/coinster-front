@@ -1,4 +1,5 @@
 import Head from "next/head";
+import TopNavigation from "../Navigation/TopNavigation";
 
 const Layout = ({ children }: LayoutProps) => {
   return (
@@ -8,6 +9,7 @@ const Layout = ({ children }: LayoutProps) => {
         <meta name="description" content="Seguimiento de criptoactivos" />
       </Head>
       <h2>Test</h2>
+      <TopNavigation />
       {children}
     </>
   );
