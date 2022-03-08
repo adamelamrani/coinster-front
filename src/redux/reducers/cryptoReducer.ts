@@ -13,6 +13,7 @@ const cryptoReducer = (coinState: Crypto[] = [], action: TypeOfAction = {}) => {
       }
       break;
   }
+  return newCryptoState;
 };
 
 export default cryptoReducer;
