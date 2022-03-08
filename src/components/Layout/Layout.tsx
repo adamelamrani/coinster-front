@@ -8,7 +8,6 @@ const Layout = ({ children }: LayoutProps) => {
         <title>Coinster</title>
         <meta name="description" content="Seguimiento de criptoactivos" />
       </Head>
-      <h2>Test</h2>
       <TopNavigation />
       {children}
     </>
