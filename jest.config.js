@@ -10,6 +10,7 @@ module.exports = {
     "!next.config.js",
     "!**/_app.tsx",
   ],
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   moduleNameMapper: {
     "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
 
@@ -21,7 +22,7 @@ module.exports = {
   },
 
   testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/"],
-  testEnvironment: "jsdom",
+  testEnvironment: "jest-environment-jsdom",
   transform: {
     "^.+\\.(js|jsx|ts|tsx)$": ["babel-jest", { presets: ["next/babel"] }],
   },

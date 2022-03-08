@@ -11,6 +11,23 @@ const TopNavStyle = styled.nav`
     list-style: none;
     justify-content: space-evenly;
   }
+
+  .listitem-search {
+    input {
+      display: none;
+    }
+  }
+
+  @media (min-width: 500px) {
+    .listitem-search {
+      p {
+        display: none;
+      }
+      input {
+        display: flex;
+      }
+    }
+  }
 `;
 
 export default TopNavStyle;

@@ -1,6 +1,5 @@
-const { render, screen } = require("@testing-library/react");
 import Home from "../src/pages";
-
+import { render, screen } from "@testing-library/react";
 describe("Given a Home page component", () => {
   describe("When it's invoked", () => {
     test("Then it should render a heading with text coinster", () => {
