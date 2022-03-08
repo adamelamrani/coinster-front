@@ -4,28 +4,39 @@ const TopNavStyle = styled.nav`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  margin: 0, 20px;
+
+  .navigation-logo {
+    width: 100px;
+  }
 
   ul {
     display: flex;
     flex-direction: row;
     list-style: none;
     justify-content: space-evenly;
-  }
 
-  .listitem-search {
-    input {
-      display: none;
+    li {
+      margin: 10px;
     }
   }
 
-  @media (min-width: 500px) {
-    .listitem-search {
-      p {
-        display: none;
-      }
-      input {
-        display: flex;
-      }
+  @media (max-width: 450px) {
+    .listitem-search-input {
+      display: none;
+    }
+    .listitem-search-icon {
+      display: block;
+    }
+  }
+
+  @media (min-width: 450px) {
+    .listitem-search-icon {
+      display: none;
+    }
+    .listitem-search-input {
+      display: block;
     }
   }
 `;

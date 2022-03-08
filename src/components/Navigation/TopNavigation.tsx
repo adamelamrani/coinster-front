@@ -9,14 +9,14 @@ const TopNavigation = () => {
           className="navigation-logo"
           src="/coinster.png"
           alt="Coinster logo"
-          width={70}
-          height={70}
+          width={96}
+          height={45}
         />
         <ul className="top-nav-list">
-          <li className="listitem-search">
-            <p>Buscar</p>
+          <li className="listitem-search-input">
             <input type="text" placeholder="Buscar..." />
           </li>
+          <li className="listitem-search-icon">Buscar...</li>
           <li>Login</li>
         </ul>
       </TopNavStyle>
