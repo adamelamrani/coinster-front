@@ -2,8 +2,7 @@
 module.exports = {
   collectCoverageFrom: [
     "src/**/*.tsx",
-    "!.next/**/*",
-    "!**/*.test.js",
+    "src/**/*.ts",
     "!.next/**/*",
     "!coverage/**/*",
     "!jest.config.js",
