@@ -1,29 +1,19 @@
 import React from "react";
-import Crypto from "../../interfaces/Crypto";
+import cryptoProps from "../../interfaces/cryptoProps";
 
-const CryptoCard: React.ReactNode = ({
-  name,
-  symbol,
-  slug,
-  date_added,
-  max_supply,
-  circulating_supply,
-  total_supply,
-  last_updated,
-  USD,
-}: Crypto) => {
+const CryptoCard: React.ReactNode = ({ cryptos }: cryptoProps) => {
   return (
     <>
       <ul>
-        <li>{name}</li>
-        <li>{symbol}</li>
-        <li>{slug}</li>
-        <li>{date_added}</li>
-        <li>{max_supply}</li>
-        <li>{circulating_supply}</li>
-        <li>{total_supply}</li>
-        <li>{last_updated}</li>
-        <li>{USD.price}</li>
+        <li>{cryptos[0].name}</li>
+        <li>{cryptos[0].symbol}</li>
+        <li>{cryptos[0].slug}</li>
+        <li>{cryptos[0].date_added}</li>
+        <li>{cryptos[0].max_supply}</li>
+        <li>{cryptos[0].circulating_supply}</li>
+        <li>{cryptos[0].total_supply}</li>
+        <li>{cryptos[0].last_updated}</li>
+        <li>{cryptos[0].USD.price}</li>
       </ul>
     </>
   );
