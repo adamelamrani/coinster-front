@@ -15,7 +15,7 @@ const CryptoCard = ({
   percent_change_24h,
 }: Crypto): JSX.Element => {
   return (
-    <li key={id}>
+    <>
       <p>Nombre: {name}</p>
       <p>Symbolo: {symbol}</p>
       <p>Slug: {slug}</p>
@@ -26,7 +26,7 @@ const CryptoCard = ({
       <p>Última actualización: {last_updated}</p>
       <p>Precio actual {price}</p>
       <p>Variación últimas 24h: {percent_change_24h} </p>
-    </li>
+    </>
   );
 };
 
