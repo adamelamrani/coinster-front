@@ -35,7 +35,7 @@ describe("Given a loadCoinsAction", () => {
 
       const action = {
         type: actionTypes.loadCoins,
-        cryptos: cryptos,
+        payload: cryptos,
       };
 
       const expectedOutput = loadCoinsAction(cryptos);

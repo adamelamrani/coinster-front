@@ -1,9 +1,9 @@
 import cryptoProps from "../../interfaces/cryptoProps";
 import actionTypes from "./actionTypes";
 
-const loadCoinsAction = (cryptos: cryptoProps): Object => ({
+const loadCoinsAction = (cryptos: cryptoProps) => ({
   type: actionTypes.loadCoins,
-  cryptos,
+  payload: cryptos,
 });
 
 export default loadCoinsAction;
