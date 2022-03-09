@@ -8,18 +8,16 @@ module.exports = {
     "!jest.config.js",
     "!next.config.js",
     "!**/_app.tsx",
+    "!src/mocks/*",
+    "!src/interfaces/*",
   ],
-  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+  setupFilesAfterEnv: ["<rootDir>/setupTests.js"],
   moduleNameMapper: {
     "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
-
     "^.+\\.(css|sass|scss)$": "<rootDir>/__mocks__/styleMock.js",
-
     "^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$/i": `<rootDir>/__mocks__/fileMock.js`,
-
     "^@/components/(.*)$": "<rootDir>/components/$1",
   },
-
   testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/"],
   testEnvironment: "jest-environment-jsdom",
   transform: {

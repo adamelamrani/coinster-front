@@ -1,4 +1,4 @@
-import { cryptoProps } from "../src/interfaces/cryptoProps";
+import { Cryptos } from "../src/interfaces/cryptoProps";
 import actionTypes from "../src/redux/actions/actionTypes";
 import cryptoReducer from "../src/redux/reducers/cryptoReducer";
 import TypeOfAction from "../src/interfaces/TypeOfAction";
@@ -6,7 +6,7 @@ import TypeOfAction from "../src/interfaces/TypeOfAction";
 describe("Given a cryptoReducer function", () => {
   describe("When it receives an action with an array of crytos", () => {
     test("Then it should return a newCryptoState with the new array", () => {
-      const newState: cryptoProps = [
+      const newState: Cryptos = [
         {
           name: "Bitcoin",
           symbol: "BTC",
@@ -16,13 +16,9 @@ describe("Given a cryptoReducer function", () => {
           circulating_supply: 2000000000,
           total_supply: 2200000000,
           last_updated: "08/03/2022",
-          USD: {
-            price: 40000,
-            volume_24h: 244444444,
-            volume_change_24h: 1000000,
-            percent_change_7d: 10,
-            market_cap: 2408194819824,
-          },
+          price: 325235,
+          percent_change_24h: 12,
+          id: 1,
         },
         {
           name: "Bitcoin",
@@ -33,17 +29,13 @@ describe("Given a cryptoReducer function", () => {
           circulating_supply: 2000000000,
           total_supply: 2200000000,
           last_updated: "08/03/2022",
-          USD: {
-            price: 40000,
-            volume_24h: 244444444,
-            volume_change_24h: 1000000,
-            percent_change_7d: 10,
-            market_cap: 2408194819824,
-          },
+          price: 325235,
+          percent_change_24h: 12,
+          id: 2,
         },
       ];
 
-      const currentState: cryptoProps = [
+      const currentState: Cryptos = [
         {
           name: "Bitcoin",
           symbol: "BTC",
@@ -53,13 +45,9 @@ describe("Given a cryptoReducer function", () => {
           circulating_supply: 2000000000,
           total_supply: 2200000000,
           last_updated: "08/03/2022",
-          USD: {
-            price: 40000,
-            volume_24h: 244444444,
-            volume_change_24h: 1000000,
-            percent_change_7d: 10,
-            market_cap: 2408194819824,
-          },
+          price: 325235,
+          percent_change_24h: 12,
+          id: 1,
         },
       ];
 
@@ -74,7 +62,7 @@ describe("Given a cryptoReducer function", () => {
 
   describe("When it doesn't receive a valid action", () => {
     test("Then it should return the current state with only 1 crypto", () => {
-      const currentState: cryptoProps = [
+      const currentState: Cryptos = [
         {
           name: "Bitcoin",
           symbol: "BTC",
@@ -84,13 +72,9 @@ describe("Given a cryptoReducer function", () => {
           circulating_supply: 2000000000,
           total_supply: 2200000000,
           last_updated: "08/03/2022",
-          USD: {
-            price: 40000,
-            volume_24h: 244444444,
-            volume_change_24h: 1000000,
-            percent_change_7d: 10,
-            market_cap: 2408194819824,
-          },
+          price: 325235,
+          percent_change_24h: 12,
+          id: 1,
         },
       ];
 
