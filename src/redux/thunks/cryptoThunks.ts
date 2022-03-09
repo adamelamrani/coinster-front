@@ -1,6 +1,6 @@
 import loadCoinsAction from "../actions/actionsCreator";
 import { Dispatch } from "redux";
-import cryptoProps from "../../interfaces/cryptoProps";
+import { cryptoProps } from "../../interfaces/cryptoProps";
 
 const url: string = `${process.env.NEXT_PUBLIC_COINSTER_API}/main-page/list`;
 
