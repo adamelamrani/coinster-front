@@ -1,10 +1,11 @@
+import cryptoProps from "../src/interfaces/cryptoProps";
 import loadCoinsAction from "../src/redux/actions/actionsCreator";
 import actionTypes from "../src/redux/actions/actionTypes";
 
 describe("Given a loadCoinsAction", () => {
   describe("When it receives a list of cryptos", () => {
     test("Then it should return an object with type loadCoins and cryptos", () => {
-      const cryptos = [
+      const cryptos: cryptoProps = [
         {
           name: "Bitcoin",
           symbol: "BTC",
@@ -16,6 +17,10 @@ describe("Given a loadCoinsAction", () => {
           last_updated: "08/03/2022",
           USD: {
             price: 40000,
+            volume_24h: 244444444,
+            volume_change_24h: 1000000,
+            percent_change_7d: 10,
+            market_cap: 2408194819824,
           },
         },
         {
@@ -29,6 +34,10 @@ describe("Given a loadCoinsAction", () => {
           last_updated: "08/03/2022",
           USD: {
             price: 40000,
+            volume_24h: 244444444,
+            volume_change_24h: 1000000,
+            percent_change_7d: 10,
+            market_cap: 2408194819824,
           },
         },
       ];

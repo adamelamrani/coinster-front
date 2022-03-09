@@ -1,7 +1,5 @@
 import Crypto from "./Crypto";
 
-interface cryptoProps {
-  cryptos: Crypto[];
-}
+type cryptoProps = Crypto[];
 
 export default cryptoProps;
