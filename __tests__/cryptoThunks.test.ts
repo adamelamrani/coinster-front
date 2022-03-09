@@ -1,10 +1,11 @@
-import { cryptoProps, Cryptos } from "../src/interfaces/cryptoProps";
-import loadCoinsAction from "../src/redux/actions/actionsCreator";
 import actionTypes from "../src/redux/actions/actionTypes";
+import { loadCoinListThunk } from "../src/redux/thunks/cryptoThunks";
+import "whatwg-fetch";
+import { Cryptos } from "../src/interfaces/cryptoProps";
 
-describe("Given a loadCoinsAction", () => {
-  describe("When it receives a list of cryptos", () => {
-    test("Then it should return an object with type loadCoins and cryptos", () => {
+describe("Given a loadCryptoListThunk", () => {
+  describe("When it's invoked", () => {
+    test("Then it should call the dispatch function", async () => {
       const cryptos: Cryptos = [
         {
           name: "Bitcoin",
@@ -30,18 +31,19 @@ describe("Given a loadCoinsAction", () => {
           last_updated: "08/03/2022",
           price: 325235,
           percent_change_24h: 12,
-          id: 1,
+          id: 2,
         },
       ];
 
-      const action: cryptoProps = {
+      const dispatch = jest.fn();
+      const action = {
         type: actionTypes.loadCoins,
         payload: cryptos,
       };
 
-      const expectedOutput = loadCoinsAction(cryptos);
+      await loadCoinListThunk(dispatch);
 
-      expect(expectedOutput).toStrictEqual(action);
+      expect(dispatch).toHaveBeenCalledWith(action);
     });
   });
 });
