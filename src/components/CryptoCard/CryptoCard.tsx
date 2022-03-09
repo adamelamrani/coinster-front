@@ -1,7 +1,7 @@
 import React from "react";
-import cryptoProps from "../../interfaces/cryptoProps";
+import { coinProps } from "../../interfaces/cryptoProps";
 
-const CryptoCard: React.ReactNode = ({ cryptos }: cryptoProps) => {
+const CryptoCard: React.ReactNode = ({ cryptos }: coinProps) => {
   return (
     <>
       <ul>

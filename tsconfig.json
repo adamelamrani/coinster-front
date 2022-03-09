@@ -20,7 +20,9 @@
     "**/*.ts",
     "**/*.tsx",
     "jest.config.js",
-    "jest.setup.js"
+    "jest.setup.js",
+    "src/mocks/server.js",
+    "src/mocks/handlers.js"
   ],
   "exclude": ["node_modules"]
 }
