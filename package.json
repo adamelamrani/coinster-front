@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
-    "test": "jest --watchAll --verbose",
+    "test": "jest --verbose",
+    "forest": "jest --watchAll --verbose",
     "coverage": "jest --coverage --watchAll=false",
     "tsc-compile": "tsc --watch"
   },
