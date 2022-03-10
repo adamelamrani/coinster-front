@@ -1,9 +1,10 @@
 import { AnyAction } from "redux";
 import Crypto from "../../interfaces/Crypto";
+import { Cryptos } from "../../interfaces/cryptoProps";
 import actionTypes from "../actions/actionTypes";
 
 const cryptoReducer = (coinState: Crypto[] = [], action: AnyAction) => {
-  let newCryptoState;
+  let newCryptoState: Cryptos;
   switch (action.type) {
     case actionTypes.loadCoins:
       if (action.payload) {
