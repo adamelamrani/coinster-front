@@ -18,6 +18,9 @@ const CryptoCard = ({
   market_cap,
   img,
 }: Crypto): JSX.Element => {
+  function numberWithCommas(x: number | string) {
+    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".");
+  }
   return (
     <>
       <FontAwesomeIcon className="star-icon" icon={faStar} />
@@ -30,19 +33,19 @@ const CryptoCard = ({
       </td>
       <td className={`crypto crypto-price ${price}`}>${price.toFixed(2)}</td>
       <td className={`crypto crypto-change24 ${percent_change_24h}`}>
-        {percent_change_24h.toFixed(2)}
+        {numberWithCommas(percent_change_24h.toFixed(2))}
       </td>
       <td className={`crypto crypto-change7d ${percent_change_7d}`}>
-        {percent_change_7d.toFixed(4)}
+        {numberWithCommas(percent_change_7d.toFixed(4))}
       </td>
       <td className={`crypto crypto-marketcap ${market_cap}`}>
-        ${Math.round((market_cap * 100) / 100)}
+        ${numberWithCommas(Math.round((market_cap * 100) / 100))}
       </td>
       <td className={`crypto crypto-maxsupply ${max_supply}`}>
-        {Math.round((max_supply * 100) / 100)}
+        {numberWithCommas(Math.round((max_supply * 100) / 100))}
       </td>
       <td className={`crypto crypto-totalsupply ${total_supply}`}>
-        {Math.round((total_supply * 100) / 100)}
+        {numberWithCommas(Math.round((total_supply * 100) / 100))}
       </td>
     </>
   );
