@@ -22,9 +22,13 @@ const CryptoCard = ({
     <>
       <FontAwesomeIcon className="star-icon" icon={faStar} />
       <img width={35} height={35} alt={`${name}-logo`} src={img} />
-      <td className={`crypto crypto-name ${name}`}>{name}</td>
-      <td className={`crypto crypto-symbol ${symbol}`}>{symbol}</td>
-      <td className={`crypto crypto-price ${price}`}>{price.toFixed(2)}</td>
+      <td className={`crypto crypto-name ${name}`}>
+        <div>
+          <p>{name}</p>
+          <p>{symbol}</p>
+        </div>
+      </td>
+      <td className={`crypto crypto-price ${price}`}>${price.toFixed(2)}</td>
       <td className={`crypto crypto-change24 ${percent_change_24h}`}>
         {percent_change_24h.toFixed(2)}
       </td>
@@ -32,7 +36,7 @@ const CryptoCard = ({
         {percent_change_7d.toFixed(4)}
       </td>
       <td className={`crypto crypto-marketcap ${market_cap}`}>
-        {Math.round((market_cap * 100) / 100)}
+        ${Math.round((market_cap * 100) / 100)}
       </td>
       <td className={`crypto crypto-maxsupply ${max_supply}`}>
         {Math.round((max_supply * 100) / 100)}
