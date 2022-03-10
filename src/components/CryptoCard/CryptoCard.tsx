@@ -1,7 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import Crypto from "../../interfaces/Crypto";
-import StyledCard from "./CryptoCard.style";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const CryptoCard = ({
@@ -16,10 +16,12 @@ const CryptoCard = ({
   percent_change_24h,
   percent_change_7d,
   market_cap,
+  img,
 }: Crypto): JSX.Element => {
   return (
     <>
       <FontAwesomeIcon className="star-icon" icon={faStar} />
+      <img width={35} height={35} alt={`${name}-logo`} src={img} />
       <td className={`crypto crypto-name ${name}`}>{name}</td>
       <td className={`crypto crypto-symbol ${symbol}`}>{symbol}</td>
       <td className={`crypto crypto-price ${price}`}>{price.toFixed(2)}</td>

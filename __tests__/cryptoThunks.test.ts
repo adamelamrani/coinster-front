@@ -21,6 +21,7 @@ describe("Given a loadCryptoListThunk", () => {
           price: 325235,
           percent_change_24h: 12,
           id: 1,
+          img: "https://cryptologos.cc/logos/filecoin-fil-logo.svg?v=022",
         },
         {
           name: "Bitcoin",
@@ -36,6 +37,7 @@ describe("Given a loadCryptoListThunk", () => {
           price: 325235,
           percent_change_24h: 12,
           id: 2,
+          img: "https://cryptologos.cc/logos/filecoin-fil-logo.svg?v=022",
         },
       ];
 

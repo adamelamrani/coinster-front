@@ -21,6 +21,7 @@ describe("Given a cryptoReducer function", () => {
           price: 325235,
           percent_change_24h: 12,
           id: 1,
+          img: "undefined",
         },
         {
           name: "Bitcoin",
@@ -36,6 +37,7 @@ describe("Given a cryptoReducer function", () => {
           price: 325235,
           percent_change_24h: 12,
           id: 2,
+          img: "undefined",
         },
       ];
 
@@ -54,6 +56,7 @@ describe("Given a cryptoReducer function", () => {
           price: 325235,
           percent_change_24h: 12,
           id: 1,
+          img: "undefined",
         },
       ];
 
@@ -83,6 +86,7 @@ describe("Given a cryptoReducer function", () => {
           price: 325235,
           percent_change_24h: 12,
           id: 1,
+          img: "undefined",
         },
       ];
 
