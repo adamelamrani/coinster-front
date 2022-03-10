@@ -1,5 +1,8 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import Crypto from "../../interfaces/Crypto";
+import StyledCard from "./CryptoCard.style";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const CryptoCard = ({
   id,
@@ -16,16 +19,27 @@ const CryptoCard = ({
 }: Crypto): JSX.Element => {
   return (
     <>
-      <p>Nombre: {name}</p>
-      <p>Symbolo: {symbol}</p>
-      <p>Slug: {slug}</p>
-      <p>Market cap: {market_cap}</p>
-      <p>Stock máximo: {max_supply}</p>
-      <p>Stock total: {total_supply}</p>
-      <p>Precio actual {price}</p>
-      <p>Porcentage de cambio 1h: {percent_change_1h}</p>
-      <p>Porcentage de cambio 24h: {percent_change_24h} </p>
-      <p>Porcentage de cambio 7d: {percent_change_7d}</p>
+      <FontAwesomeIcon className="star-icon" icon={faStar} />
+      <td className={`crypto crypto-name ${name}`}>{name}</td>
+      <td className={`crypto crypto-symbol ${symbol}`}>{symbol}</td>
+      <td className={`crypto crypto-price ${price}`}>
+        {Math.round((price * 100) / 100)}
+      </td>
+      <td className={`crypto crypto-change24 ${percent_change_24h}`}>
+        {Math.round((percent_change_24h * 100) / 100)}
+      </td>
+      <td className={`crypto crypto-change7d ${percent_change_7d}`}>
+        {Math.round((percent_change_7d * 100) / 100)}
+      </td>
+      <td className={`crypto crypto-marketcap ${market_cap}`}>
+        {Math.round((market_cap * 100) / 100)}
+      </td>
+      <td className={`crypto crypto-maxsupply ${max_supply}`}>
+        {Math.round((max_supply * 100) / 100)}
+      </td>
+      <td className={`crypto crypto-totalsupply ${total_supply}`}>
+        {Math.round((total_supply * 100) / 100)}
+      </td>
     </>
   );
 };
