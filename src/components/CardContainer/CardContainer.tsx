@@ -24,9 +24,11 @@ const CardContainer = (): JSX.Element => {
                 key={crypto.id}
                 id={crypto.id}
                 name={crypto.name}
-                circulating_supply={crypto.circulating_supply}
-                date_added={crypto.date_added}
-                last_updated={crypto.last_updated}
+                market_cap={crypto.market_cap}
+                percent_change_1h={crypto.percent_change_1h}
+                percent_change_7d={crypto.percent_change_7d}
+                tags={crypto.tags}
+                platform={crypto.platform}
                 max_supply={crypto.max_supply}
                 slug={crypto.slug}
                 symbol={crypto.symbol}

@@ -3,13 +3,15 @@ interface Crypto {
   name: string;
   symbol: string;
   slug: string;
-  date_added: Date | string;
+  tags: Array<string>;
   max_supply: number;
-  circulating_supply: number;
   total_supply: number;
-  last_updated: Date | string;
+  platform: Array<string> | null;
   price: number;
+  percent_change_1h: number;
   percent_change_24h: number;
+  percent_change_7d: number;
+  market_cap: number;
 }
 
 export default Crypto;
