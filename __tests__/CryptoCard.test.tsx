@@ -21,11 +21,13 @@ describe("Given a CryptoCard component", () => {
         price: 325235,
         percent_change_24h: 12,
         id: 1,
+        img: "https://cryptologos.cc/logos/filecoin-fil-logo.svg?v=022",
       };
 
       render(
         <Provider store={store}>
           <CryptoCard
+            img={cryptos.img}
             key={cryptos.id}
             id={cryptos.id}
             name={cryptos.name}

@@ -12,6 +12,7 @@ interface Crypto {
   percent_change_24h: number;
   percent_change_7d: number;
   market_cap: number;
+  img: string;
 }
 
 export default Crypto;

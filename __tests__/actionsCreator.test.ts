@@ -20,6 +20,7 @@ describe("Given a loadCoinsAction", () => {
           price: 325235,
           percent_change_24h: 12,
           id: 1,
+          img: "undefined",
         },
         {
           name: "Bitcoin",
@@ -35,6 +36,7 @@ describe("Given a loadCoinsAction", () => {
           price: 325235,
           percent_change_24h: 12,
           id: 1,
+          img: "undefined",
         },
       ];
 

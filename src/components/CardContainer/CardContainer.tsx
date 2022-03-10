@@ -22,6 +22,7 @@ const CardContainer = (): JSX.Element => {
         {cryptoList.map((crypto) => (
           <StyledCard key={crypto.id}>
             <CryptoCard
+              img={crypto.img}
               key={crypto.id}
               id={crypto.id}
               name={crypto.name}
