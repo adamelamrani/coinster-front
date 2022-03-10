@@ -5,10 +5,14 @@ const StyledCard = styled.tr`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  text-align: left;
+  text-align: right;
   border-top: 2px solid gray;
   padding: 15px;
 
+  .crypto-name,
+  .crypto-symbol {
+    text-align: left;
+  }
   td {
     width: 10%;
   }

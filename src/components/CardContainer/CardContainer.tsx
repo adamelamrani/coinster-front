@@ -33,7 +33,7 @@ const CardContainer = (): JSX.Element => {
               max_supply={crypto.max_supply}
               slug={crypto.slug}
               symbol={crypto.symbol}
-              percent_change_24h={crypto.price}
+              percent_change_24h={crypto.percent_change_24h}
               price={crypto.price}
               total_supply={crypto.total_supply}
             />
