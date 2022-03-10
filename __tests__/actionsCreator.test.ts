@@ -1,4 +1,4 @@
-import { cryptoProps, Cryptos } from "../src/interfaces/cryptoProps";
+import { CryptoProps, Cryptos } from "../src/interfaces/cryptoProps";
 import loadCoinsAction from "../src/redux/actions/actionsCreator";
 import actionTypes from "../src/redux/actions/actionTypes";
 
@@ -34,7 +34,7 @@ describe("Given a loadCoinsAction", () => {
         },
       ];
 
-      const action: cryptoProps = {
+      const action: CryptoProps = {
         type: actionTypes.loadCoins,
         payload: cryptos,
       };
