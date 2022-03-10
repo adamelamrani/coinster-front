@@ -18,6 +18,10 @@ const StyledCard = styled.tr`
       margin: 5px;
       text-align: center;
     }
+
+    .percen-mobile {
+      display: none;
+    }
   }
 
   .crypto-name,
@@ -35,6 +39,7 @@ const StyledCard = styled.tr`
   th {
     width: 10%;
     text-align: right;
+    color: white;
   }
 
   .th-name {
@@ -43,6 +48,34 @@ const StyledCard = styled.tr`
 
   .star-icon {
     color: yellow;
+  }
+  @media (min-width: 450px) {
+    .percent-mobile,
+    .price-mobile {
+      display: none;
+    }
+  }
+
+  @media (max-width: 450px) {
+    justify-content: left;
+
+    td {
+      width: 40%;
+      color: white;
+    }
+
+    .percent-mobile,
+    .price-mobile {
+      display: block;
+    }
+
+    .crypto-price,
+    .crypto-change24,
+    .crypto-change7d,
+    .crypto-marketcap,
+    .crypto-maxsupply {
+      display: none;
+    }
   }
 `;
 

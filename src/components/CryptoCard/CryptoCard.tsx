@@ -29,9 +29,14 @@ const CryptoCard = ({
         <div>
           <p>{name}</p>
           <p>{symbol}</p>
+          <p className="percent-mobile">
+            {numberWithCommas(percent_change_24h.toFixed(2))}
+          </p>
         </div>
       </td>
-      <td className={`crypto crypto-price ${price}`}>${price.toFixed(2)}</td>
+      <td className={`crypto crypto-price ${price}`}>
+        ${numberWithCommas(price.toFixed(2))}
+      </td>
       <td className={`crypto crypto-change24 ${percent_change_24h}`}>
         {numberWithCommas(percent_change_24h.toFixed(2))}
       </td>
@@ -45,7 +50,10 @@ const CryptoCard = ({
         {numberWithCommas(Math.round((max_supply * 100) / 100))}
       </td>
       <td className={`crypto crypto-totalsupply ${total_supply}`}>
-        {numberWithCommas(Math.round((total_supply * 100) / 100))}
+        <div>
+          <p className="price-mobile">${numberWithCommas(price.toFixed(2))}</p>
+          <p>{numberWithCommas(Math.round((total_supply * 100) / 100))}</p>
+        </div>
       </td>
     </>
   );
