@@ -7,14 +7,14 @@ import "whatwg-fetch";
 describe("Given a CardContainer component", () => {
   describe("When it's rendered", () => {
     test("Then it should display a list", () => {
-      const list = "list";
+      const table = "table";
       render(
         <Provider store={store}>
           <CardContainer />
         </Provider>
       );
 
-      const expectedOutput = screen.getByRole(list);
+      const expectedOutput = screen.getByRole(table);
 
       expect(expectedOutput).toBeInTheDocument();
     });
