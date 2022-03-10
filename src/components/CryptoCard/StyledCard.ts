@@ -7,7 +7,18 @@ const StyledCard = styled.tr`
   justify-content: space-between;
   text-align: right;
   border-top: 2px solid gray;
-  padding: 15px;
+  padding: 8px;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    p {
+      margin: 5px;
+      text-align: center;
+    }
+  }
 
   .crypto-name,
   .crypto-symbol {
@@ -15,6 +26,19 @@ const StyledCard = styled.tr`
   }
   td {
     width: 10%;
+  }
+
+  .empty {
+    width: 35px;
+  }
+
+  th {
+    width: 10%;
+    text-align: right;
+  }
+
+  .th-name {
+    text-align: center;
   }
 
   .star-icon {
