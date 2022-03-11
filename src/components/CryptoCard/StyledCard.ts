@@ -18,6 +18,10 @@ const StyledCard = styled.tr`
       margin: 5px;
       text-align: center;
     }
+
+    .percent-mobile {
+      display: none;
+    }
   }
 
   .crypto-name,
@@ -43,6 +47,33 @@ const StyledCard = styled.tr`
 
   .star-icon {
     color: yellow;
+  }
+  .price-mobile-block {
+    align-items: flex-end;
+  }
+
+  @media (max-width: 450px) {
+    justify-content: left;
+
+    img {
+      margin: 10px;
+    }
+
+    td {
+      width: 40%;
+    }
+
+    .price-mobile {
+      display: block;
+    }
+
+    .crypto-price,
+    .crypto-change24,
+    .crypto-change7d,
+    .crypto-marketcap,
+    .crypto-maxsupply {
+      display: none;
+    }
   }
 `;
 
