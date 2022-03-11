@@ -7,6 +7,8 @@ const StyledCardContainer = styled.table`
 
   thead {
     background-color: #6c757d;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   @media (max-width: 450px) {

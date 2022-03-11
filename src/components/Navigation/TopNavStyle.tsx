@@ -6,6 +6,8 @@ const TopNavStyle = styled.nav`
   justify-content: space-between;
   align-items: center;
   margin: 0, 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 
   .navigation-logo {
     width: 100px;
@@ -16,9 +18,12 @@ const TopNavStyle = styled.nav`
     flex-direction: row;
     list-style: none;
     justify-content: space-evenly;
+    padding-right: 20px;
 
     li {
       margin: 10px;
+      display: flex;
+      align-items: center;
     }
   }
 
@@ -28,6 +33,10 @@ const TopNavStyle = styled.nav`
     }
     .listitem-search-icon {
       display: block;
+    }
+    .cryptos-link a,
+    .wallet-link a {
+      display: none;
     }
   }
 
