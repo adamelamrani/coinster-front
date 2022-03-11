@@ -50,6 +50,7 @@ const StyledCard = styled.tr`
 
   .star-icon {
     color: yellow;
+    margin-left: 10px;
   }
   .price-mobile-block {
     align-items: flex-end;
