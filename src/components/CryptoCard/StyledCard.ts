@@ -8,6 +8,8 @@ const StyledCard = styled.tr`
   text-align: right;
   border-top: 2px solid gray;
   padding: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
 
   div {
     display: flex;
@@ -79,4 +81,3 @@ const StyledCard = styled.tr`
 `;
 
 export default StyledCard;
-

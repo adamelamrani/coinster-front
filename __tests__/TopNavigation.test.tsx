@@ -10,10 +10,10 @@ describe("Given a TopNavigation component", () => {
       render(<TopNavigation />);
 
       const expectedOutputImage = screen.getByRole(expectImage);
-      const expectedOutputList = screen.getByRole(expectedList);
+      const expectedOutputList = screen.getAllByRole(expectedList);
 
       expect(expectedOutputImage).toBeInTheDocument();
-      expect(expectedOutputList).toBeInTheDocument();
+      expect(expectedOutputList[0]).toBeInTheDocument();
     });
   });
 });
