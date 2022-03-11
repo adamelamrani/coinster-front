@@ -20,10 +20,10 @@ const TopNavigation = () => {
             />
           </li>
           <li className="cryptos-link">
-            <Link href={"/main-page"}>Criptomonedas</Link>
+            <Link href={"/"}>Criptomonedas</Link>
           </li>
           <li className="wallet-link">
-            <Link href={"/wallet"}>Cartera</Link>
+            <Link href={"/"}>Cartera</Link>
           </li>
         </ul>
         <ul className="top-nav-list">
@@ -31,12 +31,12 @@ const TopNavigation = () => {
             <input type="text" placeholder="Buscar..." />
           </li>
           <li className="listitem-search-icon">
-            <Link href={"/login"} passHref>
-              <FontAwesomeIcon icon={faSearch} />
+            <Link href={"/"} passHref>
+              <FontAwesomeIcon className="user-login" icon={faSearch} />
             </Link>
           </li>
           <li>
-            <Link href={"/login"} passHref>
+            <Link href={"/"} passHref>
               <FontAwesomeIcon icon={faUser} />
             </Link>
           </li>
