@@ -42,7 +42,7 @@ const StyledCard = styled.tr`
     color: white;
   }
 
-   .th-name {
+  .th-name {
     text-align: center;
   }
 
