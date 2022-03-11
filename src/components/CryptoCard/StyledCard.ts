@@ -39,9 +39,10 @@ const StyledCard = styled.tr`
   th {
     width: 10%;
     text-align: right;
+    color: white;
   }
 
-  .th-name {
+   .th-name {
     text-align: center;
   }
 
@@ -78,3 +79,4 @@ const StyledCard = styled.tr`
 `;
 
 export default StyledCard;
+

@@ -22,7 +22,7 @@ const CryptoCard = ({
     return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
   }
   return (
-    <>
+        <>
       <FontAwesomeIcon className="star-icon" icon={faStar} />
       <img width={35} height={35} alt={`${name}-logo`} src={img} />
       <td className={`crypto crypto-name ${name}`}>
