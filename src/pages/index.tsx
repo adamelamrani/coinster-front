@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import CardContainer from "../components/CardContainer/CardContainer";
 import "whatwg-fetch";
 
-const Home: NextPage = (): JSX.Element => {
+const Home: NextPage = () => {
   return (
     <>
       <h1>Coinster</h1>

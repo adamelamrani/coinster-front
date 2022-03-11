@@ -21,6 +21,10 @@ const StyledCardContainer = styled.table`
     thead {
       display: none;
     }
+
+    tr:first-child {
+      border-top: none;
+    }
   }
 `;
 

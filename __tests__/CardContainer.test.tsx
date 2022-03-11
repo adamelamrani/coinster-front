@@ -6,17 +6,17 @@ import "whatwg-fetch";
 
 describe("Given a CardContainer component", () => {
   describe("When it's rendered", () => {
-    test("Then it should display a list", () => {
-      const table = "table";
+    test("Then it should display a list", async () => {
+      const text = "Bitcoin";
       render(
         <Provider store={store}>
           <CardContainer />
         </Provider>
       );
 
-      const expectedOutput = screen.getByRole(table);
+      const expectedOutput = await screen.findAllByText(text);
 
-      expect(expectedOutput).toBeInTheDocument();
+      expect(expectedOutput[0]).toBeInTheDocument();
     });
   });
 });
