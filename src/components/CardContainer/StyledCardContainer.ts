@@ -10,8 +10,6 @@ const StyledCardContainer = styled.table`
   }
 
   @media (max-width: 450px) {
-    background-color: #0077b6;
-
     thead {
       display: none;
     }

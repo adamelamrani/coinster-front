@@ -19,7 +19,7 @@ const StyledCard = styled.tr`
       text-align: center;
     }
 
-    .percen-mobile {
+    .percent-mobile {
       display: none;
     }
   }
@@ -49,22 +49,21 @@ const StyledCard = styled.tr`
   .star-icon {
     color: yellow;
   }
-  @media (min-width: 450px) {
-    .percent-mobile,
-    .price-mobile {
-      display: none;
-    }
+  .price-mobile-block {
+    align-items: flex-end;
   }
 
   @media (max-width: 450px) {
     justify-content: left;
 
-    td {
-      width: 40%;
-      color: white;
+    img {
+      margin: 10px;
     }
 
-    .percent-mobile,
+    td {
+      width: 40%;
+    }
+
     .price-mobile {
       display: block;
     }
@@ -80,3 +79,4 @@ const StyledCard = styled.tr`
 `;
 
 export default StyledCard;
+
