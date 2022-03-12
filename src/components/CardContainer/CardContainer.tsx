@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import { Cryptos } from "../../interfaces/cryptoProps";
 import RootState from "../../interfaces/RootState";
-import { loadCoinListThunk } from "../../redux/thunks/cryptoThunks";
 import CryptoCard from "../CryptoCard/CryptoCard";
 import StyledCard from "../CryptoCard/StyledCard";
 import StyledCardContainer from "./StyledCardContainer";
@@ -10,15 +9,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowsUpDown } from "@fortawesome/free-solid-svg-icons";
 import Crypto from "../../interfaces/Crypto";
 
-const CardContainer = (): JSX.Element => {
+const CardContainer: React.FunctionComponent = (): JSX.Element => {
   const cryptoList: Cryptos = useSelector<RootState, any>(
     (state) => state.cryptosList
   );
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(loadCoinListThunk);
-  }, [dispatch]);
   return (
     <>
       <StyledCardContainer>

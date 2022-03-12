@@ -2,7 +2,6 @@ import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import CryptoCard from "../src/components/CryptoCard/CryptoCard";
 import Crypto from "../src/interfaces/Crypto";
-import store from "../src/redux/store/store";
 
 describe("Given a CryptoCard component", () => {
   describe("When it receives the parameter name", () => {
@@ -25,25 +24,23 @@ describe("Given a CryptoCard component", () => {
       };
 
       render(
-        <Provider store={store}>
-          <CryptoCard
-            img={cryptos.img}
-            key={cryptos.id}
-            id={cryptos.id}
-            name={cryptos.name}
-            market_cap={cryptos.market_cap}
-            percent_change_1h={cryptos.percent_change_1h}
-            percent_change_7d={cryptos.percent_change_7d}
-            tags={cryptos.tags}
-            platform={cryptos.platform}
-            max_supply={cryptos.max_supply}
-            slug={cryptos.slug}
-            symbol={cryptos.symbol}
-            percent_change_24h={cryptos.price}
-            price={cryptos.price}
-            total_supply={cryptos.total_supply}
-          />
-        </Provider>
+        <CryptoCard
+          img={cryptos.img}
+          key={cryptos.id}
+          id={cryptos.id}
+          name={cryptos.name}
+          market_cap={cryptos.market_cap}
+          percent_change_1h={cryptos.percent_change_1h}
+          percent_change_7d={cryptos.percent_change_7d}
+          tags={cryptos.tags}
+          platform={cryptos.platform}
+          max_supply={cryptos.max_supply}
+          slug={cryptos.slug}
+          symbol={cryptos.symbol}
+          percent_change_24h={cryptos.price}
+          price={cryptos.price}
+          total_supply={cryptos.total_supply}
+        />
       );
 
       const text = "Bitcoin";

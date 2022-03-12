@@ -1,5 +1,9 @@
-import store from "../redux/store/store";
+import { Cryptos } from "./cryptoProps";
 
-type RootState = ReturnType<typeof store.getState>;
+export interface CryptoState {
+  cryptosList: Cryptos;
+}
+
+type RootState = CryptoState;
 
 export default RootState;
