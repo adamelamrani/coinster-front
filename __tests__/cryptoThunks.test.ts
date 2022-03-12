@@ -47,7 +47,7 @@ describe("Given a loadCryptoListThunk", () => {
         payload: cryptos,
       };
 
-      await loadCoinListThunk(dispatch);
+      await loadCoinListThunk()(dispatch);
 
       expect(dispatch).toHaveBeenCalledWith(action);
     });
