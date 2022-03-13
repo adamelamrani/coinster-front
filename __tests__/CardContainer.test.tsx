@@ -5,8 +5,8 @@ import { wrapper } from "../src/redux/store/store";
 
 describe("Given a CardContainer component", () => {
   describe("When it's rendered", () => {
-    test.skip("Then it should display a list", async () => {
-      const text = "Bitcoin";
+    test.only("Then it should display a list", async () => {
+      const text = "Nombre";
       const WrappedComponent = wrapper.withRedux(CardContainer);
       render(<WrappedComponent />);
 

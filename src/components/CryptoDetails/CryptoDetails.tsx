@@ -3,7 +3,7 @@ import React from "react";
 import Crypto from "../../interfaces/Crypto";
 import Button from "../Button/Button";
 
-const CryptoDetails: React.ReactNode = (crypto: Crypto): JSX.Element => {
+const CryptoDetails = ({ crypto }: Crypto): JSX.Element => {
   return (
     <>
       <img src={crypto.img} alt={`Crypto ${crypto.name}`} />
