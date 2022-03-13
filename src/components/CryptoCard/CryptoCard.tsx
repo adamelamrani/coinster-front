@@ -1,8 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import Crypto from "../../interfaces/Crypto";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+
+interface CryptoCard extends Crypto {
+  actionOnClick: MouseEventHandler;
+}
 
 const CryptoCard = ({
   id,
@@ -17,11 +21,22 @@ const CryptoCard = ({
   percent_change_7d,
   market_cap,
   img,
-}: Crypto): JSX.Element => {
+  actionOnClick,
+}: CryptoCard): JSX.Element => {
   return (
     <>
-      <FontAwesomeIcon className="star-icon" icon={faStar} />
-      <img width={35} height={35} alt={`${name}-logo`} src={img} />
+      <FontAwesomeIcon
+        className="star-icon"
+        icon={faStar}
+        onClick={actionOnClick}
+      />
+      <img
+        width={35}
+        height={35}
+        alt={`${name}-logo`}
+        src={img}
+        onClick={actionOnClick}
+      />
       <td className={`crypto crypto-name ${name}`}>
         <div className="name-mobile-block">
           <p>{name}</p>
