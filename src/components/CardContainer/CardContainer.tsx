@@ -32,6 +32,7 @@ const CardContainer: React.FunctionComponent = (): JSX.Element => {
         {cryptoList.map((crypto: Crypto) => (
           <StyledCard key={crypto.id}>
             <CryptoCard
+              actionOnClick={() => {}}
               img={crypto.img}
               key={crypto.id}
               id={crypto.id}
