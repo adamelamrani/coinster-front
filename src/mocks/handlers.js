@@ -1,6 +1,6 @@
 import { rest } from "msw";
 
-const urlTest = `${process.env.NEXT_PUBLIC_COINSTER_API}/main-page/list`;
+const urlTest = `${process.env.NEXT_PUBLIC_COINSTER_API}/cryptos/list`;
 const handlers = [
   rest.get(urlTest, (req, res, ctx) =>
     res(

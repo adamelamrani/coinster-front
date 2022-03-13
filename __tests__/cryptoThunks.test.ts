@@ -1,12 +1,11 @@
 import actionTypes from "../src/redux/actions/actionTypes";
 import { loadCoinListThunk } from "../src/redux/thunks/cryptoThunks";
 import "whatwg-fetch";
-import { Cryptos } from "../src/interfaces/cryptoProps";
 
 describe("Given a loadCryptoListThunk", () => {
   describe("When it's invoked", () => {
     test("Then it should call the dispatch function", async () => {
-      const cryptos: Cryptos = [
+      const cryptos = [
         {
           name: "Bitcoin",
           market_cap: 2000000,

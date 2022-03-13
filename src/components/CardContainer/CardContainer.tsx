@@ -29,26 +29,9 @@ const CardContainer: React.FunctionComponent = (): JSX.Element => {
             <th>Stock total</th>
           </StyledCard>
         </thead>
-        {cryptoList.map((crypto: Crypto) => (
+        {cryptoList.map(({ crypto }: Crypto) => (
           <StyledCard key={crypto.id}>
-            <CryptoCard
-              actionOnClick={() => {}}
-              img={crypto.img}
-              key={crypto.id}
-              id={crypto.id}
-              name={crypto.name}
-              market_cap={crypto.market_cap}
-              percent_change_1h={crypto.percent_change_1h}
-              percent_change_7d={crypto.percent_change_7d}
-              tags={crypto.tags}
-              platform={crypto.platform}
-              max_supply={crypto.max_supply}
-              slug={crypto.slug}
-              symbol={crypto.symbol}
-              percent_change_24h={crypto.percent_change_24h}
-              price={crypto.price}
-              total_supply={crypto.total_supply}
-            />
+            <CryptoCard actionOnClick={() => {}} crypto={crypto} />
           </StyledCard>
         ))}
       </StyledCardContainer>
