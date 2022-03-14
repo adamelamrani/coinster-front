@@ -1,5 +1,5 @@
 import { HYDRATE } from "next-redux-wrapper";
-import { AnyAction } from "redux";
+import { AnyAction, EmptyObject } from "redux";
 import {
   ActionTypeInterface,
   deleteCoinsActionI,
@@ -10,8 +10,8 @@ import { Cryptos } from "../../interfaces/cryptoProps";
 import actionTypes from "../actions/actionTypes";
 
 const cryptoReducer = (
-  coinState: Crypto[] | undefined = [],
-  action?: ActionTypeInterface
+  coinState: Cryptos | undefined = [],
+  action: ActionTypeInterface | EmptyObject = {}
 ) => {
   let newCryptoState: Crypto | Cryptos;
   switch ((action as ActionTypeInterface).type) {
@@ -23,9 +23,10 @@ const cryptoReducer = (
       newCryptoState = [...(action as loadCoinsActionI).payload];
       break;
     case actionTypes.deleteCoin:
-      newCryptoState = coinState.filter(
+      newCryptoState = (coinState as Cryptos).filter(
         (crypto) => crypto.id !== (action as deleteCoinsActionI).id
       );
+      break;
     default:
       newCryptoState = [...coinState];
   }
