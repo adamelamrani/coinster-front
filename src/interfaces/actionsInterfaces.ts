@@ -1,12 +1,12 @@
 import Crypto from "./Crypto";
 
-interface actionTypeInterface {
+export interface ActionTypeInterface {
   type: string;
 }
-export interface loadCoinsActionI extends actionTypeInterface {
-  payload: Crypto[] | Crypto | undefined;
+export interface loadCoinsActionI extends ActionTypeInterface {
+  payload: Crypto[];
 }
 
-export interface deleteCoinsActionI extends actionTypeInterface {
+export interface deleteCoinsActionI extends ActionTypeInterface {
   id: string | number;
 }
