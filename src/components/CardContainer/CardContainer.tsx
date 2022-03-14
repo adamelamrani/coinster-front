@@ -13,6 +13,7 @@ const CardContainer: React.FunctionComponent = (): JSX.Element => {
   const cryptoList: Cryptos = useSelector<RootState, any>(
     (state) => state.cryptosList
   );
+
   return (
     <>
       <StyledCardContainer>
@@ -29,11 +30,15 @@ const CardContainer: React.FunctionComponent = (): JSX.Element => {
             <th>Stock total</th>
           </StyledCard>
         </thead>
-        {cryptoList.map(({ crypto }: Crypto) => (
-          <StyledCard key={crypto.id}>
-            <CryptoCard actionOnClick={() => {}} crypto={crypto} />
-          </StyledCard>
-        ))}
+        <tbody>
+          {cryptoList.map(
+            (crypto: Crypto): JSX.Element => (
+              <StyledCard key={crypto.id}>
+                <CryptoCard actionOnClick={() => {}} crypto={crypto} />
+              </StyledCard>
+            )
+          )}
+        </tbody>
       </StyledCardContainer>
     </>
   );

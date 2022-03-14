@@ -36,7 +36,7 @@ describe("Given a cryptoReducer function", () => {
           total_supply: 2200000000,
           price: 325235,
           percent_change_24h: 12,
-          id: 2,
+          id: 1,
           img: "undefined",
         },
       ];
