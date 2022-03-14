@@ -1,7 +1,7 @@
 import { Cryptos } from "../src/interfaces/cryptoProps";
 import actionTypes from "../src/redux/actions/actionTypes";
 import cryptoReducer from "../src/redux/reducers/cryptoReducer";
-import TypeOfAction from "../src/interfaces/TypeOfAction";
+import { loadCoinsActionI } from "../src/interfaces/actionsInterfaces";
 
 describe("Given a cryptoReducer function", () => {
   describe("When it receives an action with an array of crytos", () => {
@@ -60,7 +60,7 @@ describe("Given a cryptoReducer function", () => {
         },
       ];
 
-      const action: TypeOfAction = {
+      const action: loadCoinsActionI = {
         type: actionTypes.loadCoins,
         payload: newState,
       };
@@ -90,7 +90,7 @@ describe("Given a cryptoReducer function", () => {
         },
       ];
 
-      const action: TypeOfAction = {
+      const action: loadCoinsActionI = {
         type: actionTypes.loadCoins,
         payload: undefined,
       };
