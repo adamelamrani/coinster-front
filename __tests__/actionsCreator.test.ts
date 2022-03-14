@@ -1,6 +1,9 @@
 import { loadCoinsActionI } from "../src/interfaces/actionsInterfaces";
 import { Cryptos } from "../src/interfaces/cryptoProps";
-import { loadCoinsAction } from "../src/redux/actions/actionsCreator";
+import {
+  deleteCoinsAction,
+  loadCoinsAction,
+} from "../src/redux/actions/actionsCreator";
 import actionTypes from "../src/redux/actions/actionTypes";
 
 describe("Given a loadCoinsAction", () => {
@@ -49,6 +52,18 @@ describe("Given a loadCoinsAction", () => {
       const expectedOutput = loadCoinsAction(cryptos);
 
       expect(expectedOutput).toStrictEqual(action);
+    });
+  });
+});
+
+describe("Given a deleteCoinsAction", () => {
+  describe("When it receives a valid id", () => {
+    test("Then it should return an action with the type and the id of the crypto to remove", () => {
+      const id = 1;
+      const expectedOutput = { type: "delete-coin", id: id };
+      const expectedAction = deleteCoinsAction(id);
+
+      expect(expectedAction).toEqual(expectedOutput);
     });
   });
 });
