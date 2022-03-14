@@ -22,14 +22,7 @@ describe("Given a CryptoCard component", () => {
         img: "https://cryptologos.cc/logos/filecoin-fil-logo.svg?v=022",
       };
 
-      render(
-        <CryptoCard
-          actionOnClick={() => {
-            null;
-          }}
-          crypto={crypto}
-        />
-      );
+      render(<CryptoCard actionOnClick={() => {}} crypto={crypto} />);
 
       const text = "Bitcoin";
       const expectedOutput = screen.getByText(text);

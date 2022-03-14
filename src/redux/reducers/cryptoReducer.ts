@@ -8,6 +8,8 @@ const cryptoReducer = (coinState: Crypto[] = [], action: AnyAction) => {
   let newCryptoState: Cryptos;
   switch (action.type) {
     case HYDRATE:
+      if (action.payload.cryptosList === "init")
+        delete action.payload.cryptosList;
       return [...coinState, ...action.payload.cryptosList];
     case actionTypes.loadCoins:
       if (action.payload) {

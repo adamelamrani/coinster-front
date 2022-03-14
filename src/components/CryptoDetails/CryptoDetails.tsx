@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import Crypto from "../../interfaces/Crypto";
 import Button from "../Button/Button";
+import { CryptoCardProps } from "../CryptoCard/CryptoCard";
 
-const CryptoDetails = ({ crypto }: Crypto): JSX.Element => {
+const CryptoDetails = ({ crypto }: CryptoCardProps): JSX.Element => {
   return (
     <>
       <img src={crypto.img} alt={`Crypto ${crypto.name}`} />

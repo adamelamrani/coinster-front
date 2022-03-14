@@ -22,7 +22,7 @@ describe("Given a CryptoDetails component", () => {
         img: "https://cryptologos.cc/logos/filecoin-fil-logo.svg?v=022",
       };
 
-      render(<CryptoDetails crypto={crypto} />);
+      render(<CryptoDetails actionOnClick={() => {}} crypto={crypto} />);
 
       const expectedList = screen.getByRole(list);
       const expectedHeading = screen.getByRole("heading", {
@@ -56,7 +56,7 @@ describe("Given a CryptoDetails component", () => {
         img: "https://cryptologos.cc/logos/filecoin-fil-logo.svg?v=022",
       };
 
-      render(<CryptoDetails crypto={crypto} />);
+      render(<CryptoDetails actionOnClick={() => {}} crypto={crypto} />);
 
       const expectedElement = screen.getByRole(button, { name: buttonText });
       expect(expectedElement).toBeInTheDocument();
