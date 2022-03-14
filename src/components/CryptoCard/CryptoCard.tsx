@@ -13,7 +13,6 @@ const CryptoCard = ({
   crypto,
   actionOnClick,
 }: CryptoCardProps): JSX.Element => {
-  console.log(crypto);
   return (
     <>
       <FontAwesomeIcon
