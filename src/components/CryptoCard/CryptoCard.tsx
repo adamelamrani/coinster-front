@@ -2,7 +2,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { MouseEventHandler } from "react";
 import Crypto from "../../interfaces/Crypto";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar, faCross } from "@fortawesome/free-solid-svg-icons";
 
 export interface CryptoCardProps {
   crypto: Crypto;
@@ -18,6 +18,13 @@ const CryptoCard = ({
       <FontAwesomeIcon
         className="star-icon"
         icon={faStar}
+        onClick={() => {
+          "say hello";
+        }}
+      />
+      <FontAwesomeIcon
+        className="star-icon"
+        icon={faCross}
         onClick={actionOnClick}
       />
       <img
