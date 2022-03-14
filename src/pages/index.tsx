@@ -8,7 +8,6 @@ const Home: NextPage = () => {
   return (
     <>
       <h1>Coinster</h1>
-      <p>Página en desarrollo...</p>
       <CardContainer />
     </>
   );

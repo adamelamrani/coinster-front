@@ -1,4 +1,4 @@
-import loadCoinsAction from "../actions/actionsCreator";
+import { loadCoinsAction } from "../actions/actionsCreator";
 import { Dispatch } from "redux";
 import { Cryptos } from "../../interfaces/cryptoProps";
 
