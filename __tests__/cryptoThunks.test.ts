@@ -1,6 +1,14 @@
 import actionTypes from "../src/redux/actions/actionTypes";
-import { loadCoinListThunk } from "../src/redux/thunks/cryptoThunks";
+import {
+  deleteCryptoThunk,
+  loadCoinListThunk,
+} from "../src/redux/thunks/cryptoThunks";
 import "whatwg-fetch";
+import {
+  deleteCoinsActionI,
+  loadCoinsActionI,
+} from "../src/interfaces/actionsInterfaces";
+import Crypto from "../src/interfaces/Crypto";
 
 describe("Given a loadCryptoListThunk", () => {
   describe("When it's invoked", () => {
@@ -41,7 +49,7 @@ describe("Given a loadCryptoListThunk", () => {
       ];
 
       const dispatch = jest.fn();
-      const action = {
+      const action: loadCoinsActionI = {
         type: actionTypes.loadCoins,
         payload: cryptos,
       };
@@ -49,6 +57,19 @@ describe("Given a loadCryptoListThunk", () => {
       await loadCoinListThunk()(dispatch);
 
       expect(dispatch).toHaveBeenCalledWith(action);
+    });
+  });
+});
+
+describe("Given a deleteCryptoThunk", () => {
+  describe("When it's invoked", () => {
+    test("Then it should call the dispatch function", async () => {
+      const id: number = 1;
+      const dispatch = jest.fn();
+
+      await deleteCryptoThunk(id)(dispatch);
+
+      expect(dispatch).toHaveBeenCalled();
     });
   });
 });
