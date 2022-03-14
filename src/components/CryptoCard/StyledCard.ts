@@ -11,6 +11,11 @@ const StyledCard = styled.tr`
   padding-left: 10px;
   padding-right: 10px;
 
+  .star-icon,
+  .cross-icon {
+    cursor: pointer;
+  }
+
   div {
     display: flex;
     flex-direction: column;

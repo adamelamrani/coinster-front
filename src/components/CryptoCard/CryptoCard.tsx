@@ -23,7 +23,7 @@ const CryptoCard = ({
         }}
       />
       <FontAwesomeIcon
-        className="star-icon"
+        className="cross-icon"
         icon={faCross}
         onClick={actionOnClick}
       />
