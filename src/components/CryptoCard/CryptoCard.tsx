@@ -26,6 +26,7 @@ const CryptoCard = ({
         className="cross-icon"
         icon={faCross}
         onClick={actionOnClick}
+        title="cross"
       />
       <img
         width={35}

@@ -1,4 +1,4 @@
-import { loadCoinsActionI } from "../src/interfaces/actionsInterfaces";
+import { LoadCoinsActionI } from "../src/interfaces/actionsInterfaces";
 import { Cryptos } from "../src/interfaces/cryptoProps";
 import {
   deleteCoinsAction,
@@ -23,7 +23,7 @@ describe("Given a loadCoinsAction", () => {
           total_supply: 2200000000,
           price: 325235,
           percent_change_24h: 12,
-          id: 1,
+          id: "1",
           img: "undefined",
         },
         {
@@ -39,12 +39,12 @@ describe("Given a loadCoinsAction", () => {
           total_supply: 2200000000,
           price: 325235,
           percent_change_24h: 12,
-          id: 1,
+          id: "1",
           img: "undefined",
         },
       ];
 
-      const action: loadCoinsActionI = {
+      const action: LoadCoinsActionI = {
         type: actionTypes.loadCoins,
         payload: cryptos,
       };
@@ -59,7 +59,7 @@ describe("Given a loadCoinsAction", () => {
 describe("Given a deleteCoinsAction", () => {
   describe("When it receives a valid id", () => {
     test("Then it should return an action with the type and the id of the crypto to remove", () => {
-      const id = 1;
+      const id = "1";
       const expectedOutput = { type: "delete-coin", id: id };
       const expectedAction = deleteCoinsAction(id);
 
