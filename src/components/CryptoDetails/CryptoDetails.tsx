@@ -1,9 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { MouseEventHandler } from "react";
+import Crypto from "../../interfaces/Crypto";
 import Button from "../Button/Button";
-import { CryptoCardProps } from "../CryptoCard/CryptoCard";
 
-const CryptoDetails = ({ crypto }: CryptoCardProps): JSX.Element => {
+interface DetailsProps {
+  crypto: Crypto;
+  actionOnClick: MouseEventHandler;
+}
+
+const CryptoDetails = ({
+  crypto,
+  actionOnClick,
+}: DetailsProps): JSX.Element => {
   return (
     <>
       <img src={crypto.img} alt={`Crypto ${crypto.name}`} />
@@ -23,7 +31,7 @@ const CryptoDetails = ({ crypto }: CryptoCardProps): JSX.Element => {
           perspiciatis porro necessitatibus!
         </p>
       </article>
-      <Button actionOnClick={() => {}} text={"Delete"} />
+      <Button actionOnClick={actionOnClick} text={"Delete"} />
     </>
   );
 };

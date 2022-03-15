@@ -16,7 +16,6 @@ export function loadCoinListThunk() {
 }
 
 export const deleteCryptoThunk = (id: string) => async (dispatch: Dispatch) => {
-  debugger;
   await fetch(`${process.env.NEXT_PUBLIC_COINSTER_API}/cryptos/crypto/${id}`, {
     method: "DELETE",
   });
