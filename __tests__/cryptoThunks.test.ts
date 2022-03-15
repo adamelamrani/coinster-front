@@ -4,11 +4,7 @@ import {
   loadCoinListThunk,
 } from "../src/redux/thunks/cryptoThunks";
 import "whatwg-fetch";
-import {
-  deleteCoinsActionI,
-  loadCoinsActionI,
-} from "../src/interfaces/actionsInterfaces";
-import Crypto from "../src/interfaces/Crypto";
+import { LoadCoinsActionI } from "../src/interfaces/actionsInterfaces";
 
 describe("Given a loadCryptoListThunk", () => {
   describe("When it's invoked", () => {
@@ -27,7 +23,7 @@ describe("Given a loadCryptoListThunk", () => {
           total_supply: 2200000000,
           price: 325235,
           percent_change_24h: 12,
-          id: 1,
+          id: "1",
           img: "https://cryptologos.cc/logos/filecoin-fil-logo.svg?v=022",
         },
         {
@@ -43,13 +39,13 @@ describe("Given a loadCryptoListThunk", () => {
           total_supply: 2200000000,
           price: 325235,
           percent_change_24h: 12,
-          id: 2,
+          id: "2",
           img: "https://cryptologos.cc/logos/filecoin-fil-logo.svg?v=022",
         },
       ];
 
       const dispatch = jest.fn();
-      const action: loadCoinsActionI = {
+      const action: LoadCoinsActionI = {
         type: actionTypes.loadCoins,
         payload: cryptos,
       };
@@ -64,7 +60,7 @@ describe("Given a loadCryptoListThunk", () => {
 describe("Given a deleteCryptoThunk", () => {
   describe("When it's invoked", () => {
     test("Then it should call the dispatch function", async () => {
-      const id: number = 1;
+      const id: string = "1";
       const dispatch = jest.fn();
 
       await deleteCryptoThunk(id)(dispatch);

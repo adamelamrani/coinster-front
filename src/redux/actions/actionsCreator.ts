@@ -1,16 +1,16 @@
 import { Cryptos } from "../../interfaces/cryptoProps";
 import {
-  deleteCoinsActionI,
-  loadCoinsActionI,
+  DeleteCoinsActionI,
+  LoadCoinsActionI,
 } from "../../interfaces/actionsInterfaces";
 import actionTypes from "./actionTypes";
 
-export const loadCoinsAction = (cryptos: Cryptos): loadCoinsActionI => ({
+export const loadCoinsAction = (cryptos: Cryptos): LoadCoinsActionI => ({
   type: actionTypes.loadCoins,
   payload: cryptos,
 });
 
-export const deleteCoinsAction = (id: string | number): deleteCoinsActionI => ({
+export const deleteCoinsAction = (id: string): DeleteCoinsActionI => ({
   type: actionTypes.deleteCoin,
   id,
 });

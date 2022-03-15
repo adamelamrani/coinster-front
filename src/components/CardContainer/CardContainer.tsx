@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Cryptos } from "../../interfaces/cryptoProps";
 import RootState from "../../interfaces/RootState";
@@ -16,7 +16,7 @@ const CardContainer: React.FunctionComponent = (): JSX.Element => {
   );
 
   const dispatch = useDispatch();
-  const deleteCrypto = (id: number | string) => {
+  const deleteCrypto = (id: string) => {
     dispatch(deleteCryptoThunk(id));
   };
 

@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import CryptoCard from "../src/components/CryptoCard/CryptoCard";
-import Crypto from "../src/interfaces/Crypto";
 
 describe("Given a CryptoCard component", () => {
   describe("When it receives the parameter name", () => {
@@ -18,7 +18,7 @@ describe("Given a CryptoCard component", () => {
         total_supply: 2200000000,
         price: 325235,
         percent_change_24h: 12,
-        id: 1,
+        id: "1",
         img: "https://cryptologos.cc/logos/filecoin-fil-logo.svg?v=022",
       };
 
@@ -28,6 +28,35 @@ describe("Given a CryptoCard component", () => {
       const expectedOutput = screen.getByText(text);
 
       expect(expectedOutput).toBeInTheDocument();
+    });
+  });
+
+  describe("When it receives an action on click", () => {
+    test("Then it should call the mock function", () => {
+      const mock = jest.fn();
+      const crypto = {
+        name: "Bitcoin",
+        market_cap: 2000000,
+        percent_change_1h: 2,
+        percent_change_7d: 5,
+        platform: null,
+        tags: [""],
+        symbol: "BTC",
+        slug: "bitcoin",
+        max_supply: 200000000000,
+        total_supply: 2200000000,
+        price: 325235,
+        percent_change_24h: 12,
+        id: "1",
+        img: "https://cryptologos.cc/logos/filecoin-fil-logo.svg?v=022",
+      };
+      const cross = "cross";
+
+      render(<CryptoCard actionOnClick={mock} crypto={crypto} />);
+      const expectedElement = screen.getByTitle(cross);
+      userEvent.click(expectedElement);
+
+      expect(mock).toHaveBeenCalled();
     });
   });
 });

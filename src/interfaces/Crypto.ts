@@ -1,5 +1,5 @@
 interface Crypto {
-  id: number;
+  id: string;
   name: string;
   symbol: string;
   slug: string;

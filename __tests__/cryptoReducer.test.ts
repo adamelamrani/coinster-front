@@ -3,8 +3,8 @@ import actionTypes from "../src/redux/actions/actionTypes";
 import cryptoReducer from "../src/redux/reducers/cryptoReducer";
 import {
   ActionTypeInterface,
-  deleteCoinsActionI,
-  loadCoinsActionI,
+  DeleteCoinsActionI,
+  LoadCoinsActionI,
 } from "../src/interfaces/actionsInterfaces";
 
 describe("Given a cryptoReducer function", () => {
@@ -24,7 +24,7 @@ describe("Given a cryptoReducer function", () => {
           total_supply: 2200000000,
           price: 325235,
           percent_change_24h: 12,
-          id: 1,
+          id: "1",
           img: "undefined",
         },
         {
@@ -40,7 +40,7 @@ describe("Given a cryptoReducer function", () => {
           total_supply: 2200000000,
           price: 325235,
           percent_change_24h: 12,
-          id: 2,
+          id: "2",
           img: "undefined",
         },
       ];
@@ -59,12 +59,12 @@ describe("Given a cryptoReducer function", () => {
           total_supply: 2200000000,
           price: 325235,
           percent_change_24h: 12,
-          id: 1,
+          id: "1",
           img: "undefined",
         },
       ];
 
-      const action: loadCoinsActionI = {
+      const action: LoadCoinsActionI = {
         type: actionTypes.loadCoins,
         payload: newState,
       };
@@ -89,7 +89,7 @@ describe("Given a cryptoReducer function", () => {
           total_supply: 2200000000,
           price: 325235,
           percent_change_24h: 12,
-          id: 1,
+          id: "1",
           img: "undefined",
         },
       ];
@@ -116,7 +116,7 @@ describe("Given a cryptoReducer function", () => {
           total_supply: 2200000000,
           price: 325235,
           percent_change_24h: 12,
-          id: 1,
+          id: "1",
           img: "undefined",
         },
         {
@@ -132,7 +132,7 @@ describe("Given a cryptoReducer function", () => {
           total_supply: 2200000000,
           price: 325235,
           percent_change_24h: 12,
-          id: 2,
+          id: "2",
           img: "undefined",
         },
       ];
@@ -151,12 +151,12 @@ describe("Given a cryptoReducer function", () => {
           total_supply: 2200000000,
           price: 325235,
           percent_change_24h: 12,
-          id: 2,
+          id: "2",
           img: "undefined",
         },
       ];
-      const id = 1;
-      const action: deleteCoinsActionI = {
+      const id = "1";
+      const action: DeleteCoinsActionI = {
         type: "delete-coin",
         id: id,
       };

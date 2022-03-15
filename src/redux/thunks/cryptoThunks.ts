@@ -16,14 +16,13 @@ export function loadCoinListThunk() {
   };
 }
 
-export const deleteCryptoThunk =
-  (id: number | string) => async (dispatch: Dispatch) => {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_COINSTER_API}/cryptos/crypto/${id}`,
-      {
-        method: "DELETE",
-      }
-    );
-    const crypto: Crypto = await response.json();
-    dispatch(deleteCoinsAction(crypto.id));
-  };
+export const deleteCryptoThunk = (id: string) => async (dispatch: Dispatch) => {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_COINSTER_API}/cryptos/crypto/${id}`,
+    {
+      method: "DELETE",
+    }
+  );
+  const crypto: Crypto = await response.json();
+  dispatch(deleteCoinsAction(crypto.id));
+};

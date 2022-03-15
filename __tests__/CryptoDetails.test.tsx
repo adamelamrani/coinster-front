@@ -18,7 +18,7 @@ describe("Given a CryptoDetails component", () => {
         total_supply: 2200000000,
         price: 325235,
         percent_change_24h: 12,
-        id: 1,
+        id: "1",
         img: "https://cryptologos.cc/logos/filecoin-fil-logo.svg?v=022",
       };
 
@@ -52,7 +52,7 @@ describe("Given a CryptoDetails component", () => {
         total_supply: 2200000000,
         price: 325235,
         percent_change_24h: 12,
-        id: 1,
+        id: "1",
         img: "https://cryptologos.cc/logos/filecoin-fil-logo.svg?v=022",
       };
 

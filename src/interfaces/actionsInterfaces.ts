@@ -3,10 +3,10 @@ import Crypto from "./Crypto";
 export interface ActionTypeInterface {
   type: string;
 }
-export interface loadCoinsActionI extends ActionTypeInterface {
+export interface LoadCoinsActionI extends ActionTypeInterface {
   payload: Crypto[];
 }
 
-export interface deleteCoinsActionI extends ActionTypeInterface {
-  id: string | number;
+export interface DeleteCoinsActionI extends ActionTypeInterface {
+  id: string;
 }
