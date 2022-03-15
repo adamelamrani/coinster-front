@@ -1,7 +1,6 @@
 import { deleteCoinsAction, loadCoinsAction } from "../actions/actionsCreator";
 import { Dispatch } from "redux";
 import { Cryptos } from "../../interfaces/cryptoProps";
-import Crypto from "../../interfaces/Crypto";
 
 export function loadCoinListThunk() {
   return async function (dispatch: Dispatch) {
@@ -17,7 +16,6 @@ export function loadCoinListThunk() {
 }
 
 export const deleteCryptoThunk = (id: string) => async (dispatch: Dispatch) => {
-  debugger;
   await fetch(`${process.env.NEXT_PUBLIC_COINSTER_API}/cryptos/crypto/${id}`, {
     method: "DELETE",
   });

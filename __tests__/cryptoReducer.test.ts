@@ -6,6 +6,7 @@ import {
   DeleteCoinsActionI,
   LoadCoinsActionI,
 } from "../src/interfaces/actionsInterfaces";
+import { AnyAction } from "redux";
 
 describe("Given a cryptoReducer function", () => {
   describe("When it receives an action with an array of crytos", () => {

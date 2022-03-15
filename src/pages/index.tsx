@@ -15,8 +15,8 @@ const Home: NextPage = () => {
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async () => {
-    await store.dispatch<any>(loadCoinListThunk());
-    return { props: {} };
+    const cryptoList = await store.dispatch<any>(loadCoinListThunk());
+    return { props: { cryptoList } };
   }
 );
 

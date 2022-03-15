@@ -31,12 +31,12 @@ const TopNavigation = () => {
           </li>
           <li className="listitem-search-icon">
             <Link href={"/"} passHref>
-              <FontAwesomeIcon className="user-login" icon={faSearch} />
+              <FontAwesomeIcon className="search-icon" icon={faSearch} />
             </Link>
           </li>
           <li>
             <Link href={"/"} passHref>
-              <FontAwesomeIcon icon={faUser} />
+              <FontAwesomeIcon className="user-icon" icon={faUser} />
             </Link>
           </li>
         </ul>
