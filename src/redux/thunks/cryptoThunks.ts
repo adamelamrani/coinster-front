@@ -1,7 +1,6 @@
 import { deleteCoinsAction, loadCoinsAction } from "../actions/actionsCreator";
 import { Dispatch } from "redux";
 import { Cryptos } from "../../interfaces/cryptoProps";
-import Crypto from "../../interfaces/Crypto";
 
 export function loadCoinListThunk() {
   return async function (dispatch: Dispatch) {

@@ -3,6 +3,9 @@ import CardContainer from "../components/CardContainer/CardContainer";
 import "whatwg-fetch";
 import { wrapper } from "../redux/store/store";
 import { loadCoinListThunk } from "../redux/thunks/cryptoThunks";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
 
 const Home: NextPage = () => {
   return (
