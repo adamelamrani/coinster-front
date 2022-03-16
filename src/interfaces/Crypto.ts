@@ -4,14 +4,14 @@ interface Crypto {
   symbol: string;
   slug: string;
   tags: Array<string>;
-  max_supply: number;
-  total_supply: number;
+  max_supply: number | string;
+  total_supply: number | string;
   platform: Array<string> | null;
   price: number;
-  percent_change_1h: number;
-  percent_change_24h: number;
-  percent_change_7d: number;
-  market_cap: number;
+  percent_change_1h: number | string;
+  percent_change_24h: number | string;
+  percent_change_7d: number | string;
+  market_cap: number | string;
   img: string;
 }
 
