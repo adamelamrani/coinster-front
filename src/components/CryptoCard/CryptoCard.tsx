@@ -43,23 +43,25 @@ const CryptoCard = ({
           <p>{crypto.symbol}</p>
         </div>
       </td>
-      <td className={`crypto crypto-price`}>${crypto.price.toFixed(5)}</td>
+      <td className={`crypto crypto-price`}>
+        ${Number(crypto.price).toFixed(5)}
+      </td>
       <td className={`crypto crypto-change24`}>
-        {crypto.percent_change_24h.toFixed(2)}
+        {Number(crypto.percent_change_24h).toFixed(2)}
       </td>
       <td className={`crypto crypto-change7d`}>
-        {crypto.percent_change_7d.toFixed(4)}
+        {Number(crypto.percent_change_7d).toFixed(4)}
       </td>
       <td className={`crypto crypto-marketcap `}>
-        ${Math.round((crypto.market_cap * 100) / 100)}
+        ${Math.round((Number(crypto.market_cap) * 100) / 100)}
       </td>
       <td className={`crypto crypto-maxsupply`}>
-        {Math.round((crypto.max_supply * 100) / 100)}
+        {Math.round((Number(crypto.max_supply) * 100) / 100)}
       </td>
       <td className={`crypto crypto-totalsupply `}>
         <div className="price-mobile-block">
-          <p className="price-mobile">${crypto.price.toFixed(5)}</p>
-          <p>{Math.round((crypto.total_supply * 100) / 100)}</p>
+          <p className="price-mobile">${Number(crypto.price).toFixed(5)}</p>
+          <p>{Math.round((Number(crypto.total_supply) * 100) / 100)}</p>
         </div>
       </td>
     </>

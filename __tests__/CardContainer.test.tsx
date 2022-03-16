@@ -1,6 +1,6 @@
+import "whatwg-fetch";
 import { render, screen } from "@testing-library/react";
 import CardContainer from "../src/components/CardContainer/CardContainer";
-import "whatwg-fetch";
 import { wrapper } from "../src/redux/store/store";
 
 describe("Given a CardContainer component", () => {
@@ -11,8 +11,12 @@ describe("Given a CardContainer component", () => {
       render(<WrappedComponent />);
 
       const expectedOutput = await screen.findAllByText(text);
-
+      screen.debug();
       expect(expectedOutput[0]).toBeInTheDocument();
     });
+  });
+
+  describe("", () => {
+    test("", () => {});
   });
 });
