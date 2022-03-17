@@ -45,11 +45,11 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
     const crypto: Crypto = await currentCrypto.json();
     if (!crypto) {
       const error = new Error("Crypto not found");
-      return { props: {} };
+      return { notFound: true };
     }
     return { props: { crypto } };
   } catch (error) {
-    return { props: {} };
+    return { notFound: true };
   }
 };
 
