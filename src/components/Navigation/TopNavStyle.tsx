@@ -24,10 +24,15 @@ const TopNavStyle = styled.nav`
     text-decoration: none;
     color: black;
     font-weight: bolder;
-    transition: all 0.3s ease-in-out;
+    background-image: linear-gradient(red, red);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size 0.3s;
   }
-
-  a:hover {
+  a:hover,
+  a:focus {
+    background-size: 100% 2px;
     color: red;
   }
 
