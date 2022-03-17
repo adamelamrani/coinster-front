@@ -57,8 +57,7 @@ describe("Given a getServerSideProps function", () => {
         props: { cryptoList: undefined, initialState: { cryptosList } },
       };
 
-      const getSSR = await getServerSideProps();
-      console.log(getSSR);
+      const getSSR = await getServerSideProps({} as any);
       expect(getSSR).toEqual(props);
     });
   });

@@ -3,7 +3,7 @@ import actionTypes from "../src/redux/actions/actionTypes";
 import cryptoReducer from "../src/redux/reducers/cryptoReducer";
 import {
   ActionTypeInterface,
-  DeleteCoinsActionI,
+  GetIdCoinsActionI,
   LoadCoinsActionI,
 } from "../src/interfaces/actionsInterfaces";
 import { AnyAction } from "redux";
@@ -157,7 +157,7 @@ describe("Given a cryptoReducer function", () => {
         },
       ];
       const id = "1";
-      const action: DeleteCoinsActionI = {
+      const action: GetIdCoinsActionI = {
         type: "delete-coin",
         id: id,
       };

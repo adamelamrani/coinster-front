@@ -15,6 +15,9 @@ const StyledCard = styled.tr`
   .cross-icon {
     cursor: pointer;
   }
+  img {
+    border-radius: 50%;
+  }
 
   div {
     display: flex;
