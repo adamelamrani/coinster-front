@@ -7,7 +7,13 @@ describe("Given a Button component", () => {
     test("Then it should render itself", () => {
       const actionOnClick = jest.fn();
       const text = "hola";
-      render(<Button actionOnClick={actionOnClick} text={text} />);
+      render(
+        <Button
+          disableCondition={false}
+          actionOnClick={actionOnClick}
+          text={text}
+        />
+      );
 
       const expectedButton = screen.getByRole("button", { name: text });
 
@@ -19,7 +25,13 @@ describe("Given a Button component", () => {
   describe("When a click is fired", () => {
     test("Then it should call the mock function", () => {
       const actionOnClick = jest.fn();
-      render(<Button actionOnClick={actionOnClick} text={"text"} />);
+      render(
+        <Button
+          disableCondition={false}
+          actionOnClick={actionOnClick}
+          text={"text"}
+        />
+      );
 
       const button = screen.getByRole("button");
       userEvent.click(button);

@@ -31,7 +31,11 @@ const CryptoDetails = ({
           perspiciatis porro necessitatibus!
         </p>
       </article>
-      <Button actionOnClick={actionOnClick} text={"Delete"} />
+      <Button
+        disableCondition={false}
+        actionOnClick={actionOnClick}
+        text={"Delete"}
+      />
     </>
   );
 };
