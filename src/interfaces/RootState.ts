@@ -1,3 +1,4 @@
+import Crypto from "./Crypto";
 import { Cryptos } from "./cryptoProps";
 
 export interface CryptoState {
