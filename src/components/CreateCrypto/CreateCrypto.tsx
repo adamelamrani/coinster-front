@@ -17,7 +17,7 @@ interface Form {
   img: string;
 }
 
-const CreateCrypto: React.ReactNode = () => {
+const CreateCrypto: React.FunctionComponent = (): JSX.Element => {
   const emptyForm: Form = {
     name: "",
     symbol: "",
@@ -82,25 +82,25 @@ const CreateCrypto: React.ReactNode = () => {
       <label htmlFor="slug">Slug:</label>
       <input
         type="text"
-        name="Slug"
-        id="Slug"
+        name="slug"
+        id="slug"
         placeholder="Introduzca algún slug..."
         value={formData.slug}
         onChange={CreateCrypto}
       />
-      <label htmlFor="name">Tags:</label>
+      <label htmlFor="tags">Tags:</label>
       <textarea
-        name="Tags"
-        id="Tags"
+        name="tags"
+        id="tags"
         placeholder="Cryptos"
-        value={(formData.tags as string).split(",")}
+        value={formData.tags}
         onChange={CreateCrypto}
       />
       <label htmlFor="max_supply">Stock máximo:</label>
       <input
         type="number"
-        name="max_supply_form"
-        id="max_supply_form"
+        name="max_supply"
+        id="max_supply"
         placeholder="Introduzca el stock máximo"
         value={formData.max_supply}
         onChange={CreateCrypto}
@@ -108,87 +108,76 @@ const CreateCrypto: React.ReactNode = () => {
       <label htmlFor="total_supply">Stock total:</label>
       <input
         type="number"
-        name="total_supply_form"
-        id="total_supply_form"
+        name="total_supply"
+        id="total_supply"
         placeholder="Introduzca el stock total"
         value={formData.total_supply}
         onChange={CreateCrypto}
       />
       <label htmlFor="platform">Plataformas:</label>
       <textarea
-        name="platforms"
-        id="platforms"
+        name="platform"
+        id="platform"
         placeholder="Plataformas, por ejemplo: BSC."
-        value={(formData.platform as string).split(",")}
+        value={formData.platform}
         onChange={CreateCrypto}
       />
       <label htmlFor="price">Precio:</label>
       <input
         type="number"
-        name="price_form"
-        id="price_form"
+        name="price"
+        id="price"
         placeholder="Introduzca el precio de la moneda:"
         value={formData.price}
         onChange={CreateCrypto}
       />
-      <label htmlFor="market_cap_form">Capital de mercado:</label>
+      <label htmlFor="market_cap">Capital de mercado:</label>
       <input
         type="number"
-        name="market_cap_form"
-        id="market_cap_form"
+        name="market_cap"
+        id="market_cap"
         placeholder="Introduzca el capital de mercado"
         value={formData.market_cap}
         onChange={CreateCrypto}
       />
-      <label htmlFor="percent_change_1h_form">
+      <label htmlFor="percent_change_1h">
         Porcentaje de cambio última hora:
       </label>
       <input
         type="number"
-        name="percent_change_1h_form"
-        id="percent_change_1h_form"
+        name="percent_change_1h"
+        id="percent_change_1h"
         placeholder="Variación última hora"
         value={formData.percent_change_1h}
         onChange={CreateCrypto}
       />
-      <label htmlFor="percent_change_1h_form">
-        Porcentaje de cambio última hora:
+      <label htmlFor="percent_change_24h">
+        Porcentaje de cambio últimas 24 horas:
       </label>
       <input
         type="number"
-        name="percent_change_24h_form"
-        id="percent_change_24h_form"
+        name="percent_change_24h_"
+        id="percent_change_24h"
         placeholder="Variación últimas 24 horas"
         value={formData.percent_change_24h}
         onChange={CreateCrypto}
       />
-      <label htmlFor="percent_change_1h_form">
+      <label htmlFor="percent_change_7d">
         Porcentaje de cambio últimos 7 días:
       </label>
       <input
         type="number"
-        name="percent_change_7d_form"
-        id="percent_change_7d_form"
+        name="percent_change_7d"
+        id="percent_change_7d"
         placeholder="Variación últimos 7 días"
         value={formData.percent_change_7d}
         onChange={CreateCrypto}
       />
-      <label htmlFor="percent_change_1h_form">
-        Porcentaje de cambio última hora:
-      </label>
-      <input
-        type="number"
-        name="percent_change_24h_form"
-        id="percent_change_24h_form"
-        placeholder="Variación últimas 24 horas"
-        value={formData.percent_change_24h}
-        onChange={CreateCrypto}
-      />
-      <label htmlFor="img_form">Logo de su Cryptoactivo:</label>
+      <label htmlFor="img">Logo de su Cryptoactivo:</label>
       <input
         type="file"
-        name="img_form"
-        id="img_form"
+        name="img"
+        id="img"
         value={formData.img}
         onChange={CreateCrypto}
       />
@@ -200,3 +189,5 @@ const CreateCrypto: React.ReactNode = () => {
     </form>
   );
 };
+
+export default CreateCrypto;

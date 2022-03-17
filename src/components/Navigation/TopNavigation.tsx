@@ -24,6 +24,9 @@ const TopNavigation = () => {
           <li className="wallet-link">
             <Link href={"/"}>Cartera</Link>
           </li>
+          <li>
+            <Link href={"/crypto/new-crypto"}>Crea tu Cryptomoneda</Link>
+          </li>
         </ul>
         <ul className="top-nav-list">
           <li className="listitem-search-input">
