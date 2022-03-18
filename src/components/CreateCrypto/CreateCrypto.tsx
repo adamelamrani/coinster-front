@@ -1,5 +1,6 @@
 import React, { FormEventHandler, useState } from "react";
 import Button from "../Button/Button";
+import StyledFormular from "./StyledFormular";
 
 interface Form {
   name: string;
@@ -35,7 +36,7 @@ const CreateCrypto: React.FunctionComponent = (): JSX.Element => {
   };
 
   const [formData, setFormData] = useState(emptyForm);
-  const CreateCrypto: FormEventHandler = (
+  const createCryptoEvent: FormEventHandler = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setFormData({
@@ -60,133 +61,139 @@ const CreateCrypto: React.FunctionComponent = (): JSX.Element => {
     formData.img === "";
 
   return (
-    <form autoComplete="off" onSubmit={() => {}}>
-      <label htmlFor="name">Nombre:</label>
-      <input
-        type="text"
-        name="name"
-        id="name"
-        placeholder="Introduzca un nombre"
-        value={formData.name}
-        onChange={CreateCrypto}
-      />
-      <label htmlFor="symbol">Símbolo:</label>
-      <input
-        type="text"
-        name="symbol"
-        id="symbol"
-        placeholder="Introduzca un symbolo, por ejemplo: BTC>"
-        value={formData.symbol}
-        onChange={CreateCrypto}
-      />
-      <label htmlFor="slug">Slug:</label>
-      <input
-        type="text"
-        name="slug"
-        id="slug"
-        placeholder="Introduzca algún slug..."
-        value={formData.slug}
-        onChange={CreateCrypto}
-      />
-      <label htmlFor="tags">Tags:</label>
-      <textarea
-        name="tags"
-        id="tags"
-        placeholder="Cryptos"
-        value={formData.tags}
-        onChange={CreateCrypto}
-      />
-      <label htmlFor="max_supply">Stock máximo:</label>
-      <input
-        type="number"
-        name="max_supply"
-        id="max_supply"
-        placeholder="Introduzca el stock máximo"
-        value={formData.max_supply}
-        onChange={CreateCrypto}
-      />
-      <label htmlFor="total_supply">Stock total:</label>
-      <input
-        type="number"
-        name="total_supply"
-        id="total_supply"
-        placeholder="Introduzca el stock total"
-        value={formData.total_supply}
-        onChange={CreateCrypto}
-      />
-      <label htmlFor="platform">Plataformas:</label>
-      <textarea
-        name="platform"
-        id="platform"
-        placeholder="Plataformas, por ejemplo: BSC."
-        value={formData.platform}
-        onChange={CreateCrypto}
-      />
-      <label htmlFor="price">Precio:</label>
-      <input
-        type="number"
-        name="price"
-        id="price"
-        placeholder="Introduzca el precio de la moneda:"
-        value={formData.price}
-        onChange={CreateCrypto}
-      />
-      <label htmlFor="market_cap">Capital de mercado:</label>
-      <input
-        type="number"
-        name="market_cap"
-        id="market_cap"
-        placeholder="Introduzca el capital de mercado"
-        value={formData.market_cap}
-        onChange={CreateCrypto}
-      />
-      <label htmlFor="percent_change_1h">
-        Porcentaje de cambio última hora:
-      </label>
-      <input
-        type="number"
-        name="percent_change_1h"
-        id="percent_change_1h"
-        placeholder="Variación última hora"
-        value={formData.percent_change_1h}
-        onChange={CreateCrypto}
-      />
-      <label htmlFor="percent_change_24h">
-        Porcentaje de cambio últimas 24 horas:
-      </label>
-      <input
-        type="number"
-        name="percent_change_24h_"
-        id="percent_change_24h"
-        placeholder="Variación últimas 24 horas"
-        value={formData.percent_change_24h}
-        onChange={CreateCrypto}
-      />
-      <label htmlFor="percent_change_7d">
-        Porcentaje de cambio últimos 7 días:
-      </label>
-      <input
-        type="number"
-        name="percent_change_7d"
-        id="percent_change_7d"
-        placeholder="Variación últimos 7 días"
-        value={formData.percent_change_7d}
-        onChange={CreateCrypto}
-      />
-      <label htmlFor="img">Logo de su Cryptoactivo:</label>
-      <input
-        type="file"
-        name="img"
-        id="img"
-        value={formData.img}
-        onChange={CreateCrypto}
-      />
+    <StyledFormular autoComplete="off" onSubmit={() => {}}>
+      <div className="form-blocks">
+        <div className="first-block">
+          <label htmlFor="name">Nombre:</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Introduzca un nombre"
+            value={formData.name}
+            onChange={createCryptoEvent}
+          />
+          <label htmlFor="symbol">Símbolo:</label>
+          <input
+            type="text"
+            name="symbol"
+            id="symbol"
+            placeholder="Introduzca un symbolo, por ejemplo: BTC>"
+            value={formData.symbol}
+            onChange={createCryptoEvent}
+          />
+          <label htmlFor="slug">Slug:</label>
+          <input
+            type="text"
+            name="slug"
+            id="slug"
+            placeholder="Introduzca algún slug..."
+            value={formData.slug}
+            onChange={createCryptoEvent}
+          />
+          <label htmlFor="tags">Tags:</label>
+          <textarea
+            name="tags"
+            id="tags"
+            placeholder="Cryptos"
+            value={formData.tags}
+            onChange={createCryptoEvent}
+          />
+          <label htmlFor="max_supply">Stock máximo:</label>
+          <input
+            type="number"
+            name="max_supply"
+            id="max_supply"
+            placeholder="Introduzca el stock máximo"
+            value={formData.max_supply}
+            onChange={createCryptoEvent}
+          />
+          <label htmlFor="total_supply">Stock total:</label>
+          <input
+            type="number"
+            name="total_supply"
+            id="total_supply"
+            placeholder="Introduzca el stock total"
+            value={formData.total_supply}
+            onChange={createCryptoEvent}
+          />
+        </div>
+        <div className="second-block">
+          <label htmlFor="platform">Plataformas:</label>
+          <textarea
+            name="platform"
+            id="platform"
+            placeholder="Plataformas, por ejemplo: BSC."
+            value={formData.platform}
+            onChange={createCryptoEvent}
+          />
+          <label htmlFor="price">Precio:</label>
+          <input
+            type="number"
+            name="price"
+            id="price"
+            placeholder="Introduzca el precio de la moneda:"
+            value={formData.price}
+            onChange={createCryptoEvent}
+          />
+          <label htmlFor="market_cap">Capital de mercado:</label>
+          <input
+            type="number"
+            name="market_cap"
+            id="market_cap"
+            placeholder="Introduzca el capital de mercado"
+            value={formData.market_cap}
+            onChange={createCryptoEvent}
+          />
+          <label htmlFor="percent_change_1h">
+            Porcentaje de cambio última hora:
+          </label>
+          <input
+            type="number"
+            name="percent_change_1h"
+            id="percent_change_1h"
+            placeholder="Variación última hora"
+            value={formData.percent_change_1h}
+            onChange={createCryptoEvent}
+          />
+          <label htmlFor="percent_change_24h">
+            Porcentaje de cambio últimas 24 horas:
+          </label>
+          <input
+            type="number"
+            name="percent_change_24h_"
+            id="percent_change_24h"
+            placeholder="Variación últimas 24 horas"
+            value={formData.percent_change_24h}
+            onChange={createCryptoEvent}
+          />
+          <label htmlFor="percent_change_7d">
+            Porcentaje de cambio últimos 7 días:
+          </label>
+          <input
+            type="number"
+            name="percent_change_7d"
+            id="percent_change_7d"
+            placeholder="Variación últimos 7 días"
+            value={formData.percent_change_7d}
+            onChange={createCryptoEvent}
+          />
+          <label htmlFor="img">Logo de su Cryptoactivo:</label>
+          <input
+            type="file"
+            name="img"
+            id="img"
+            value={formData.img}
+            onChange={createCryptoEvent}
+          />
+        </div>
+      </div>
       <Button
         disableCondition={invalidForm}
         actionOnClick={() => {}}
         text={"Crear"}
       />
-    </form>
+    </StyledFormular>
   );
 };
 
