@@ -1,11 +1,19 @@
 import { GetStaticPaths, GetStaticPropsContext } from "next";
+import { useSelector } from "react-redux";
 import CryptoDetails from "../../components/CryptoDetails/CryptoDetails";
 import Crypto from "../../interfaces/Crypto";
+import { RootStateSingle } from "../../interfaces/RootState";
+import { wrapper } from "../../redux/store/store";
+import { singleCryptoThunk } from "../../redux/thunks/cryptoThunks";
 interface DetailsProps {
   crypto: Crypto;
 }
 
-const DetailsPage = ({ crypto }: DetailsProps) => {
+const DetailsPage = () => {
+  const crypto: Crypto = useSelector<RootStateSingle, any>(
+    (state) => state.singleCrypto
+  );
+
   return <CryptoDetails crypto={crypto} actionOnClick={() => {}} />;
 };
 
@@ -34,23 +42,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async (context: GetStaticPropsContext) => {
-  try {
-    const currentCrypto = await fetch(
-      `${process.env.NEXT_PUBLIC_COINSTER_API}/cryptos/crypto/${context.params?.id}`,
-      {
-        method: "GET",
+export const getStaticProps = wrapper.getStaticProps(
+  (store): any =>
+    async (context: GetStaticPropsContext) => {
+      const id = context.params?.id;
+      try {
+        await store.dispatch<any>(singleCryptoThunk(id as string));
+        return { props: { id } };
+      } catch (error) {
+        return { props: {} };
       }
-    );
-    const crypto: Crypto = await currentCrypto.json();
-    if (!crypto) {
-      const error = new Error("Crypto not found");
-      return { notFound: true };
     }
-    return { props: { crypto } };
-  } catch (error) {
-    return { notFound: true };
-  }
-};
+);
 
 export default DetailsPage;
