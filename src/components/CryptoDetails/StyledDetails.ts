@@ -49,6 +49,49 @@ const StyledDetails = styled.div`
     height: 70vh;
     overflow-y: auto;
   }
+
+  @media (max-width: 450px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+
+    .logo-name {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      margin: 20px;
+
+      ul {
+        padding: 0;
+      }
+    }
+
+    img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      text-align: center;
+    }
+
+    article {
+      width: 70vw;
+      overflow-y: none;
+      height: auto;
+    }
+  }
 `;
 
 export default StyledDetails;

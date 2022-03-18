@@ -7,7 +7,6 @@ import { loadCoinListThunk } from "../redux/thunks/cryptoThunks";
 const Home: NextPage = () => {
   return (
     <>
-      <h1>Coinster</h1>
       <CardContainer />
     </>
   );

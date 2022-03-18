@@ -64,6 +64,7 @@ const TopNavStyle = styled.nav`
   }
 
   @media (max-width: 450px) {
+    width: 100vw;
     .listitem-search-input {
       display: none;
     }
@@ -71,7 +72,8 @@ const TopNavStyle = styled.nav`
       display: block;
     }
     .cryptos-link a,
-    .wallet-link a {
+    .wallet-link a,
+    .create-crypto-link a {
       display: none;
     }
   }
