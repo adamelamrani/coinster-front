@@ -14,7 +14,6 @@ const DetailsPage = () => {
     (state) => state.singleCrypto
   );
 
-  debugger;
   return <CryptoDetails crypto={crypto} actionOnClick={() => {}} />;
 };
 
