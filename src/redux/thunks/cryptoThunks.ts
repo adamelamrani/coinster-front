@@ -26,3 +26,14 @@ export const deleteCryptoThunk = (id: string) => async (dispatch: Dispatch) => {
   });
   dispatch(deleteCoinsAction(id));
 };
+
+export const singleCryptoThunk = (id: string) => async (dispatch: Dispatch) => {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_COINSTER_API}/cryptos/crypto/${id}`,
+    { method: "GET" }
+  );
+  const crypto = await response.json();
+  const cryptoJSON = JSON.stringify(crypto);
+  const parseJSON = JSON.parse(cryptoJSON);
+  dispatch(getSingleCryptoAction(parseJSON));
+};
