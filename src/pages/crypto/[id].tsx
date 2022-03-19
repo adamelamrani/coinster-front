@@ -5,11 +5,8 @@ import Crypto from "../../interfaces/Crypto";
 import { RootStateSingle } from "../../interfaces/RootState";
 import { wrapper } from "../../redux/store/store";
 import { singleCryptoThunk } from "../../redux/thunks/cryptoThunks";
-interface DetailsProps {
-  crypto: Crypto;
-}
 
-const DetailsPage = () => {
+const DetailsPage = (): JSX.Element => {
   const crypto: Crypto = useSelector<RootStateSingle, any>(
     (state) => state.singleCrypto
   );
@@ -24,7 +21,9 @@ export const getAllPostIds = async (context?: GetStaticPropsContext) => {
       method: "GET",
     }
   );
+  debugger;
   const posts = await res.json();
+  debugger;
   return posts.map((post: any) => {
     return {
       params: {
@@ -38,7 +37,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const dynamicIds = await getAllPostIds();
   return {
     paths: dynamicIds,
-    fallback: true,
+    fallback: false,
   };
 };
 

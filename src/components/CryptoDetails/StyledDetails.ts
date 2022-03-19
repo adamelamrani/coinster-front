@@ -6,7 +6,11 @@ const StyledDetails = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   margin: 20px;
-  width: 70vw;
+  background-color: rgb(24, 41, 88);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+
   h1 {
     font-size: 40px;
     margin: 0;
@@ -22,6 +26,7 @@ const StyledDetails = styled.div`
     border-radius: 50%;
     object-fit: cover;
     margin-right: 40px;
+    background-color: white;
   }
 
   .logo-name {
@@ -46,22 +51,26 @@ const StyledDetails = styled.div`
 
   article {
     width: 500px;
-    height: 70vh;
+    height: 60vh;
     overflow-y: auto;
   }
 
   @media (max-width: 450px) {
     display: flex;
+    padding-top: 30px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 10px;
+    color: white;
+    background-color: none;
+    box-shadow: none;
 
     .logo-name {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      justify-content: flex-start;
+      justify-content: space-around;
       margin: 20px;
 
       ul {
@@ -75,6 +84,7 @@ const StyledDetails = styled.div`
       border-radius: 50%;
       object-fit: cover;
       margin-right: 10px;
+      background-color: white;
     }
 
     h1 {

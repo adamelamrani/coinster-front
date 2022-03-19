@@ -18,7 +18,7 @@ describe("Given a Home page component", () => {
 
 describe("Given a getServerSideProps function", () => {
   describe("When the home page is instansiated", () => {
-    test.skip("Then it should return a props object", async () => {
+    test("Then it should return a props object", async () => {
       const cryptosList = [
         {
           name: "Bitcoin",

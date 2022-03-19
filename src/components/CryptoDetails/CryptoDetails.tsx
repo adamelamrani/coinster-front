@@ -2,9 +2,10 @@
 import { useRouter } from "next/router";
 import React, { MouseEventHandler } from "react";
 import { useDispatch } from "react-redux";
+import styled from "styled-components";
 import Crypto from "../../interfaces/Crypto";
+import FourOFour from "../../pages/404";
 import { deleteCryptoThunk } from "../../redux/thunks/cryptoThunks";
-import StyledBody from "../../styles/StyledBody";
 import Button from "../Button/Button";
 import StyledDetails from "./StyledDetails";
 
@@ -12,6 +13,17 @@ interface DetailsProps {
   crypto: Crypto;
   actionOnClick: MouseEventHandler<HTMLButtonElement>;
 }
+
+const ExternalDiv = styled.div`
+  @media (max-width: 450px) {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    background-color: rgb(24, 41, 88);
+  }
+`;
 
 const CryptoDetails: React.FunctionComponent<any> = ({
   crypto,
@@ -21,14 +33,13 @@ const CryptoDetails: React.FunctionComponent<any> = ({
   const dispatch = useDispatch();
   const deleteCrypto = (id: string) => {
     dispatch(deleteCryptoThunk(id));
-    router.push("/");
   };
-  if (!crypto) {
-    return null;
+  if (router.isFallback) {
+    return <FourOFour />;
   }
 
   return (
-    <StyledBody>
+    <ExternalDiv className="prueba-uno">
       <StyledDetails>
         <div className="logo-name">
           <img src={crypto.img} alt={`Crypto ${crypto.name}`} />
@@ -124,7 +135,7 @@ const CryptoDetails: React.FunctionComponent<any> = ({
           />
         </div>
       </StyledDetails>
-    </StyledBody>
+    </ExternalDiv>
   );
 };
 
