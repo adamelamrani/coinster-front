@@ -6,7 +6,7 @@ import "whatwg-fetch";
 describe("Given a Home page component", () => {
   describe("When it's invoked", () => {
     test("Then it should render a heading with text coinster", () => {
-      const expectedElement = "heading";
+      const expectedElement = "table";
       const WrappedComponent = wrapper.withRedux(Home);
       render(<WrappedComponent />);
       const expectedOutput = screen.getByRole(expectedElement);
@@ -18,7 +18,7 @@ describe("Given a Home page component", () => {
 
 describe("Given a getServerSideProps function", () => {
   describe("When the home page is instansiated", () => {
-    test.skip("Then it should return a props object", async () => {
+    test("Then it should return a props object", async () => {
       const cryptosList = [
         {
           name: "Bitcoin",
@@ -54,7 +54,10 @@ describe("Given a getServerSideProps function", () => {
         },
       ];
       const props = {
-        props: { cryptoList: undefined, initialState: { cryptosList } },
+        props: {
+          cryptoList: undefined,
+          initialState: { cryptosList, singleCrypto: {} },
+        },
       };
 
       const getSSR = await getServerSideProps({} as any);

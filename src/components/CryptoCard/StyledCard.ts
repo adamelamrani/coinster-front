@@ -17,6 +17,7 @@ const StyledCard = styled.tr`
   }
   img {
     border-radius: 50%;
+    background-color: white;
   }
 
   div {
@@ -65,6 +66,11 @@ const StyledCard = styled.tr`
   }
 
   @media (max-width: 450px) {
+    color: white;
+
+    img {
+      background-color: white;
+    }
     justify-content: left;
 
     img {

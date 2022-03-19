@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Cryptos } from "../../interfaces/cryptoProps";
 import RootState from "../../interfaces/RootState";
 import CryptoCard from "../CryptoCard/CryptoCard";
@@ -8,17 +8,11 @@ import StyledCardContainer from "./StyledCardContainer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowsUpDown } from "@fortawesome/free-solid-svg-icons";
 import Crypto from "../../interfaces/Crypto";
-import { deleteCryptoThunk } from "../../redux/thunks/cryptoThunks";
 
 const CardContainer: React.FunctionComponent = (): JSX.Element => {
   const cryptoList: Cryptos = useSelector<RootState, any>(
     (state) => state.cryptosList
   );
-
-  const dispatch = useDispatch();
-  const deleteCrypto = (id: string) => {
-    dispatch(deleteCryptoThunk(id));
-  };
 
   return (
     <>
@@ -40,10 +34,7 @@ const CardContainer: React.FunctionComponent = (): JSX.Element => {
           {cryptoList.map(
             (crypto: Crypto): JSX.Element => (
               <StyledCard key={crypto.id}>
-                <CryptoCard
-                  actionOnClick={() => deleteCrypto(crypto.id)}
-                  crypto={crypto}
-                />
+                <CryptoCard crypto={crypto} />
               </StyledCard>
             )
           )}

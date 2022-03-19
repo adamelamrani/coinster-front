@@ -3,10 +3,16 @@ import styled from "styled-components";
 const StyledCardContainer = styled.table`
   display: flex;
   flex-direction: column;
-  background-color: #c4c4c4;
+  background-color: rgb(24, 41, 88);
+  color: white;
   margin: 20px;
+  width: 90vw;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   border-radius: 15px;
+
+  tr:first-child {
+    border-top: none;
+  }
 
   thead {
     background-color: #6c757d;
@@ -20,10 +26,6 @@ const StyledCardContainer = styled.table`
   @media (max-width: 450px) {
     thead {
       display: none;
-    }
-
-    tr:first-child {
-      border-top: none;
     }
   }
 `;
