@@ -4,8 +4,9 @@ import {
   ActionTypeInterface,
   GetIdCoinsActionI,
   LoadCoinsActionI,
+  SingleCrypto,
 } from "../../interfaces/actionsInterfaces";
-import Crypto from "../../interfaces/Crypto";
+import Crypto, { CryptoId } from "../../interfaces/Crypto";
 import { Cryptos } from "../../interfaces/cryptoProps";
 import actionTypes from "../actions/actionTypes";
 
@@ -22,9 +23,11 @@ const cryptoReducer = (
       break;
     case actionTypes.deleteCoin:
       newCryptoState = coinState.filter(
-        (crypto) => crypto.id !== (action as GetIdCoinsActionI).id
+        (crypto) => (crypto as CryptoId).id !== (action as GetIdCoinsActionI).id
       );
       break;
+    case actionTypes.createCrypto:
+      newCryptoState = [...coinState, ...(action as AnyAction).crypto];
     default:
       newCryptoState = [...coinState];
   }
