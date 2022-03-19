@@ -37,7 +37,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const dynamicIds = await getAllPostIds();
   return {
     paths: dynamicIds,
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -46,12 +46,15 @@ export const getStaticProps = wrapper.getStaticProps(
     async (context: GetStaticPropsContext) => {
       const id = context.params?.id;
       try {
+        debugger;
         await store.dispatch<any>(singleCryptoThunk(id as string));
-        return { props: { id } };
-      } catch (error) {
         return {
           revalidate: 1,
-          props: {},
+          props: { id },
+        };
+      } catch (error) {
+        return {
+          notFound: true,
         };
       }
     }
