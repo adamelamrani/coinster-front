@@ -24,28 +24,9 @@ describe("Given a loadCryptoListThunk", () => {
           total_supply: "2200000000",
           price: "325235",
           percent_change_24h: "12",
-          id: "2",
+          id: "1",
           img: "undefined",
         },
-        {
-          name: "Bitcoin",
-          market_cap: "2000000",
-          percent_change_1h: "2",
-          percent_change_7d: "5",
-          platform: "null",
-          tags: "",
-          symbol: "BTC",
-          slug: "bitcoin",
-          max_supply: "200000000000",
-          total_supply: "2200000000",
-          price: "325235",
-          percent_change_24h: "12",
-          id: "2",
-          img: "undefined",
-        },
-      ];
-
-      const expectedState: CryptosId = [
         {
           name: "Bitcoin",
           market_cap: "2000000",
