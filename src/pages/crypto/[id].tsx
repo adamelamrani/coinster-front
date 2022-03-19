@@ -49,7 +49,10 @@ export const getStaticProps = wrapper.getStaticProps(
         await store.dispatch<any>(singleCryptoThunk(id as string));
         return { props: { id } };
       } catch (error) {
-        return { props: {} };
+        return {
+          revalidate: 1,
+          props: {},
+        };
       }
     }
 );

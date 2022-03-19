@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { MouseEventHandler } from "react";
-import Crypto from "../../interfaces/Crypto";
+import Crypto, { CryptoId } from "../../interfaces/Crypto";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 
@@ -19,12 +19,12 @@ const CryptoCard = ({ crypto }: CryptoCardProps): JSX.Element => {
           "say hello";
         }}
       />
-      <Link href={`/crypto/${crypto.id}`} passHref>
+      <Link href={`/crypto/${(crypto as CryptoId).id}`} passHref>
         <img
           width={35}
           height={35}
           alt={`${crypto.name}-logo`}
-          src={crypto.img}
+          src={crypto.img as string}
         />
       </Link>
       <td className={`crypto crypto-name ${crypto.name}`}>

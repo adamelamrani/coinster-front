@@ -7,7 +7,7 @@ import StyledCard from "../CryptoCard/StyledCard";
 import StyledCardContainer from "./StyledCardContainer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowsUpDown } from "@fortawesome/free-solid-svg-icons";
-import Crypto from "../../interfaces/Crypto";
+import Crypto, { CryptoId } from "../../interfaces/Crypto";
 
 const CardContainer: React.FunctionComponent = (): JSX.Element => {
   const cryptoList: Cryptos = useSelector<RootState, any>(
@@ -33,7 +33,7 @@ const CardContainer: React.FunctionComponent = (): JSX.Element => {
         <tbody>
           {cryptoList.map(
             (crypto: Crypto): JSX.Element => (
-              <StyledCard key={crypto.id}>
+              <StyledCard key={(crypto as CryptoId).id}>
                 <CryptoCard crypto={crypto} />
               </StyledCard>
             )

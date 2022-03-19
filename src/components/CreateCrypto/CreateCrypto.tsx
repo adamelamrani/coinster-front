@@ -1,23 +1,10 @@
-import React, { FormEventHandler, useState } from "react";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { createCryptoThunk } from "../../redux/thunks/cryptoThunks";
 import Button from "../Button/Button";
 import StyledFormular from "./StyledFormular";
-
-interface Form {
-  name: string;
-  symbol: string;
-  slug: string;
-  tags: string | Array<string>;
-  max_supply: number;
-  total_supply: number;
-  platform: string | Array<string>;
-  price: number;
-  percent_change_1h: number;
-  percent_change_24h: number;
-  percent_change_7d: number;
-  market_cap: number;
-  img: string;
-}
 
 const StyledBox = styled.div`
   border-radius: 20px;
@@ -48,7 +35,7 @@ const StyledBox = styled.div`
 `;
 
 const CreateCrypto: React.FunctionComponent = (): JSX.Element => {
-  const emptyForm: Form = {
+  const emptyForm: any = {
     name: "",
     symbol: "",
     slug: "",
@@ -64,24 +51,44 @@ const CreateCrypto: React.FunctionComponent = (): JSX.Element => {
     img: "",
   };
 
+  const image: any = {
+    imageDefault: "",
+  };
+
   const [formData, setFormData] = useState(emptyForm);
-  const createCryptoEvent: FormEventHandler = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const [imgData, setImgData] = useState(image);
+
+  const createCryptoEvent = (event: { target: { id: any; value: any } }) => {
     setFormData({
       ...formData,
       [event.target.id]: event.target.value,
     });
   };
 
+  const changeFile = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const imageFileData: any = event.target.files;
+    setFormData({ ...formData, img: imageFileData[0] });
+
+    const reader = new FileReader();
+    reader.onload = async () => {
+      if (reader.readyState === 2) {
+        await setImgData({ ...imgData, imageDefault: reader.result });
+      }
+    };
+
+    if (imageFileData[0]) {
+      await reader.readAsDataURL(imageFileData[0]);
+    }
+  };
+
   const invalidForm =
     formData.name === "" ||
     formData.symbol === "" ||
     formData.slug === "" ||
-    formData.tags === [] ||
+    formData.tags === [""] ||
     formData.max_supply === 0 ||
     formData.total_supply === 0 ||
-    formData.platform === [] ||
+    formData.platform === [""] ||
     formData.price === 0 ||
     formData.percent_change_1h === 0 ||
     formData.percent_change_24h === 0 ||
@@ -89,9 +96,22 @@ const CreateCrypto: React.FunctionComponent = (): JSX.Element => {
     formData.market_cap === 0 ||
     formData.img === "";
 
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const submitCrypto = (event: any) => {
+    event.preventDefault();
+    dispatch(createCryptoThunk(formData));
+    setTimeout(() => {
+      router.push("/");
+    }, 1300);
+  };
+
   return (
     <StyledBox>
-      <StyledFormular autoComplete="off" onSubmit={() => {}}>
+      <StyledFormular
+        autoComplete="off"
+        onSubmit={(event) => event.preventDefault()}
+      >
         <div className="form-blocks">
           <div className="first-block">
             <label htmlFor="name">Nombre:</label>
@@ -213,18 +233,12 @@ const CreateCrypto: React.FunctionComponent = (): JSX.Element => {
             <label className="img-label" htmlFor="img">
               Logo de su Cryptoactivo:
             </label>
-            <input
-              type="file"
-              name="img"
-              id="img"
-              value={formData.img}
-              onChange={createCryptoEvent}
-            />
+            <input type="file" name="img" id="img" onChange={changeFile} />
           </div>
         </div>
         <Button
           disableCondition={invalidForm}
-          actionOnClick={() => {}}
+          actionOnClick={submitCrypto}
           text={"Crear"}
         />
       </StyledFormular>

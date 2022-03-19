@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import React, { MouseEventHandler } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import Crypto from "../../interfaces/Crypto";
+import Crypto, { CryptoId } from "../../interfaces/Crypto";
 import FourOFour from "../../pages/404";
 import { deleteCryptoThunk } from "../../redux/thunks/cryptoThunks";
 import Button from "../Button/Button";
@@ -42,7 +42,7 @@ const CryptoDetails: React.FunctionComponent<any> = ({
     <ExternalDiv className="prueba-uno">
       <StyledDetails>
         <div className="logo-name">
-          <img src={crypto.img} alt={`Crypto ${crypto.name}`} />
+          <img src={crypto.img as string} alt={`Crypto ${crypto.name}`} />
           <h1>{crypto.name}</h1>
           <ul>
             <li>Precio actual: {crypto.price}</li>
@@ -130,7 +130,7 @@ const CryptoDetails: React.FunctionComponent<any> = ({
           </article>
           <Button
             disableCondition={false}
-            actionOnClick={() => deleteCrypto(crypto.id)}
+            actionOnClick={() => deleteCrypto((crypto as CryptoId).id)}
             text={"Delete"}
           />
         </div>
