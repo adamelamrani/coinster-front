@@ -9,6 +9,15 @@ const StyledFormular = styled.form`
   width: 700px;
   margin: 10px;
 
+  button {
+    background-color: #1e3379;
+    width: 100px;
+    height: 30px;
+    border-radius: 20px;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  }
+
   .form-blocks {
     display: flex;
     flex-direction: row;
@@ -43,6 +52,39 @@ const StyledFormular = styled.form`
 
     button {
       height: 40px;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .form-blocks {
+      display: flex;
+      flex-flow: row wrap;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: center;
+      align-items: center;
+    }
+
+    label {
+      display: flex;
+      width: 250px;
+    }
+
+    .first-block,
+    .second-block {
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: center;
+
+      input,
+      textarea {
+        width: 250px;
+        height: 30px;
+      }
     }
   }
 `;

@@ -31,6 +31,20 @@ const StyledBox = styled.div`
   justify-content: center;
   align-items: center;
   width: 70vw;
+
+  @media (max-width: 450px) {
+    border-radius: 20px;
+    padding: 30px;
+    background-color: rgb(24, 41, 88);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const CreateCrypto: React.FunctionComponent = (): JSX.Element => {
