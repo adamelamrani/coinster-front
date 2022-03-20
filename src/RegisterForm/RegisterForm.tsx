@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Button from "../components/Button/Button";
 
-const RegisterForm = () => {
+const RegisterForm: React.FunctionComponent = (): JSX.Element => {
   return (
     <>
       <h2>Formulario de registro:</h2>
