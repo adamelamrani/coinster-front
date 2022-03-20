@@ -1,6 +1,6 @@
 import NotFound from "../components/NotFound/NotFound";
 
-const FourOFour: React.ReactNode = (): JSX.Element => {
+const FourOFour = (): JSX.Element => {
   return <NotFound />;
 };
 
