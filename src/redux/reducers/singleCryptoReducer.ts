@@ -9,6 +9,9 @@ const singleCryptoReducer = (crypto: any = {}, action: any = {}) => {
     case actionTypes.getSingleCrypto:
       currentCrypto = { ...action.crypto };
       break;
+    case actionTypes.updateCrypto:
+      currentCrypto = { ...action.crypto };
+      break;
     default:
       currentCrypto = { ...crypto };
   }

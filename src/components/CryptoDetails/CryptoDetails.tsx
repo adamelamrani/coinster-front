@@ -33,6 +33,7 @@ const CryptoDetails: React.FunctionComponent<any> = ({
   const dispatch = useDispatch();
   const deleteCrypto = (id: string) => {
     dispatch(deleteCryptoThunk(id));
+    router.push("/");
   };
   if (router.isFallback) {
     return <FourOFour />;
@@ -131,7 +132,14 @@ const CryptoDetails: React.FunctionComponent<any> = ({
           <Button
             disableCondition={false}
             actionOnClick={() => deleteCrypto((crypto as CryptoId).id)}
-            text={"Delete"}
+            text={"Eliminar"}
+          />
+          <Button
+            disableCondition={false}
+            actionOnClick={() =>
+              router.push(`/crypto/update-crypto/${crypto.id}`)
+            }
+            text={"Actualizar"}
           />
         </div>
       </StyledDetails>

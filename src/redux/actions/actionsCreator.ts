@@ -26,3 +26,8 @@ export const createCryptoAction = (crypto: Crypto): SingleCrypto => ({
   type: actionTypes.createCrypto,
   crypto,
 });
+
+export const updateCryptoAction = (crypto: Crypto): SingleCrypto => ({
+  type: actionTypes.updateCrypto,
+  crypto,
+});

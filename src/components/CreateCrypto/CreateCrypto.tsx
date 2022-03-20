@@ -2,7 +2,12 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import { createCryptoThunk } from "../../redux/thunks/cryptoThunks";
+import Crypto, { FormProps } from "../../interfaces/Crypto";
+import {
+  createCryptoThunk,
+  updateCryptoThunk,
+} from "../../redux/thunks/cryptoThunks";
+import { cryptoToUpdate, emptyForm } from "../../utils/formFields";
 import Button from "../Button/Button";
 import StyledFormular from "./StyledFormular";
 
@@ -34,31 +39,23 @@ const StyledBox = styled.div`
   }
 `;
 
-const CreateCrypto: React.FunctionComponent = (): JSX.Element => {
-  const emptyForm: any = {
-    name: "",
-    symbol: "",
-    slug: "",
-    tags: [""],
-    max_supply: 0,
-    total_supply: 0,
-    platform: [""],
-    price: 0,
-    percent_change_1h: 0,
-    percent_change_24h: 0,
-    percent_change_7d: 0,
-    market_cap: 0,
-    img: "",
-  };
-
+const CreateCrypto: React.FunctionComponent<any> = ({
+  crypto,
+}: FormProps): JSX.Element => {
+  debugger;
   const image: any = {
     imageDefault: "",
   };
 
-  const [formData, setFormData] = useState(emptyForm);
+  const [formData, setFormData] = useState(
+    crypto ? cryptoToUpdate({ crypto }) : emptyForm
+  );
+  debugger;
   const [imgData, setImgData] = useState(image);
-
-  const createCryptoEvent = (event: { target: { id: any; value: any } }) => {
+  debugger;
+  const createCryptoEvent = (event: {
+    target: { id: string; value: string };
+  }) => {
     setFormData({
       ...formData,
       [event.target.id]: event.target.value,
@@ -100,7 +97,14 @@ const CreateCrypto: React.FunctionComponent = (): JSX.Element => {
   const dispatch = useDispatch();
   const submitCrypto = (event: any) => {
     event.preventDefault();
-    dispatch(createCryptoThunk(formData));
+    if (crypto) {
+      dispatch(
+        updateCryptoThunk(crypto.id as string, cryptoToUpdate({ crypto }))
+      );
+    } else {
+      dispatch(createCryptoThunk(formData));
+    }
+
     setTimeout(() => {
       router.push("/");
     }, 1300);
@@ -239,7 +243,7 @@ const CreateCrypto: React.FunctionComponent = (): JSX.Element => {
         <Button
           disableCondition={invalidForm}
           actionOnClick={submitCrypto}
-          text={"Crear"}
+          text={crypto ? "Editar" : "Crear"}
         />
       </StyledFormular>
     </StyledBox>
