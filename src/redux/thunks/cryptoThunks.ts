@@ -3,11 +3,11 @@ import {
   deleteCoinsAction,
   getSingleCryptoAction,
   loadCoinsAction,
+  updateCryptoAction,
 } from "../actions/actionsCreator";
 import { Dispatch } from "redux";
 import { Cryptos } from "../../interfaces/cryptoProps";
 import Crypto from "../../interfaces/Crypto";
-import { ThunkAction, ThunkDispatch } from "redux-thunk";
 
 export function loadCoinListThunk() {
   return async function (dispatch: Dispatch) {
@@ -66,5 +66,38 @@ export const createCryptoThunk =
     if (response.ok) {
       const crypto: Crypto = await response.json();
       dispatch(createCryptoAction(crypto));
+    } else {
+      throw new Error("Error al crear un nuevo activo.");
+    }
+  };
+
+export const updateCryptoThunk =
+  (id: string, formData: Crypto) => async (dispatch: Dispatch) => {
+    const data = new FormData();
+    data.append("img", formData.img);
+    data.append("name", formData.name);
+    data.append("symbol", formData.symbol);
+    data.append("slug", formData.slug);
+    data.append("tags", formData.tags);
+    data.append("max_supply", formData.max_supply);
+    data.append("total_supply", formData.total_supply);
+    data.append("platform", formData.platform);
+    data.append("price", formData.price);
+    data.append("percent_change_1h", formData.percent_change_1h);
+    data.append("percent_change_24h", formData.percent_change_24h);
+    data.append("percent_change_7d", formData.percent_change_7d);
+    data.append("market_cap", formData.market_cap);
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_COINSTER_API}/cryptos/crypto/${id}`,
+      {
+        method: "PATCH",
+        body: data,
+      }
+    );
+    if (response.ok) {
+      const updatedCrypto = await response.json();
+      dispatch(updateCryptoAction(updatedCrypto));
+    } else {
+      throw new Error("Error al actualizar el activo");
     }
   };

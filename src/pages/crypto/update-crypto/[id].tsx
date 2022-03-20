@@ -1,17 +1,16 @@
 import { GetStaticPaths, GetStaticPropsContext } from "next";
 import { useSelector } from "react-redux";
-import CryptoDetails from "../../components/CryptoDetails/CryptoDetails";
-import Crypto from "../../interfaces/Crypto";
-import { RootStateSingle } from "../../interfaces/RootState";
-import { wrapper } from "../../redux/store/store";
-import { singleCryptoThunk } from "../../redux/thunks/cryptoThunks";
+import CreateCrypto from "../../../components/CreateCrypto/CreateCrypto";
+import { RootStateSingle } from "../../../interfaces/RootState";
+import { wrapper } from "../../../redux/store/store";
+import { singleCryptoThunk } from "../../../redux/thunks/cryptoThunks";
 
-const DetailsPage = (): JSX.Element => {
-  const crypto: Crypto = useSelector<RootStateSingle, any>(
+const UpdateCrypto: React.ReactNode = (): JSX.Element => {
+  const crypto = useSelector<RootStateSingle, any>(
     (state) => state.singleCrypto
   );
 
-  return <CryptoDetails crypto={crypto} actionOnClick={() => {}} />;
+  return <CreateCrypto crypto={crypto} />;
 };
 
 export const getAllPostIds = async (context?: GetStaticPropsContext) => {
@@ -46,7 +45,7 @@ export const getStaticProps = wrapper.getStaticProps(
       try {
         await store.dispatch<any>(singleCryptoThunk(id as string));
         return {
-          revalidate: 1,
+          revalidate: 10,
           props: { id },
         };
       } catch (error) {
@@ -56,5 +55,4 @@ export const getStaticProps = wrapper.getStaticProps(
       }
     }
 );
-
-export default DetailsPage;
+export default UpdateCrypto;
