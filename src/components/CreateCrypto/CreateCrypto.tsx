@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import Crypto from "../../interfaces/Crypto";
+import Crypto, { FormProps } from "../../interfaces/Crypto";
 import {
   createCryptoThunk,
   updateCryptoThunk,
@@ -39,21 +39,20 @@ const StyledBox = styled.div`
   }
 `;
 
-interface FormProps {
-  crypto: Crypto;
-}
-
 const CreateCrypto: React.FunctionComponent<any> = ({
   crypto,
 }: FormProps): JSX.Element => {
+  debugger;
   const image: any = {
     imageDefault: "",
   };
 
-  const [formData, setFormData] = useState(crypto ? cryptoToUpdate : emptyForm);
-
+  const [formData, setFormData] = useState(
+    crypto ? cryptoToUpdate({ crypto }) : emptyForm
+  );
+  debugger;
   const [imgData, setImgData] = useState(image);
-
+  debugger;
   const createCryptoEvent = (event: {
     target: { id: string; value: string };
   }) => {
@@ -98,8 +97,10 @@ const CreateCrypto: React.FunctionComponent<any> = ({
   const dispatch = useDispatch();
   const submitCrypto = (event: any) => {
     event.preventDefault();
-    if (crypto.id) {
-      dispatch(updateCryptoThunk(crypto.id, cryptoToUpdate(crypto)));
+    if (crypto) {
+      dispatch(
+        updateCryptoThunk(crypto.id as string, cryptoToUpdate({ crypto }))
+      );
     } else {
       dispatch(createCryptoThunk(formData));
     }

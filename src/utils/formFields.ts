@@ -1,6 +1,10 @@
 import Crypto from "../interfaces/Crypto";
 
-export const cryptoToUpdate = (crypto: Crypto) => ({
+interface UtilProps {
+  crypto: Crypto;
+}
+
+export const cryptoToUpdate = ({ crypto }: UtilProps) => ({
   name: crypto.name,
   symbol: crypto.symbol,
   slug: crypto.slug,

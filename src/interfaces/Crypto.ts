@@ -18,4 +18,9 @@ interface Crypto {
 export interface CryptoId extends Crypto {
   id: string;
 }
+
+export interface FormProps {
+  crypto: Crypto;
+}
+
 export default Crypto;
