@@ -21,9 +21,7 @@ export const getAllPostIds = async (context?: GetStaticPropsContext) => {
       method: "GET",
     }
   );
-  debugger;
   const posts = await res.json();
-  debugger;
   return posts.map((post: any) => {
     return {
       params: {

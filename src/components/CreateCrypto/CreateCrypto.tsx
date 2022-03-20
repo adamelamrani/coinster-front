@@ -2,11 +2,12 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import { CryptoId } from "../../interfaces/Crypto";
+import Crypto from "../../interfaces/Crypto";
 import {
   createCryptoThunk,
   updateCryptoThunk,
 } from "../../redux/thunks/cryptoThunks";
+import { cryptoToUpdate, emptyForm } from "../../utils/formFields";
 import Button from "../Button/Button";
 import StyledFormular from "./StyledFormular";
 
@@ -39,52 +40,23 @@ const StyledBox = styled.div`
 `;
 
 interface FormProps {
-  crypto: CryptoId;
+  crypto: Crypto;
 }
 
-const CreateCrypto: React.ReactNode = ({ crypto }: FormProps): JSX.Element => {
-  const emptyForm: any = {
-    name: "",
-    symbol: "",
-    slug: "",
-    tags: [""],
-    max_supply: 0,
-    total_supply: 0,
-    platform: [""],
-    price: 0,
-    percent_change_1h: 0,
-    percent_change_24h: 0,
-    percent_change_7d: 0,
-    market_cap: 0,
-    img: "",
-  };
-
-  const cryptoToUpdate: any = {
-    name: crypto.name,
-    symbol: crypto.symbol,
-    slug: crypto.slug,
-    tags: crypto.tags,
-    max_supply: crypto.max_supply,
-    total_supply: crypto.total_supply,
-    platform: crypto.platform,
-    price: crypto.price,
-    percent_change_1h: crypto.percent_change_1h,
-    percent_change_24h: crypto.percent_change_24h,
-    percent_change_7d: crypto.percent_change_7d,
-    market_cap: crypto.market_cap,
-    img: crypto.img,
-  };
-
+const CreateCrypto: React.FunctionComponent<any> = ({
+  crypto,
+}: FormProps): JSX.Element => {
   const image: any = {
     imageDefault: "",
   };
 
-  const [formData, setFormData] = useState(
-    crypto.id ? cryptoToUpdate : emptyForm
-  );
+  const [formData, setFormData] = useState(crypto ? cryptoToUpdate : emptyForm);
+
   const [imgData, setImgData] = useState(image);
 
-  const createCryptoEvent = (event: { target: { id: any; value: any } }) => {
+  const createCryptoEvent = (event: {
+    target: { id: string; value: string };
+  }) => {
     setFormData({
       ...formData,
       [event.target.id]: event.target.value,
@@ -127,7 +99,7 @@ const CreateCrypto: React.ReactNode = ({ crypto }: FormProps): JSX.Element => {
   const submitCrypto = (event: any) => {
     event.preventDefault();
     if (crypto.id) {
-      dispatch(updateCryptoThunk(crypto.id, cryptoToUpdate));
+      dispatch(updateCryptoThunk(crypto.id, cryptoToUpdate(crypto)));
     } else {
       dispatch(createCryptoThunk(formData));
     }
@@ -270,7 +242,7 @@ const CreateCrypto: React.ReactNode = ({ crypto }: FormProps): JSX.Element => {
         <Button
           disableCondition={invalidForm}
           actionOnClick={submitCrypto}
-          text={"Crear"}
+          text={crypto ? "Editar" : "Crear"}
         />
       </StyledFormular>
     </StyledBox>
