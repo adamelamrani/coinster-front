@@ -1,7 +1,7 @@
 import Link from "next/link";
 import StyledNotFound from "./StyledNotFound";
 
-const NotFound = () => {
+const NotFound: React.FunctionComponent = (): JSX.Element => {
   return (
     <>
       <StyledNotFound className="error-contain">
