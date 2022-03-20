@@ -2,7 +2,11 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import { createCryptoThunk } from "../../redux/thunks/cryptoThunks";
+import { CryptoId } from "../../interfaces/Crypto";
+import {
+  createCryptoThunk,
+  updateCryptoThunk,
+} from "../../redux/thunks/cryptoThunks";
 import Button from "../Button/Button";
 import StyledFormular from "./StyledFormular";
 
@@ -34,7 +38,11 @@ const StyledBox = styled.div`
   }
 `;
 
-const CreateCrypto: React.FunctionComponent = (): JSX.Element => {
+interface FormProps {
+  crypto: CryptoId;
+}
+
+const CreateCrypto: React.ReactNode = ({ crypto }: FormProps): JSX.Element => {
   const emptyForm: any = {
     name: "",
     symbol: "",
@@ -51,11 +59,29 @@ const CreateCrypto: React.FunctionComponent = (): JSX.Element => {
     img: "",
   };
 
+  const cryptoToUpdate: any = {
+    name: crypto.name,
+    symbol: crypto.symbol,
+    slug: crypto.slug,
+    tags: crypto.tags,
+    max_supply: crypto.max_supply,
+    total_supply: crypto.total_supply,
+    platform: crypto.platform,
+    price: crypto.price,
+    percent_change_1h: crypto.percent_change_1h,
+    percent_change_24h: crypto.percent_change_24h,
+    percent_change_7d: crypto.percent_change_7d,
+    market_cap: crypto.market_cap,
+    img: crypto.img,
+  };
+
   const image: any = {
     imageDefault: "",
   };
 
-  const [formData, setFormData] = useState(emptyForm);
+  const [formData, setFormData] = useState(
+    crypto.id ? cryptoToUpdate : emptyForm
+  );
   const [imgData, setImgData] = useState(image);
 
   const createCryptoEvent = (event: { target: { id: any; value: any } }) => {
@@ -100,7 +126,12 @@ const CreateCrypto: React.FunctionComponent = (): JSX.Element => {
   const dispatch = useDispatch();
   const submitCrypto = (event: any) => {
     event.preventDefault();
-    dispatch(createCryptoThunk(formData));
+    if (crypto.id) {
+      dispatch(updateCryptoThunk(crypto.id, cryptoToUpdate));
+    } else {
+      dispatch(createCryptoThunk(formData));
+    }
+
     setTimeout(() => {
       router.push("/");
     }, 1300);

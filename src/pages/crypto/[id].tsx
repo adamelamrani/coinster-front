@@ -46,7 +46,6 @@ export const getStaticProps = wrapper.getStaticProps(
     async (context: GetStaticPropsContext) => {
       const id = context.params?.id;
       try {
-        debugger;
         await store.dispatch<any>(singleCryptoThunk(id as string));
         return {
           revalidate: 1,
