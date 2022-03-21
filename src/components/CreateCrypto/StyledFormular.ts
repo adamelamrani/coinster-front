@@ -51,6 +51,12 @@ const StyledFormular = styled.form`
       align-content: center;
       align-items: center;
     }
+    .img-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      margin: 40px;
+    }
 
     label {
       display: flex;
