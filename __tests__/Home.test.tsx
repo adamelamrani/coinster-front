@@ -56,7 +56,7 @@ describe("Given a getServerSideProps function", () => {
       const props = {
         props: {
           cryptoList: undefined,
-          initialState: { cryptosList, singleCrypto: {} },
+          initialState: { cryptosList, singleCrypto: {}, tokenReducer: {} },
         },
       };
 
