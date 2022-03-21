@@ -1,5 +1,6 @@
 import Router, { useRouter } from "next/router";
-import UserInterface from "../../interfaces/User";
+import { UserInterface } from "../../interfaces/User";
+
 import Button from "../Button/Button";
 
 type User = UserInterface;
