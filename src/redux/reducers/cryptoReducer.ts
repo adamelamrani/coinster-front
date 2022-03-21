@@ -14,7 +14,7 @@ const cryptoReducer = (
   coinState: Cryptos = [],
   action: ActionTypeInterface | EmptyObject = {}
 ) => {
-  let newCryptoState: Crypto | Cryptos;
+  let newCryptoState;
   switch ((action as ActionTypeInterface).type) {
     case HYDRATE:
       return [...(action as AnyAction).payload.cryptosList];
@@ -28,6 +28,7 @@ const cryptoReducer = (
       break;
     case actionTypes.createCrypto:
       newCryptoState = [...coinState, ...(action as AnyAction).crypto];
+      break;
     default:
       newCryptoState = [...coinState];
   }
