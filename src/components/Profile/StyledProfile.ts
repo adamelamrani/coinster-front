@@ -61,9 +61,27 @@ const StyledProfile = styled.div`
     }
   }
   @media (max-width: 450px) {
+    width: 350px;
+    height: 550px;
     form,
     h2 {
       width: 100%;
+    }
+
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    section {
+      justify-content: flex-start;
+    }
+    #button-section {
+      height: 130px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
   }
 `;

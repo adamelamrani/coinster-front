@@ -41,7 +41,7 @@ const ProfileComponent = (/* { user }: UserProps */): JSX.Element => {
             text={"Actualizar"}
           />
         </section>
-        <section className="button-section">
+        <section id="button-section">
           <div className="new-crypto">
             <h3>Crear una nueva Cryptomoneda</h3>
             <Button
