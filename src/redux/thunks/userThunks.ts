@@ -24,6 +24,8 @@ export const loginThunk = (user: any) => async (dispatch: Dispatch) => {
     toastNotification(`Bienvenido ${username}`, "success");
     dispatch(loginAction({ username, token: token.token }));
     Router.push("/");
+  } else {
+    toastNotification("Datos incorrectos", "warning");
   }
 };
 
@@ -40,7 +42,11 @@ export const registerThunk = (user: any) => async (dispatch: Dispatch) => {
   );
 
   if (response.ok) {
+    toastNotification("Registro con éxito", "success");
     dispatch(registerAction(user));
+
     Router.push("/user/login");
+  } else {
+    toastNotification("Error en el registro", "error");
   }
 };

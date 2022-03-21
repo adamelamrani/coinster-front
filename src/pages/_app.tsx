@@ -20,9 +20,8 @@ const WrappedApp: FC<AppProps> = ({ Component, pageProps }) => (
       pauseOnFocusLoss
       draggable
       pauseOnHover
+      theme={"colored"}
     />
-    {/* Same as */}
-    <ToastContainer />
   </Layout>
 );
 

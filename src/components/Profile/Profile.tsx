@@ -1,4 +1,5 @@
 import Router, { useRouter } from "next/router";
+import toastNotification from "../../utils/toastify";
 import Button from "../Button/Button";
 import StyledProfile from "./StyledProfile";
 
@@ -11,6 +12,7 @@ const ProfileComponent = (/* { user }: UserProps */): JSX.Element => {
   }
 
   const logOut = () => {
+    toastNotification("¡Hasta la próxima!");
     localStorage.removeItem("token");
     Router.push("/");
   };
