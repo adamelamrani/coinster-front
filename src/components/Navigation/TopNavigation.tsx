@@ -40,7 +40,7 @@ const TopNavigation = () => {
                 </Link>
               </li>
               <li>
-                <Link href={"user/profile"} passHref>
+                <Link href={"/user/login"} passHref>
                   <FontAwesomeIcon className="user-icon" icon={faUser} />
                 </Link>
               </li>
@@ -83,7 +83,7 @@ const TopNavigation = () => {
             </Link>
           </li>
           <li>
-            <Link href={"user/profile"} passHref>
+            <Link href={"/user/profile"} passHref>
               <FontAwesomeIcon className="user-icon" icon={faUser} />
             </Link>
           </li>

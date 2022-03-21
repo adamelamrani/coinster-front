@@ -1,3 +1,5 @@
+import StyledButton from "./StyledButton";
+
 interface ButtonProps {
   text: string;
   actionOnClick: React.MouseEventHandler<HTMLButtonElement>;
@@ -10,9 +12,9 @@ const Button = ({
   text,
 }: ButtonProps): JSX.Element => {
   return (
-    <button disabled={disableCondition} onClick={actionOnClick}>
+    <StyledButton disabled={disableCondition} onClick={actionOnClick}>
       {text}
-    </button>
+    </StyledButton>
   );
 };
 

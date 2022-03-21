@@ -7,14 +7,19 @@ const StyledCard = styled.tr`
   justify-content: space-between;
   text-align: right;
   border-top: 2px solid gray;
-  padding: 8px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 8px 10px 8px 20px;
 
-  .star-icon,
-  .cross-icon {
+  .hide-star {
+    display: none;
+    visibility: hidden;
+    cursor: default;
+  }
+
+  .display-star {
+    color: yellow;
     cursor: pointer;
   }
+
   img {
     border-radius: 50%;
     background-color: white;
@@ -57,10 +62,6 @@ const StyledCard = styled.tr`
     text-align: center;
   }
 
-  .star-icon {
-    color: yellow;
-    margin-left: 10px;
-  }
   .price-mobile-block {
     align-items: flex-end;
   }

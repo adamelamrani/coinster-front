@@ -45,8 +45,6 @@ const StyledDetails = styled.div`
 
   button {
     margin: 20px;
-    width: 70px;
-    height: 30px;
   }
 
   article {
