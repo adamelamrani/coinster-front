@@ -6,6 +6,7 @@ import {
 } from "../../interfaces/actionsInterfaces";
 import actionTypes from "./actionTypes";
 import Crypto from "../../interfaces/Crypto";
+import UserInterface from "../../interfaces/User";
 
 export const loadCoinsAction = (cryptos: Cryptos): LoadCoinsActionI => ({
   type: actionTypes.loadCoins,
@@ -30,4 +31,9 @@ export const createCryptoAction = (crypto: Crypto): SingleCrypto => ({
 export const updateCryptoAction = (crypto: Crypto): SingleCrypto => ({
   type: actionTypes.updateCrypto,
   crypto,
+});
+
+export const loginAction = (user: UserInterface) => ({
+  type: actionTypes.login,
+  user,
 });
