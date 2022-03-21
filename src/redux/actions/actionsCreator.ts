@@ -33,7 +33,7 @@ export const updateCryptoAction = (crypto: Crypto): SingleCrypto => ({
   crypto,
 });
 
-export const loginAction = (user: UserInterface) => ({
+export const loginAction = (user: any) => ({
   type: actionTypes.login,
   user,
 });
