@@ -76,7 +76,7 @@ const TopNavStyle = styled.nav`
     }
     .cryptos-link a,
     .wallet-link a,
-    .create-crypto-link a {
+    #create-crypto-link a {
       display: none;
     }
   }

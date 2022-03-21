@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
 import UserInterface from "../../interfaces/User";
 import Button from "../Button/Button";
 
@@ -11,6 +11,15 @@ interface UserProps {
 const ProfileComponent = (/* { user }: UserProps */): JSX.Element => {
   const router = useRouter();
 
+  if (typeof window !== "undefined") {
+    const token = localStorage.getItem("token");
+    token ?? Router.push("/user/login");
+  }
+
+  const logOut = () => {
+    localStorage.removeItem("token");
+    Router.push("/");
+  };
   return (
     <>
       <h2>Hola {/* {user.name} */}</h2>
@@ -38,6 +47,11 @@ const ProfileComponent = (/* { user }: UserProps */): JSX.Element => {
           disableCondition={false}
           actionOnClick={() => router.push("/crypto/new-crypto")}
           text={"Crear"}
+        />
+        <Button
+          disableCondition={false}
+          actionOnClick={() => logOut()}
+          text={"Desconectar"}
         />
       </section>
     </>
