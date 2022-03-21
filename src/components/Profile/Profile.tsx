@@ -1,13 +1,5 @@
 import Router, { useRouter } from "next/router";
-import { UserInterface } from "../../interfaces/User";
-
 import Button from "../Button/Button";
-
-type User = UserInterface;
-
-interface UserProps {
-  user: User;
-}
 
 const ProfileComponent = (/* { user }: UserProps */): JSX.Element => {
   const router = useRouter();

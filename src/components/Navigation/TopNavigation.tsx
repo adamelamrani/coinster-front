@@ -36,12 +36,22 @@ const TopNavigation = () => {
               </li>
               <li className="listitem-search-icon">
                 <Link href={"/"} passHref>
-                  <FontAwesomeIcon className="search-icon" icon={faSearch} />
+                  <FontAwesomeIcon
+                    width={25}
+                    height={25}
+                    className="search-icon"
+                    icon={faSearch}
+                  />
                 </Link>
               </li>
               <li>
                 <Link href={"/user/login"} passHref>
-                  <FontAwesomeIcon className="user-icon" icon={faUser} />
+                  <FontAwesomeIcon
+                    width={25}
+                    height={25}
+                    className="user-icon"
+                    icon={faUser}
+                  />
                 </Link>
               </li>
             </ul>
@@ -79,12 +89,22 @@ const TopNavigation = () => {
           </li>
           <li className="listitem-search-icon">
             <Link href={"/"} passHref>
-              <FontAwesomeIcon className="search-icon" icon={faSearch} />
+              <FontAwesomeIcon
+                className="search-icon"
+                width={25}
+                height={25}
+                icon={faSearch}
+              />
             </Link>
           </li>
           <li>
             <Link href={"/user/profile"} passHref>
-              <FontAwesomeIcon className="user-icon" icon={faUser} />
+              <FontAwesomeIcon
+                width={25}
+                height={25}
+                className="user-icon"
+                icon={faUser}
+              />
             </Link>
           </li>
         </ul>

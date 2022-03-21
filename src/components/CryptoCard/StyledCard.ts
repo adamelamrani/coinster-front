@@ -8,6 +8,7 @@ const StyledCard = styled.tr`
   text-align: right;
   border-top: 2px solid gray;
   padding: 8px 10px 8px 20px;
+  font-size: 14px;
 
   .hide-star {
     display: none;
