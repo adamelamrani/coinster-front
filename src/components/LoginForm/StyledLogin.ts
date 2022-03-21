@@ -20,8 +20,8 @@ const StyledLogin = styled.div`
     flex-direction: column;
     align-items: center;
     .login-section {
-      width: 600px;
-      height: 400px;
+      width: 500px;
+      height: 500px;
       border-radius: 20px;
       padding: 20px;
       box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
