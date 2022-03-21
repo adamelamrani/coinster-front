@@ -9,6 +9,9 @@ const tokenReducer = (currentToken: any = {}, action: any = {}) => {
     case actionTypes.login:
       newToken = { ...action.user };
       break;
+    case actionTypes.register:
+      newToken = { ...currentToken, ...action.user };
+      break;
     default:
       newToken = { ...currentToken };
   }
