@@ -33,13 +33,13 @@ const LoginForm: React.FunctionComponent = (): JSX.Element => {
 
   return (
     <StyledLogin>
-      <h2>Identifícate:</h2>
       <form
         autoComplete="off"
         onSubmit={(event) => event.preventDefault()}
         noValidate
       >
         <section className="login-section">
+          <h2>Identifícate:</h2>
           <div>
             <label htmlFor="username">Usuario:</label>
             <input
@@ -65,13 +65,12 @@ const LoginForm: React.FunctionComponent = (): JSX.Element => {
             actionOnClick={submitForm}
             disableCondition={isFilled}
           />
-        </section>
-        <section>
           <p>
             ¿No tienes cuenta?{" "}
             <Link href={"/user/register"}>Regístrate aquí</Link>
           </p>
         </section>
+        <section></section>
       </form>
     </StyledLogin>
   );

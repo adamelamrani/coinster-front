@@ -10,6 +10,8 @@ const StyledRegister = styled.div`
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   background-color: rgb(24, 41, 88);
   justify-content: space-evenly;
+  position: relative;
+  top: 50px;
 
   h2 {
     font-size: 20px;
