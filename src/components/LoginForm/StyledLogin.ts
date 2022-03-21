@@ -3,6 +3,8 @@ import styled from "styled-components";
 const StyledLogin = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
+  top: 50px;
 
   button {
     margin: 20px;
@@ -56,6 +58,8 @@ const StyledLogin = styled.div`
 
   @media (max-width: 450px) {
     margin: 20px;
+    position: relative;
+    top: 50px;
 
     form .login-section {
       width: 300px;

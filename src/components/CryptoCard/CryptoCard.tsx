@@ -9,11 +9,22 @@ export interface CryptoCardProps {
   crypto: Crypto;
 }
 
+const doesItHaveLocalStorage = () => {
+  if (typeof window !== "undefined") {
+    const token = localStorage.getItem("token");
+    if (token) {
+      return "display-star";
+    } else {
+      return "hide-star";
+    }
+  }
+};
+
 const CryptoCard = ({ crypto }: CryptoCardProps): JSX.Element => {
   return (
     <>
       <FontAwesomeIcon
-        className="star-icon"
+        className={doesItHaveLocalStorage()}
         icon={faStar}
         onClick={() => {
           "say hello";
