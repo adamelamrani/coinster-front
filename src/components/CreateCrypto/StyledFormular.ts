@@ -9,15 +9,6 @@ const StyledFormular = styled.form`
   width: 700px;
   margin: 10px;
 
-  button {
-    background-color: #1e3379;
-    width: 100px;
-    height: 30px;
-    border-radius: 20px;
-    color: white;
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-  }
-
   .form-blocks {
     display: flex;
     flex-direction: row;
@@ -48,10 +39,6 @@ const StyledFormular = styled.form`
     input,
     textarea {
       margin: 10px;
-    }
-
-    button {
-      height: 40px;
     }
   }
 

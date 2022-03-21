@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginThunk } from "../../redux/thunks/userThunks";
 import Button from "../Button/Button";
+import StyledLogin from "./StyledLogin";
 
 const LoginForm: React.FunctionComponent = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -28,30 +29,34 @@ const LoginForm: React.FunctionComponent = (): JSX.Element => {
   const isFilled = formData.username === "" && formData.password === "";
 
   return (
-    <>
+    <StyledLogin>
       <h2>Identifícate:</h2>
       <form
         autoComplete="off"
         onSubmit={(event) => event.preventDefault()}
         noValidate
       >
-        <section>
-          <label htmlFor="username">Usuario:</label>
-          <input
-            type="text"
-            name="username"
-            id="username"
-            onChange={handleChange}
-            required
-          />
-          <label htmlFor="password">Contraseña:</label>
-          <input
-            type="password"
-            name="password"
-            onChange={handleChange}
-            id="password"
-            required
-          />
+        <section className="login-section">
+          <div>
+            <label htmlFor="username">Usuario:</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="password">Contraseña:</label>
+            <input
+              type="password"
+              name="password"
+              onChange={handleChange}
+              id="password"
+              required
+            />
+          </div>
           <Button
             text="Iniciar sesión"
             actionOnClick={submitForm}
@@ -65,7 +70,7 @@ const LoginForm: React.FunctionComponent = (): JSX.Element => {
           </p>
         </section>
       </form>
-    </>
+    </StyledLogin>
   );
 };
 
