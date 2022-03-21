@@ -5,7 +5,7 @@ import Router from "next/router";
 
 export const loginThunk = (user: any) => async (dispatch: Dispatch) => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_COINSTER_API}user/login`,
+    `${process.env.NEXT_PUBLIC_COINSTER_API}/user/login`,
     {
       method: "POST",
       headers: {
