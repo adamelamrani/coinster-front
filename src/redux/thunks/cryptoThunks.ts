@@ -8,6 +8,7 @@ import {
 import { Dispatch } from "redux";
 import { Cryptos } from "../../interfaces/cryptoProps";
 import Crypto from "../../interfaces/Crypto";
+import toastNotification from "../../utils/toastify";
 
 export function loadCoinListThunk() {
   return async function (dispatch: Dispatch) {
@@ -23,10 +24,19 @@ export function loadCoinListThunk() {
 }
 
 export const deleteCryptoThunk = (id: string) => async (dispatch: Dispatch) => {
-  await fetch(`${process.env.NEXT_PUBLIC_COINSTER_API}/cryptos/crypto/${id}`, {
-    method: "DELETE",
-  });
-  dispatch(deleteCoinsAction(id));
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_COINSTER_API}/cryptos/crypto/${id}`,
+    {
+      method: "DELETE",
+    }
+  );
+
+  if (response.ok) {
+    toastNotification("Crypto eliminada", "success");
+    dispatch(deleteCoinsAction(id));
+  } else {
+    toastNotification("Ha habido un problema", "warning");
+  }
 };
 
 export const singleCryptoThunk = (id: string) => async (dispatch: Dispatch) => {
@@ -34,10 +44,15 @@ export const singleCryptoThunk = (id: string) => async (dispatch: Dispatch) => {
     `${process.env.NEXT_PUBLIC_COINSTER_API}/cryptos/crypto/${id}`,
     { method: "GET" }
   );
-  const crypto = await response.json();
-  const cryptoJSON = JSON.stringify(crypto);
-  const parseJSON = JSON.parse(cryptoJSON);
-  dispatch(getSingleCryptoAction(parseJSON));
+
+  if (response.ok) {
+    const crypto = await response.json();
+    const cryptoJSON = JSON.stringify(crypto);
+    const parseJSON = JSON.parse(cryptoJSON);
+    dispatch(getSingleCryptoAction(parseJSON));
+  } else {
+    toastNotification("No se ha encontrado la moneda", "warning");
+  }
 };
 
 export const createCryptoThunk =
@@ -65,8 +80,10 @@ export const createCryptoThunk =
     );
     if (response.ok) {
       const crypto: Crypto = await response.json();
+      toastNotification(`Crypto ${crypto.name} creada`, "success");
       dispatch(createCryptoAction(crypto));
     } else {
+      toastNotification("Error al crear la moneda", "error");
       throw new Error("Error al crear un nuevo activo.");
     }
   };
@@ -96,6 +113,9 @@ export const updateCryptoThunk =
     );
     if (response.ok) {
       const updatedCrypto: Crypto = await response.json();
+      toastNotification("Crypto actualizada", "success");
       dispatch(updateCryptoAction(updatedCrypto));
+    } else {
+      toastNotification("Error al actualizar la moneda", "warning");
     }
   };

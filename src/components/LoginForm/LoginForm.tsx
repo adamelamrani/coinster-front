@@ -4,6 +4,9 @@ import { useDispatch } from "react-redux";
 import { loginThunk } from "../../redux/thunks/userThunks";
 import Button from "../Button/Button";
 import StyledLogin from "./StyledLogin";
+import React from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LoginForm: React.FunctionComponent = (): JSX.Element => {
   const dispatch = useDispatch();
