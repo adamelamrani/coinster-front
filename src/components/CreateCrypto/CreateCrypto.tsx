@@ -42,7 +42,6 @@ const StyledBox = styled.div`
 const CreateCrypto: React.FunctionComponent<any> = ({
   crypto,
 }: FormProps): JSX.Element => {
-  debugger;
   const image: any = {
     imageDefault: "",
   };
@@ -50,9 +49,8 @@ const CreateCrypto: React.FunctionComponent<any> = ({
   const [formData, setFormData] = useState(
     crypto ? cryptoToUpdate({ crypto }) : emptyForm
   );
-  debugger;
+
   const [imgData, setImgData] = useState(image);
-  debugger;
   const createCryptoEvent = (event: {
     target: { id: string; value: string };
   }) => {
@@ -98,9 +96,8 @@ const CreateCrypto: React.FunctionComponent<any> = ({
   const submitCrypto = (event: any) => {
     event.preventDefault();
     if (crypto) {
-      dispatch(
-        updateCryptoThunk(crypto.id as string, cryptoToUpdate({ crypto }))
-      );
+      const cryptoUpdated: Crypto = formData;
+      dispatch(updateCryptoThunk(crypto.id as string, cryptoUpdated));
     } else {
       dispatch(createCryptoThunk(formData));
     }
