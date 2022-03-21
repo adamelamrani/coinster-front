@@ -60,7 +60,8 @@ const LoginForm: React.FunctionComponent = (): JSX.Element => {
         </section>
         <section>
           <p>
-            ¿No tienes cuenta? <Link href={"/register"}>Regístrate aquí</Link>
+            ¿No tienes cuenta?{" "}
+            <Link href={"/user/register"}>Regístrate aquí</Link>
           </p>
         </section>
       </form>

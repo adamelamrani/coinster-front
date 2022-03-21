@@ -22,7 +22,7 @@ const RegisterForm: React.FunctionComponent = (): JSX.Element => {
         <section>
           <p>
             ¿Ya estás registrado? Inicia sesión{" "}
-            <Link href={"/login"}>aquí</Link>
+            <Link href={"/user/login"}>aquí</Link>
           </p>
         </section>
       </form>
