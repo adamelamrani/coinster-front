@@ -25,6 +25,7 @@ const StyledBox = styled.div`
   width: 70vw;
 
   @media (max-width: 450px) {
+    width: 290px;
     border-radius: 20px;
     padding: 30px;
     background-color: rgb(24, 41, 88);

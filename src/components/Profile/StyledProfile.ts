@@ -61,7 +61,7 @@ const StyledProfile = styled.div`
     }
   }
   @media (max-width: 450px) {
-    width: 350px;
+    width: 310px;
     height: 550px;
     form,
     h2 {

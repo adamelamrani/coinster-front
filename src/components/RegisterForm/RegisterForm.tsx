@@ -2,7 +2,9 @@ import Link from "next/link";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { registerThunk } from "../../redux/thunks/userThunks";
+
 import Button from "../Button/Button";
+import StyledRegister from "./StyledRegister";
 
 const RegisterForm: React.FunctionComponent = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -31,8 +33,8 @@ const RegisterForm: React.FunctionComponent = (): JSX.Element => {
     formData.password === "" &&
     formData.name === "";
   return (
-    <>
-      <h2>Formulario de registro:</h2>
+    <StyledRegister>
+      <h2>Formulario de registro</h2>
       <form autoComplete="off" onSubmit={(event) => event.preventDefault()}>
         <section>
           <label htmlFor="name">Nombre:</label>
@@ -74,7 +76,7 @@ const RegisterForm: React.FunctionComponent = (): JSX.Element => {
           </p>
         </section>
       </form>
-    </>
+    </StyledRegister>
   );
 };
 
