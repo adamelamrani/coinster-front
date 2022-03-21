@@ -1,8 +1,15 @@
-interface UserInterface {
-  name: string;
+export interface UserInterface {
   username: string;
   password: string;
   admin?: boolean;
   crypto?: boolean;
+  token?: string;
 }
-export default UserInterface;
+
+export interface UserActionInterface {
+  user: UserInterface;
+  type: string;
+}
+export interface UserRegisterInterface extends UserInterface {
+  name: string;
+}
