@@ -34,7 +34,7 @@ const CryptoCard = ({ crypto }: CryptoCardProps): JSX.Element => {
         }}
       />
       <Link href={`/crypto/${(crypto as CryptoId).id}`} passHref>
-        <Image
+        <img
           width={35}
           height={35}
           alt={`${crypto.name}-logo`}

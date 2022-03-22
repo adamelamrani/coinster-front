@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { MouseEventHandler } from "react";
 import { useDispatch } from "react-redux";
-import styled from "styled-components";
 import Crypto, { CryptoId } from "../../interfaces/Crypto";
 import FourOFour from "../../pages/404";
 import { deleteCryptoThunk } from "../../redux/thunks/cryptoThunks";
@@ -12,29 +11,22 @@ import StyledDetails from "./StyledDetails";
 
 interface DetailsProps {
   crypto: Crypto;
+  updateCrypto: MouseEventHandler<HTMLButtonElement>;
+  deleteCrypto: MouseEventHandler<HTMLButtonElement>;
   actionOnClick: MouseEventHandler<HTMLButtonElement>;
 }
 
-const CryptoDetails: React.FunctionComponent<any> = ({
+const CryptoDetails = ({
   crypto,
+  deleteCrypto,
+  updateCrypto,
 }: DetailsProps) => {
-  const router = useRouter();
-
-  const dispatch = useDispatch();
-  const deleteCrypto = (id: string) => {
-    dispatch(deleteCryptoThunk(id));
-    router.push("/");
-  };
-  if (router.isFallback) {
-    return <FourOFour />;
-  }
-
   return (
     <div>
       <StyledDetails>
         <div className="logo-name">
           <div>
-            <Image
+            <img
               className="crypto-logo-img"
               width={100}
               height={100}
@@ -47,7 +39,7 @@ const CryptoDetails: React.FunctionComponent<any> = ({
             <p>$ {Number(crypto.price).toFixed(2)}</p>
           </div>
           <div>
-            <Image
+            <img
               className="img-example"
               src={"/chart-example.jpg"}
               width={640}
@@ -137,14 +129,12 @@ const CryptoDetails: React.FunctionComponent<any> = ({
           <div className="buttons-div">
             <Button
               disableCondition={false}
-              actionOnClick={() => deleteCrypto((crypto as CryptoId).id)}
+              actionOnClick={deleteCrypto}
               text={"Eliminar"}
             />
             <Button
               disableCondition={false}
-              actionOnClick={() =>
-                router.push(`/crypto/update-crypto/${crypto.id}`)
-              }
+              actionOnClick={updateCrypto}
               text={"Actualizar"}
             />
           </div>
