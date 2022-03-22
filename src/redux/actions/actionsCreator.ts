@@ -48,3 +48,8 @@ export const registerAction = (
   type: actionTypes.register,
   user,
 });
+
+export const loadUserThunk = (user: any) => ({
+  type: actionTypes.loadUser,
+  user,
+});

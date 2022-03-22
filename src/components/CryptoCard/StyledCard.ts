@@ -24,6 +24,7 @@ const StyledCard = styled.tr`
   img {
     border-radius: 50%;
     background-color: white;
+    object-fit: cover;
   }
 
   div {
@@ -65,6 +66,10 @@ const StyledCard = styled.tr`
 
   .price-mobile-block {
     align-items: flex-end;
+
+    .price-mobile {
+      display: none;
+    }
   }
 
   @media (max-width: 450px) {
@@ -83,8 +88,10 @@ const StyledCard = styled.tr`
       width: 40%;
     }
 
-    .price-mobile {
-      display: block;
+    .price-mobile-block {
+      .price-mobile {
+        display: block;
+      }
     }
 
     .crypto-price,

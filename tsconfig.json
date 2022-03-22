@@ -25,6 +25,8 @@
     "src/mocks/server.js",
     "setupTests.js",
     "src/mocks/handlers.js",
+    "src/pages/_document.js",
+    "_document.js",
     "src/utils/toastify.js"
   ],
   "exclude": ["node_modules"]

@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import cryptoReducer from "./cryptoReducer";
 import singleCryptoReducer from "./singleCryptoReducer";
-import tokenReducer from "./userReducers";
+import tokenReducer from "./tokenReducer";
 
 const rootReducer = combineReducers({
   cryptosList: cryptoReducer,

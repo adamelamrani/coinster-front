@@ -4,6 +4,7 @@ import React, { MouseEventHandler } from "react";
 import Crypto, { CryptoId } from "../../interfaces/Crypto";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import Image from "next/image";
 
 export interface CryptoCardProps {
   crypto: Crypto;
@@ -33,7 +34,7 @@ const CryptoCard = ({ crypto }: CryptoCardProps): JSX.Element => {
         }}
       />
       <Link href={`/crypto/${(crypto as CryptoId).id}`} passHref>
-        <img
+        <Image
           width={35}
           height={35}
           alt={`${crypto.name}-logo`}

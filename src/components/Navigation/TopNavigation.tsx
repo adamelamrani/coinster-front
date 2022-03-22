@@ -18,8 +18,8 @@ const TopNavigation = () => {
                     className="navigation-logo"
                     src="/coinster.png"
                     alt="Coinster logo"
-                    width={96}
-                    height={45}
+                    width={140}
+                    height={66}
                   />
                 </Link>
               </li>
