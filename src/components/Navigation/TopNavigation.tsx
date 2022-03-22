@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,7 +15,7 @@ const TopNavigation = () => {
             <ul>
               <li>
                 <Link href={"/"} passHref>
-                  <Image
+                  <img
                     className="navigation-logo"
                     src="/coinster.png"
                     alt="Coinster logo"
@@ -65,7 +66,7 @@ const TopNavigation = () => {
       <TopNavStyle className="top-nav-bar">
         <ul>
           <li>
-            <Image
+            <img
               className="navigation-logo"
               src="/coinster.png"
               alt="Coinster logo"

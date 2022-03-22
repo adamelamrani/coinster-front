@@ -1,17 +1,40 @@
 import { GetStaticPaths, GetStaticPropsContext } from "next";
-import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
 import CryptoDetails from "../../components/CryptoDetails/CryptoDetails";
-import Crypto from "../../interfaces/Crypto";
+import Crypto, { CryptoId } from "../../interfaces/Crypto";
 import { RootStateSingle } from "../../interfaces/RootState";
 import { wrapper } from "../../redux/store/store";
-import { singleCryptoThunk } from "../../redux/thunks/cryptoThunks";
+import {
+  deleteCryptoThunk,
+  singleCryptoThunk,
+} from "../../redux/thunks/cryptoThunks";
+import FourOFour from "../404";
 
 const DetailsPage = (): JSX.Element => {
   const crypto: Crypto = useSelector<RootStateSingle, any>(
     (state) => state.singleCrypto
   );
 
-  return <CryptoDetails crypto={crypto} actionOnClick={() => {}} />;
+  const router = useRouter();
+
+  const dispatch = useDispatch();
+  const deleteCrypto = (id: string) => {
+    dispatch(deleteCryptoThunk(id));
+    router.push("/");
+  };
+  if (router.isFallback) {
+    return <FourOFour />;
+  }
+
+  return (
+    <CryptoDetails
+      crypto={crypto}
+      actionOnClick={() => {}}
+      updateCrypto={() => router.push(`/crypto/update-crypto/${crypto.id}`)}
+      deleteCrypto={() => deleteCrypto((crypto as CryptoId).id)}
+    />
+  );
 };
 
 export const getAllPostIds = async (context?: GetStaticPropsContext) => {

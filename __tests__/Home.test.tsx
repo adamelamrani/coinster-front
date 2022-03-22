@@ -33,8 +33,8 @@ describe("Given a getServerSideProps function", () => {
           total_supply: "2200000000",
           price: "325235",
           percent_change_24h: "12",
-          id: "1",
-          img: "undefined",
+          id: "622cdb2eaa2f5a4e7dd16917",
+          img: "https://cryptologos.cc/logos/filecoin-fil-logo.svg?v=022",
         },
         {
           name: "Bitcoin",
@@ -49,14 +49,18 @@ describe("Given a getServerSideProps function", () => {
           total_supply: "2200000000",
           price: "325235",
           percent_change_24h: "12",
-          id: "2",
-          img: "undefined",
+          id: "622cdb2eaa2f5a4e7dd16912",
+          img: "https://cryptologos.cc/logos/filecoin-fil-logo.svg?v=022",
         },
       ];
       const props = {
         props: {
           cryptoList: undefined,
-          initialState: { cryptosList, singleCrypto: {}, tokenReducer: {} },
+          initialState: {
+            cryptosList,
+            singleCrypto: {},
+            tokenReducer: {},
+          },
         },
       };
 
