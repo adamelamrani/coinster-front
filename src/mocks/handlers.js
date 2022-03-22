@@ -51,6 +51,11 @@ const handlers = [
         ctx.json("Cryptomoneda con nombre 'Bitcoin e id '1' eliminada.")
       )
   ),
+
+  rest.post(
+    `${process.env.NEXT_PUBLIC_COINSTER_API}/crypto/new-crypto`,
+    (req, res, ctx) => res(ctx.status(201), ctx.json("Cryptomoneda creada"))
+  ),
 ];
 
 export default handlers;

@@ -18,7 +18,7 @@ export const loginThunk = (user: any) => async (dispatch: Dispatch) => {
   );
 
   if (response.ok) {
-    const token = await response.json();
+    const { token } = await response.json();
     const { username }: any = await jwtDecode(token.token);
     localStorage.setItem("token", token.token);
     toastNotification(`Bienvenido ${username}`, "success");

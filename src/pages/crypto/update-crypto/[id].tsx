@@ -5,7 +5,7 @@ import { RootStateSingle } from "../../../interfaces/RootState";
 import { wrapper } from "../../../redux/store/store";
 import { singleCryptoThunk } from "../../../redux/thunks/cryptoThunks";
 
-const UpdateCrypto: React.ReactNode = (): JSX.Element => {
+const UpdateCrypto = (): JSX.Element => {
   const crypto = useSelector<RootStateSingle, any>(
     (state) => state.singleCrypto
   );

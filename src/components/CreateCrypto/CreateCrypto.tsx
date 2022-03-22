@@ -111,6 +111,7 @@ const CreateCrypto: React.FunctionComponent<any> = ({
   return (
     <StyledBox>
       <StyledFormular
+        title="create-form"
         autoComplete="off"
         onSubmit={(event) => event.preventDefault()}
       >
