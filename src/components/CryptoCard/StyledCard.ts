@@ -11,9 +11,8 @@ const StyledCard = styled.tr`
   font-size: 14px;
 
   .hide-star {
-    display: none;
     visibility: hidden;
-    cursor: default;
+    cursor: none;
   }
 
   .display-star {
@@ -74,13 +73,15 @@ const StyledCard = styled.tr`
 
   @media (max-width: 450px) {
     color: white;
+    padding: 8px 10px 8px 10px;
 
     img {
       background-color: white;
     }
     justify-content: left;
 
-    img {
+    img,
+    .display-star {
       margin: 10px;
     }
 

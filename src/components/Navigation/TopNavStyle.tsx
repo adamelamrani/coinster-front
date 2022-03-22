@@ -41,6 +41,7 @@ const TopNavStyle = styled.nav`
 
   .navigation-logo {
     width: 100px;
+    cursor: pointer;
   }
 
   ul {

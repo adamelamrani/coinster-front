@@ -156,6 +156,7 @@ const CreateCrypto: React.FunctionComponent<any> = ({
               type="number"
               name="max_supply"
               id="max_supply"
+              min={0}
               placeholder="Introduzca el stock máximo"
               value={formData.max_supply}
               onChange={createCryptoEvent}
@@ -163,6 +164,7 @@ const CreateCrypto: React.FunctionComponent<any> = ({
             <label htmlFor="total_supply">Stock total:</label>
             <input
               type="number"
+              min={0}
               name="total_supply"
               id="total_supply"
               placeholder="Introduzca el stock total"
@@ -183,6 +185,7 @@ const CreateCrypto: React.FunctionComponent<any> = ({
             <input
               type="number"
               name="price"
+              min={0}
               id="price"
               placeholder="Introduzca el precio de la moneda:"
               value={formData.price}
@@ -192,6 +195,7 @@ const CreateCrypto: React.FunctionComponent<any> = ({
             <input
               type="number"
               name="market_cap"
+              min={0}
               id="market_cap"
               placeholder="Introduzca el capital de mercado"
               value={formData.market_cap}

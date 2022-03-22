@@ -19,7 +19,7 @@ const TopNavigation = () => {
                     src="/coinster.png"
                     alt="Coinster logo"
                     width={140}
-                    height={66}
+                    height={45}
                   />
                 </Link>
               </li>
