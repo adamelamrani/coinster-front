@@ -33,7 +33,6 @@ const StyledDetails = styled.div`
     max-height: 100px;
     border-radius: 50%;
     object-fit: cover;
-    margin: 40px;
     background-color: white;
   }
 
