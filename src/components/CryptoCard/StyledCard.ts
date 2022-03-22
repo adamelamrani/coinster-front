@@ -11,9 +11,8 @@ const StyledCard = styled.tr`
   font-size: 14px;
 
   .hide-star {
-    display: none;
     visibility: hidden;
-    cursor: default;
+    cursor: none;
   }
 
   .display-star {
@@ -24,6 +23,7 @@ const StyledCard = styled.tr`
   img {
     border-radius: 50%;
     background-color: white;
+    object-fit: cover;
   }
 
   div {
@@ -65,17 +65,23 @@ const StyledCard = styled.tr`
 
   .price-mobile-block {
     align-items: flex-end;
+
+    .price-mobile {
+      display: none;
+    }
   }
 
   @media (max-width: 450px) {
     color: white;
+    padding: 8px 10px 8px 10px;
 
     img {
       background-color: white;
     }
     justify-content: left;
 
-    img {
+    img,
+    .display-star {
       margin: 10px;
     }
 
@@ -83,8 +89,10 @@ const StyledCard = styled.tr`
       width: 40%;
     }
 
-    .price-mobile {
-      display: block;
+    .price-mobile-block {
+      .price-mobile {
+        display: block;
+      }
     }
 
     .crypto-price,

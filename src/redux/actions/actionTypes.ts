@@ -7,7 +7,7 @@ const actionTypes = {
   login: "log-in",
   logout: "log-out",
   register: "register",
-  loadUsers: "load-users",
+  loadUser: "load-user",
   loadProfile: "load-profile",
 };
 

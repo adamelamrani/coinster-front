@@ -2,7 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["https://cryptologos.cc"],
+    domains: ["cryptologos.cc", "firebasestorage.googleapis.com"],
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 };
 

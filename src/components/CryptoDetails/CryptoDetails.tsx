@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { MouseEventHandler } from "react";
 import { useDispatch } from "react-redux";
@@ -13,17 +14,6 @@ interface DetailsProps {
   crypto: Crypto;
   actionOnClick: MouseEventHandler<HTMLButtonElement>;
 }
-
-const ExternalDiv = styled.div`
-  @media (max-width: 450px) {
-    display: flex;
-    width: 100vw;
-    justify-content: center;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    background-color: rgb(24, 41, 88);
-  }
-`;
 
 const CryptoDetails: React.FunctionComponent<any> = ({
   crypto,
@@ -40,16 +30,31 @@ const CryptoDetails: React.FunctionComponent<any> = ({
   }
 
   return (
-    <ExternalDiv className="prueba-uno">
+    <div>
       <StyledDetails>
         <div className="logo-name">
-          <img src={crypto.img as string} alt={`Crypto ${crypto.name}`} />
-          <h1>{crypto.name}</h1>
-          <ul>
-            <li>Precio actual: {crypto.price}</li>
-            <li>Últimas 24 horas: {crypto.percent_change_24h}</li>
-            <li>Última hora: {crypto.percent_change_1h}</li>
-          </ul>
+          <div>
+            <Image
+              className="crypto-logo-img"
+              width={100}
+              height={100}
+              src={crypto.img as string}
+              alt={`Crypto ${crypto.name}`}
+            />
+          </div>
+          <div className="heading-price">
+            <h1>{crypto.name}</h1>
+            <p>$ {Number(crypto.price).toFixed(2)}</p>
+          </div>
+          <div>
+            <Image
+              className="img-example"
+              src={"/chart-example.jpg"}
+              width={640}
+              height={368}
+              alt="chart-example"
+            />
+          </div>
         </div>
         <div className="info-block">
           <article>
@@ -129,21 +134,23 @@ const CryptoDetails: React.FunctionComponent<any> = ({
             porro necessitatibus! Lorem ipsum dolor sit amet consectetur
             adipisicing elit sint.
           </article>
-          <Button
-            disableCondition={false}
-            actionOnClick={() => deleteCrypto((crypto as CryptoId).id)}
-            text={"Eliminar"}
-          />
-          <Button
-            disableCondition={false}
-            actionOnClick={() =>
-              router.push(`/crypto/update-crypto/${crypto.id}`)
-            }
-            text={"Actualizar"}
-          />
+          <div className="buttons-div">
+            <Button
+              disableCondition={false}
+              actionOnClick={() => deleteCrypto((crypto as CryptoId).id)}
+              text={"Eliminar"}
+            />
+            <Button
+              disableCondition={false}
+              actionOnClick={() =>
+                router.push(`/crypto/update-crypto/${crypto.id}`)
+              }
+              text={"Actualizar"}
+            />
+          </div>
         </div>
       </StyledDetails>
-    </ExternalDiv>
+    </div>
   );
 };
 

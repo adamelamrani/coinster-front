@@ -19,7 +19,7 @@ describe("Given a CryptoCard component", () => {
         price: "325235",
         percent_change_24h: "12",
         id: "2",
-        img: "undefined",
+        img: "/undefined",
       };
 
       render(<CryptoCard crypto={crypto} />);
