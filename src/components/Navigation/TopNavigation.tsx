@@ -15,7 +15,7 @@ const TopNavigation = () => {
             <ul>
               <li>
                 <Link href={"/"} passHref>
-                  <img
+                  <Image
                     className="navigation-logo"
                     src="/coinster.png"
                     alt="Coinster logo"
@@ -66,7 +66,7 @@ const TopNavigation = () => {
       <TopNavStyle className="top-nav-bar">
         <ul>
           <li>
-            <img
+            <Image
               className="navigation-logo"
               src="/coinster.png"
               alt="Coinster logo"
