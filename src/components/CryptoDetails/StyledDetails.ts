@@ -29,6 +29,7 @@ const StyledDetails = styled.div`
   }
 
   .crypto-logo-img {
+    margin: 0;
     max-width: 100px;
     max-height: 100px;
     border-radius: 50%;
@@ -37,7 +38,6 @@ const StyledDetails = styled.div`
   }
 
   .img-example {
-    margin: 20px;
     max-width: 640px;
     max-height: 368px;
     object-fit: cover;
@@ -87,6 +87,7 @@ const StyledDetails = styled.div`
     background-color: none;
     box-shadow: none;
     height: 660px;
+    width: 300px;
 
     .buttons-div {
       display: flex;
@@ -98,7 +99,6 @@ const StyledDetails = styled.div`
     }
 
     div .img-example {
-      margin: 20px;
       width: 300px;
       height: 200px;
       object-fit: contain;
