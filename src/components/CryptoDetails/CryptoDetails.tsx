@@ -25,28 +25,24 @@ const CryptoDetails = ({
     <div>
       <StyledDetails>
         <div className="logo-name">
-          <div>
-            <img
-              className="crypto-logo-img"
-              width={100}
-              height={100}
-              src={crypto.img as string}
-              alt={`Crypto ${crypto.name}`}
-            />
-          </div>
+          <img
+            className="crypto-logo-img"
+            width={100}
+            height={100}
+            src={crypto.img as string}
+            alt={`Crypto ${crypto.name}`}
+          />
           <div className="heading-price">
             <h1>{crypto.name}</h1>
             <p>$ {Number(crypto.price).toFixed(2)}</p>
           </div>
-          <div>
-            <img
-              className="img-example"
-              src={"/chart-example.jpg"}
-              width={640}
-              height={368}
-              alt="chart-example"
-            />
-          </div>
+          <img
+            className="img-example"
+            src={"/chart-example.jpg"}
+            width={640}
+            height={368}
+            alt="chart-example"
+          />
         </div>
         <div className="info-block">
           <article>
