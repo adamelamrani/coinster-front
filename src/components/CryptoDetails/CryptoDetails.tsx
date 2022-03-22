@@ -25,7 +25,7 @@ const CryptoDetails = ({
     <div>
       <StyledDetails>
         <div className="logo-name">
-          <img
+          <Image
             className="crypto-logo-img"
             width={100}
             height={100}
@@ -36,7 +36,7 @@ const CryptoDetails = ({
             <h1>{crypto.name}</h1>
             <p>$ {Number(crypto.price).toFixed(2)}</p>
           </div>
-          <img
+          <Image
             className="img-example"
             src={"/chart-example.jpg"}
             width={640}
