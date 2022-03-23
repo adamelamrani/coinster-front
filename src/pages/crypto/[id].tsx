@@ -9,7 +9,7 @@ import {
   deleteCryptoThunk,
   singleCryptoThunk,
 } from "../../redux/thunks/cryptoThunks";
-import FourOFour from "../404";
+import FourOFour from "../FourOFour";
 
 const DetailsPage = (): JSX.Element => {
   const crypto: Crypto = useSelector<RootStateSingle, any>(
@@ -30,7 +30,7 @@ const DetailsPage = (): JSX.Element => {
   return (
     <CryptoDetails
       crypto={crypto}
-      actionOnClick={() => {}}
+      actionOnClick={() => null}
       updateCrypto={() => router.push(`/crypto/update-crypto/${crypto.id}`)}
       deleteCrypto={() => deleteCrypto((crypto as CryptoId).id)}
     />

@@ -8,7 +8,6 @@ import actionTypes from "./actionTypes";
 import Crypto from "../../interfaces/Crypto";
 import {
   UserActionInterface,
-  UserInterface,
   UserRegisterInterface,
 } from "../../interfaces/User";
 
@@ -37,7 +36,7 @@ export const updateCryptoAction = (crypto: Crypto): SingleCrypto => ({
   crypto,
 });
 
-export const loginAction = (user: any) => ({
+export const loginAction = (user: any): UserActionInterface => ({
   type: actionTypes.login,
   user,
 });
@@ -49,7 +48,9 @@ export const registerAction = (
   user,
 });
 
-export const loadUserThunk = (user: any) => ({
+export const loadUserThunk = (
+  user: UserRegisterInterface
+): UserActionInterface => ({
   type: actionTypes.loadUser,
   user,
 });

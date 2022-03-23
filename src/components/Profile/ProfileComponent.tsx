@@ -1,9 +1,9 @@
 import Router, { useRouter } from "next/router";
-import toastNotification from "../../utils/toastify";
+import toastNotification from "../../utils/toastNotification";
 import Button from "../Button/Button";
 import StyledProfile from "./StyledProfile";
 
-const ProfileComponent = (/* { user }: UserProps */): JSX.Element => {
+const ProfileComponent = (): JSX.Element => {
   const router = useRouter();
 
   if (typeof window !== "undefined") {
@@ -18,7 +18,6 @@ const ProfileComponent = (/* { user }: UserProps */): JSX.Element => {
   };
   return (
     <StyledProfile>
-      <h2>Hola {/* {user.name} */}</h2>
       <div className="form-container">
         <section>
           <h2>Ajustes de perfil</h2>
@@ -38,7 +37,7 @@ const ProfileComponent = (/* { user }: UserProps */): JSX.Element => {
             </div>
           </form>
           <Button
-            actionOnClick={() => {}}
+            actionOnClick={() => null}
             disableCondition={false}
             text={"Actualizar"}
           />

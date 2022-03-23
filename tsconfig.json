@@ -27,7 +27,7 @@
     "src/mocks/handlers.js",
     "src/pages/_document.js",
     "_document.js",
-    "src/utils/toastify.js"
+    "src/utils/toastNotification.js"
   ],
   "exclude": ["node_modules"]
 }

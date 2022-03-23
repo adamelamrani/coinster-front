@@ -83,35 +83,26 @@ const handlers = [
 
   rest.get(
     `${process.env.NEXT_PUBLIC_COINSTER_API}/cryptos/crypto/622cdb2eaa2f5a4e7dd16917`,
-    (req, res, ctx) => {
-      const id = "622cdb2eaa2f5a4e7dd16917";
-      if (id === "622cdb2eaa2f5a4e7dd16917") {
-        return res(
-          ctx.status(200),
-          ctx.json({
-            name: "Bitcoin",
-            market_cap: "2000000",
-            percent_change_1h: "2",
-            percent_change_7d: "5",
-            platform: "null",
-            tags: "",
-            symbol: "BTC",
-            slug: "bitcoin",
-            max_supply: "200000000000",
-            total_supply: "2200000000",
-            price: "325235",
-            percent_change_24h: "12",
-            id: "622cdb2eaa2f5a4e7dd16917",
-            img: "https://cryptologos.cc/logos/filecoin-fil-logo.svg?v=022",
-          })
-        );
-      } else {
-        return res(
-          ctx.status(404),
-          ctx.json({ error: true, message: "error" })
-        );
-      }
-    }
+    (req, res, ctx) =>
+      res(
+        ctx.status(200),
+        ctx.json({
+          name: "Bitcoin",
+          market_cap: "2000000",
+          percent_change_1h: "2",
+          percent_change_7d: "5",
+          platform: "null",
+          tags: "",
+          symbol: "BTC",
+          slug: "bitcoin",
+          max_supply: "200000000000",
+          total_supply: "2200000000",
+          price: "325235",
+          percent_change_24h: "12",
+          id: "622cdb2eaa2f5a4e7dd16917",
+          img: "https://cryptologos.cc/logos/filecoin-fil-logo.svg?v=022",
+        })
+      )
   ),
 
   rest.post(
@@ -122,21 +113,7 @@ const handlers = [
 
   rest.post(
     `${process.env.NEXT_PUBLIC_COINSTER_API}/user/register`,
-    (req, res, ctx) => {
-      const user = {
-        name: "Adam",
-        username: "Adam2",
-        password: "12345",
-      };
-      if (user) {
-        return res(ctx.status(200), ctx.json("Register succesfull"));
-      } else {
-        return res(
-          ctx.status(400),
-          ctx.json({ error: true, message: "error" })
-        );
-      }
-    }
+    (req, res, ctx) => res(ctx.status(200), ctx.json("Register succesfull"))
   ),
 ];
 

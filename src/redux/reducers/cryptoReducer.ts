@@ -4,9 +4,8 @@ import {
   ActionTypeInterface,
   GetIdCoinsActionI,
   LoadCoinsActionI,
-  SingleCrypto,
 } from "../../interfaces/actionsInterfaces";
-import Crypto, { CryptoId } from "../../interfaces/Crypto";
+import { CryptoId } from "../../interfaces/Crypto";
 import { Cryptos } from "../../interfaces/cryptoProps";
 import actionTypes from "../actions/actionTypes";
 
