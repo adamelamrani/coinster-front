@@ -8,7 +8,7 @@ import {
 import { Dispatch } from "redux";
 import { Cryptos } from "../../interfaces/cryptoProps";
 import Crypto from "../../interfaces/Crypto";
-import toastNotification from "../../utils/toastify";
+import toastNotification from "../../utils/toastNotification";
 
 export function loadCoinListThunk() {
   return async function (dispatch: Dispatch) {

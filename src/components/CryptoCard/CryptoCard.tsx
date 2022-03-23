@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { MouseEventHandler } from "react";
+import React from "react";
 import Crypto, { CryptoId } from "../../interfaces/Crypto";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";

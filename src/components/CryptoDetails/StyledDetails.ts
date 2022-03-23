@@ -30,14 +30,15 @@ const StyledDetails = styled.div`
 
   .crypto-logo-img {
     margin: 0;
-    max-width: 100px;
-    max-height: 100px;
+    height: 100px;
+    width: 100px;
     border-radius: 50%;
     object-fit: cover;
     background-color: white;
   }
 
   .img-example {
+    margin: 0;
     max-width: 640px;
     max-height: 368px;
     object-fit: cover;
@@ -52,7 +53,7 @@ const StyledDetails = styled.div`
     margin: 20px;
     justify-content: space-around;
     align-items: space-around;
-    max-width: 660px;
+    width: 660px;
     height: 550px;
   }
 
@@ -112,6 +113,7 @@ const StyledDetails = styled.div`
       flex-wrap: wrap;
       justify-content: space-around;
       margin: 20px;
+      width: 300px;
     }
 
     .crypto-logo-img {
