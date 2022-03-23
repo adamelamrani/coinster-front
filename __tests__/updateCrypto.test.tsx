@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import UpdateCrypto from "../src/pages/crypto/update-crypto/[id]";
 import { wrapper } from "../src/redux/store/store";
 

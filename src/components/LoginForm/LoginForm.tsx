@@ -4,34 +4,24 @@ import { useDispatch } from "react-redux";
 import { loginThunk } from "../../redux/thunks/userThunks";
 import Button from "../Button/Button";
 import StyledLogin from "./StyledLogin";
-import "react-toastify/dist/ReactToastify.css";
 
-const LoginForm: React.FunctionComponent = (): JSX.Element => {
-  const dispatch = useDispatch();
-  const blankFields = {
-    username: "",
-    password: "",
-  };
+interface LoginProps {
+  formData: any;
+  submitForm: any;
+  handleChange: any;
+}
 
-  const [formData, setFormData] = useState(blankFields);
-
-  const handleChange = (event: any) => {
-    setFormData({
-      ...formData,
-      [event.target.id]: event.target.value,
-    });
-  };
-
-  const submitForm = (event: any) => {
-    event.preventDefault();
-    dispatch(loginThunk(formData));
-  };
-
+const LoginForm = ({
+  handleChange,
+  submitForm,
+  formData,
+}: LoginProps): JSX.Element => {
   const isFilled = formData.username === "" && formData.password === "";
 
   return (
     <StyledLogin>
       <form
+        title="login-form"
         autoComplete="off"
         onSubmit={(event) => event.preventDefault()}
         noValidate
