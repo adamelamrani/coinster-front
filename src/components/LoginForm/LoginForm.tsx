@@ -13,7 +13,7 @@ const LoginForm = ({
   submitForm,
   formData,
 }: LoginProps): JSX.Element => {
-  const isFilled = formData.username === "" && formData.password === "";
+  const isFilled = formData.username === "" || formData.password === "";
   return (
     <StyledLogin>
       <form
@@ -29,6 +29,7 @@ const LoginForm = ({
             <input
               type="text"
               name="username"
+              placeholder="usuario"
               id="username"
               onChange={handleChange}
               required
@@ -39,6 +40,7 @@ const LoginForm = ({
             <input
               type="password"
               name="password"
+              placeholder="password"
               onChange={handleChange}
               id="password"
               required

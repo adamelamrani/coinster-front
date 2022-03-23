@@ -40,43 +40,13 @@ const StyledBox = styled.div`
   }
 `;
 
-const CreateCrypto: React.FunctionComponent<any> = ({
-  crypto,
+const CreateCrypto = ({
+  changeFile,
+  createCryptoEvent,
+  formData,
+  submitCrypto,
+  text,
 }: FormProps): JSX.Element => {
-  const image: any = {
-    imageDefault: "",
-  };
-
-  const [formData, setFormData] = useState(
-    crypto ? cryptoToUpdate({ crypto }) : emptyForm
-  );
-
-  const [imgData, setImgData] = useState(image);
-  const createCryptoEvent = (event: {
-    target: { id: string; value: string };
-  }) => {
-    setFormData({
-      ...formData,
-      [event.target.id]: event.target.value,
-    });
-  };
-
-  const changeFile = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const imageFileData: any = event.target.files;
-    setFormData({ ...formData, img: imageFileData[0] });
-
-    const reader = new FileReader();
-    reader.onload = async () => {
-      if (reader.readyState === 2) {
-        await setImgData({ ...imgData, imageDefault: reader.result });
-      }
-    };
-
-    if (imageFileData[0]) {
-      await reader.readAsDataURL(imageFileData[0]);
-    }
-  };
-
   const invalidForm =
     formData.name === "" ||
     formData.symbol === "" ||
@@ -92,28 +62,12 @@ const CreateCrypto: React.FunctionComponent<any> = ({
     formData.market_cap === 0 ||
     formData.img === "";
 
-  const router = useRouter();
-  const dispatch = useDispatch();
-  const submitCrypto = (event: any) => {
-    event.preventDefault();
-    if (crypto) {
-      const cryptoUpdated: Crypto = formData;
-      dispatch(updateCryptoThunk(crypto.id as string, cryptoUpdated));
-    } else {
-      dispatch(createCryptoThunk(formData));
-    }
-
-    setTimeout(() => {
-      router.push("/");
-    }, 1300);
-  };
-
   return (
     <StyledBox>
       <StyledFormular
         title="create-form"
         autoComplete="off"
-        onSubmit={(event) => event.preventDefault()}
+        onSubmit={submitCrypto}
       >
         <div className="form-blocks">
           <div className="first-block">
@@ -246,7 +200,7 @@ const CreateCrypto: React.FunctionComponent<any> = ({
         <Button
           disableCondition={invalidForm}
           actionOnClick={submitCrypto}
-          text={crypto ? "Editar" : "Crear"}
+          text={text}
         />
       </StyledFormular>
     </StyledBox>

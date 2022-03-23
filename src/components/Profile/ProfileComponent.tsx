@@ -1,15 +1,24 @@
+import jwtDecode from "jwt-decode";
 import Router, { useRouter } from "next/router";
 import toastNotification from "../../utils/toastNotification";
 import Button from "../Button/Button";
 import StyledProfile from "./StyledProfile";
 
+interface Token {
+  iat: number;
+  username: string;
+}
+
 const ProfileComponent = (): JSX.Element => {
   const router = useRouter();
 
-  if (typeof window !== "undefined") {
-    const token = localStorage.getItem("token");
-    token ?? Router.push("/user/login");
-  }
+  const getUserNameFromToken = () => {
+    if (typeof window !== "undefined") {
+      const token = localStorage.getItem("token");
+      const { username }: Token = jwtDecode(token as string);
+      return username;
+    }
+  };
 
   const logOut = () => {
     toastNotification("¡Hasta la próxima!");
@@ -20,11 +29,11 @@ const ProfileComponent = (): JSX.Element => {
     <StyledProfile>
       <div className="form-container">
         <section>
-          <h2>Ajustes de perfil</h2>
+          <h2>¡Hola {getUserNameFromToken()}!</h2>
           <p>Actualiza tus datos</p>
           <form>
             <div>
-              <label htmlFor="name">Nombre:</label>
+              <label htmlFor="name">Nombre: </label>
               <input type="text" className="name" name="name" />
             </div>
             <div>

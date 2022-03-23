@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import LoginPage from "../src/pages/user/login";
 import { wrapper } from "../src/redux/store/store";
 import "whatwg-fetch";
 import RegisterPage from "../src/pages/user/register";
@@ -19,6 +18,7 @@ describe("Given a Register Page", () => {
       expectedInput.forEach((input) => {
         expect(input).toBeInTheDocument();
       });
+      screen.debug();
       expect(expectedInput).toHaveLength(2);
       expect(expectedForm).toBeInTheDocument();
     });

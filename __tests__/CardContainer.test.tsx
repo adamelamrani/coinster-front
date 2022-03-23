@@ -15,8 +15,4 @@ describe("Given a CardContainer component", () => {
       expect(expectedOutput[0]).toBeInTheDocument();
     });
   });
-
-  describe("", () => {
-    test("", () => {});
-  });
 });

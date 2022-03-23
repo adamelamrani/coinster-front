@@ -20,7 +20,11 @@ export interface CryptoId extends Crypto {
 }
 
 export interface FormProps {
-  crypto: Crypto;
+  formData: any;
+  createCryptoEvent: any;
+  changeFile: any;
+  submitCrypto: any;
+  text: string;
 }
 
 export default Crypto;

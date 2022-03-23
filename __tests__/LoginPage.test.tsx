@@ -27,9 +27,8 @@ describe("Given a LoginForm Page", () => {
       const WrappedComponent = wrapper.withRedux(LoginPage);
       const button = "button";
       const input = "textbox";
-      const submitForm = jest.fn();
 
-      render(<WrappedComponent submitForm={submitForm} />);
+      render(<WrappedComponent />);
 
       const expectedButton = screen.getByRole(button);
       const expectedInput = screen.getAllByRole(input);

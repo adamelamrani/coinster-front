@@ -14,8 +14,8 @@ const RegisterForm = ({
   submitForm,
 }: RegisterProps): JSX.Element => {
   const isFilled =
-    formData.username === "" &&
-    formData.password === "" &&
+    formData.username === "" ||
+    formData.password === "" ||
     formData.name === "";
   return (
     <StyledRegister>

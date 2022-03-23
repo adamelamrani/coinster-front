@@ -57,6 +57,7 @@ export const singleCryptoThunk = (id: string) => async (dispatch: Dispatch) => {
 
 export const createCryptoThunk =
   (formData: Crypto) => async (dispatch: Dispatch) => {
+    debugger;
     const data = new FormData();
     data.append("img", formData.img);
     data.append("name", formData.name);
@@ -83,6 +84,7 @@ export const createCryptoThunk =
       toastNotification(`Crypto ${crypto.name} creada`, "success");
       dispatch(createCryptoAction(crypto));
     } else {
+      console.log(response);
       toastNotification("Error al crear la moneda", "error");
       throw new Error("Error al crear un nuevo activo.");
     }
