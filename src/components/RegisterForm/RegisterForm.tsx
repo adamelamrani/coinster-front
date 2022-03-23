@@ -1,33 +1,18 @@
 import Link from "next/link";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { registerThunk } from "../../redux/thunks/userThunks";
-
 import Button from "../Button/Button";
 import StyledRegister from "./StyledRegister";
 
-const RegisterForm: React.FunctionComponent = (): JSX.Element => {
-  const dispatch = useDispatch();
-  const blankFields = {
-    name: "",
-    username: "",
-    password: "",
-  };
+interface RegisterProps {
+  formData: any;
+  handleChange: any;
+  submitForm: any;
+}
 
-  const [formData, setFormData] = useState(blankFields);
-
-  const handleChange = (event: any) => {
-    setFormData({
-      ...formData,
-      [event.target.id]: event.target.value,
-    });
-  };
-
-  const submitForm = (event: any) => {
-    event.preventDefault();
-    dispatch(registerThunk(formData));
-  };
-
+const RegisterForm = ({
+  formData,
+  handleChange,
+  submitForm,
+}: RegisterProps): JSX.Element => {
   const isFilled =
     formData.username === "" &&
     formData.password === "" &&
@@ -35,7 +20,11 @@ const RegisterForm: React.FunctionComponent = (): JSX.Element => {
   return (
     <StyledRegister>
       <h2>Formulario de registro</h2>
-      <form autoComplete="off" onSubmit={(event) => event.preventDefault()}>
+      <form
+        title="register-form"
+        autoComplete="off"
+        onSubmit={(event) => event.preventDefault()}
+      >
         <section>
           <label htmlFor="name">Nombre:</label>
           <input
