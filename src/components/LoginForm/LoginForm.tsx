@@ -1,7 +1,4 @@
 import Link from "next/link";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { loginThunk } from "../../redux/thunks/userThunks";
 import Button from "../Button/Button";
 import StyledLogin from "./StyledLogin";
 
