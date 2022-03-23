@@ -17,7 +17,6 @@ const LoginForm = ({
   formData,
 }: LoginProps): JSX.Element => {
   const isFilled = formData.username === "" && formData.password === "";
-
   return (
     <StyledLogin>
       <form
