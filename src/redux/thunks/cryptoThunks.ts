@@ -24,17 +24,23 @@ export function loadCoinListThunk() {
 }
 
 export const deleteCryptoThunk = (id: string) => async (dispatch: Dispatch) => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_COINSTER_API}/cryptos/crypto/${id}`,
-    {
-      method: "DELETE",
-    }
-  );
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_COINSTER_API}/cryptos/crypto/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
 
-  if (response.ok) {
-    toastNotification("Crypto eliminada", "success");
-    dispatch(deleteCoinsAction(id));
-  } else {
+    if (response.ok) {
+      console.log("response is", response);
+      toastNotification("Crypto eliminada", "success");
+      dispatch(deleteCoinsAction(id));
+    } else {
+      toastNotification("Ha habido un problema", "warning");
+    }
+  } catch (error) {
+    console.log("response is", error);
     toastNotification("Ha habido un problema", "warning");
   }
 };
@@ -57,7 +63,6 @@ export const singleCryptoThunk = (id: string) => async (dispatch: Dispatch) => {
 
 export const createCryptoThunk =
   (formData: Crypto) => async (dispatch: Dispatch) => {
-    debugger;
     const data = new FormData();
     data.append("img", formData.img);
     data.append("name", formData.name);
@@ -72,19 +77,23 @@ export const createCryptoThunk =
     data.append("percent_change_24h", formData.percent_change_24h);
     data.append("percent_change_7d", formData.percent_change_7d);
     data.append("market_cap", formData.market_cap);
-    const response: Response = await fetch(
-      `${process.env.NEXT_PUBLIC_COINSTER_API}/cryptos/new-crypto`,
-      {
-        method: "POST",
-        body: data,
+    try {
+      const response: Response = await fetch(
+        `${process.env.NEXT_PUBLIC_COINSTER_API}/cryptos/new-crypto`,
+        {
+          method: "POST",
+          body: data,
+        }
+      );
+      if (response.ok) {
+        const crypto: Crypto = await response.json();
+        toastNotification(`Crypto ${crypto.name} creada`, "success");
+        dispatch(createCryptoAction(crypto));
+      } else {
+        toastNotification("Error al crear la moneda", "error");
+        throw new Error("Error al crear un nuevo activo.");
       }
-    );
-    if (response.ok) {
-      const crypto: Crypto = await response.json();
-      toastNotification(`Crypto ${crypto.name} creada`, "success");
-      dispatch(createCryptoAction(crypto));
-    } else {
-      console.log(response);
+    } catch (error) {
       toastNotification("Error al crear la moneda", "error");
       throw new Error("Error al crear un nuevo activo.");
     }
@@ -106,18 +115,22 @@ export const updateCryptoThunk =
     data.append("percent_change_24h", crypto.percent_change_24h);
     data.append("percent_change_7d", crypto.percent_change_7d);
     data.append("market_cap", crypto.market_cap);
-    const response: Response = await fetch(
-      `${process.env.NEXT_PUBLIC_COINSTER_API}/cryptos/crypto/${id}`,
-      {
-        method: "PATCH",
-        body: data,
+    try {
+      const response: Response = await fetch(
+        `${process.env.NEXT_PUBLIC_COINSTER_API}/cryptos/crypto/${id}`,
+        {
+          method: "PATCH",
+          body: data,
+        }
+      );
+      if (response.ok) {
+        const updatedCrypto: Crypto = await response.json();
+        toastNotification("Crypto actualizada", "success");
+        dispatch(updateCryptoAction(updatedCrypto));
+      } else {
+        toastNotification("Error al actualizar la moneda", "warning");
       }
-    );
-    if (response.ok) {
-      const updatedCrypto: Crypto = await response.json();
-      toastNotification("Crypto actualizada", "success");
-      dispatch(updateCryptoAction(updatedCrypto));
-    } else {
+    } catch (error) {
       toastNotification("Error al actualizar la moneda", "warning");
     }
   };

@@ -26,7 +26,7 @@ const cryptoReducer = (
       );
       break;
     case actionTypes.createCrypto:
-      newCryptoState = [...coinState, ...(action as AnyAction).crypto];
+      newCryptoState = [...coinState, (action as AnyAction).crypto];
       break;
     default:
       newCryptoState = [...coinState];

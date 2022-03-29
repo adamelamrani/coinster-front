@@ -44,7 +44,7 @@ const handlers = [
   ),
 
   rest.delete(
-    `${process.env.NEXT_PUBLIC_COINSTER_API}/cryptos/crypto/1`,
+    `${process.env.NEXT_PUBLIC_COINSTER_API}/cryptos/crypto/622cdb2eaa2f5a4e7dd16917`,
     (req, res, ctx) =>
       res(
         ctx.status(200),
@@ -77,7 +77,7 @@ const handlers = [
   ),
 
   rest.patch(
-    `${process.env.NEXT_PUBLIC_COINSTER_API}/cryptos/crypto/622cdb2eaa2f5a4e7dd16917`,
+    `${process.env.NEXT_PUBLIC_COINSTER_API}/cryptos/crypto/undefined`,
     (req, res, ctx) => res(ctx.status(200), ctx.json("Crypto updated"))
   ),
 
@@ -108,7 +108,13 @@ const handlers = [
   rest.post(
     `${process.env.NEXT_PUBLIC_COINSTER_API}/user/login`,
     (req, res, ctx) =>
-      res(ctx.status(200), ctx.json({ token: "adawdawfeafn3jrjo1h1" }))
+      res(
+        ctx.status(200),
+        ctx.json({
+          token:
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkZWxhbWNvIiwiaWF0IjoxNjQ4MDQ0MTg3fQ.al4ibxpTInhGFc7iM6j7EBPEOeN4vgN1uwIddalWzTw",
+        })
+      )
   ),
 
   rest.post(

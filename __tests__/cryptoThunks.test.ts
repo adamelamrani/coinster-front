@@ -64,7 +64,7 @@ describe("Given a loadCryptoListThunk", () => {
 describe("Given a deleteCryptoThunk", () => {
   describe("When it's invoked", () => {
     test("Then it should call the dispatch function", async () => {
-      const id: string = "1";
+      const id: string = "622cdb2eaa2f5a4e7dd16917";
       const dispatch = jest.fn();
 
       await deleteCryptoThunk(id)(dispatch);
@@ -131,7 +131,7 @@ describe("Given an updateCryptoThunk", () => {
         total_supply: "2200000000",
         price: "325235",
         percent_change_24h: "12",
-        id: "622cdb2eaa2f5a4e7dd16917",
+        id: "undefined",
         img: "https://cryptologos.cc/logos/filecoin-fil-logo.svg?v=022",
       };
 

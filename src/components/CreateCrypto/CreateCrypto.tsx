@@ -1,13 +1,7 @@
-import { useRouter } from "next/router";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
 import styled from "styled-components";
-import Crypto, { FormProps } from "../../interfaces/Crypto";
-import {
-  createCryptoThunk,
-  updateCryptoThunk,
-} from "../../redux/thunks/cryptoThunks";
-import { cryptoToUpdate, emptyForm } from "../../utils/formFields";
+import { FormProps } from "../../interfaces/Crypto";
+
 import Button from "../Button/Button";
 import StyledFormular from "./StyledFormular";
 
@@ -51,15 +45,15 @@ const CreateCrypto = ({
     formData.name === "" ||
     formData.symbol === "" ||
     formData.slug === "" ||
-    formData.tags === [""] ||
-    formData.max_supply === 0 ||
-    formData.total_supply === 0 ||
-    formData.platform === [""] ||
-    formData.price === 0 ||
-    formData.percent_change_1h === 0 ||
-    formData.percent_change_24h === 0 ||
-    formData.percent_change_7d === 0 ||
-    formData.market_cap === 0 ||
+    formData.tags === "" ||
+    formData.max_supply === "0" ||
+    formData.total_supply === "0" ||
+    formData.platform === "" ||
+    formData.price === "0" ||
+    formData.percent_change_1h === "0" ||
+    formData.percent_change_24h === "0" ||
+    formData.percent_change_7d === "0" ||
+    formData.market_cap === "0" ||
     formData.img === "";
 
   return (
@@ -99,7 +93,8 @@ const CreateCrypto = ({
               onChange={createCryptoEvent}
             />
             <label htmlFor="tags">Tags:</label>
-            <textarea
+            <input
+              type="text"
               name="tags"
               id="tags"
               placeholder="Cryptos"
@@ -108,7 +103,7 @@ const CreateCrypto = ({
             />
             <label htmlFor="max_supply">Stock máximo:</label>
             <input
-              type="number"
+              type="text"
               name="max_supply"
               id="max_supply"
               min={0}
@@ -118,7 +113,7 @@ const CreateCrypto = ({
             />
             <label htmlFor="total_supply">Stock total:</label>
             <input
-              type="number"
+              type="text"
               min={0}
               name="total_supply"
               id="total_supply"
@@ -129,7 +124,8 @@ const CreateCrypto = ({
           </div>
           <div className="second-block">
             <label htmlFor="platform">Plataformas:</label>
-            <textarea
+            <input
+              type="text"
               name="platform"
               id="platform"
               placeholder="Plataformas, por ejemplo: BSC."
@@ -138,7 +134,7 @@ const CreateCrypto = ({
             />
             <label htmlFor="price">Precio:</label>
             <input
-              type="number"
+              type="text"
               name="price"
               min={0}
               id="price"
@@ -148,7 +144,7 @@ const CreateCrypto = ({
             />
             <label htmlFor="market_cap">Capital de mercado:</label>
             <input
-              type="number"
+              type="text"
               name="market_cap"
               min={0}
               id="market_cap"
@@ -160,7 +156,7 @@ const CreateCrypto = ({
               Porcentaje de cambio última hora:
             </label>
             <input
-              type="number"
+              type="text"
               name="percent_change_1h"
               id="percent_change_1h"
               placeholder="Variación última hora"
@@ -171,7 +167,7 @@ const CreateCrypto = ({
               Porcentaje de cambio últimas 24 horas:
             </label>
             <input
-              type="number"
+              type="text"
               name="percent_change_24h_"
               id="percent_change_24h"
               placeholder="Variación últimas 24 horas"
@@ -182,7 +178,7 @@ const CreateCrypto = ({
               Porcentaje de cambio últimos 7 días:
             </label>
             <input
-              type="number"
+              type="text"
               name="percent_change_7d"
               id="percent_change_7d"
               placeholder="Variación últimos 7 días"

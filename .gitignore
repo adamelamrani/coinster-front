@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+crypress
+
 .vscode
 .DS_Store
 .scannerwork

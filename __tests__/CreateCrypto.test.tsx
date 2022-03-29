@@ -1,8 +1,6 @@
 import "whatwg-fetch";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import CreateCrypto from "../src/components/CreateCrypto/CreateCrypto";
-import { wrapper } from "../src/redux/store/store";
 
 jest.mock("next/router");
 

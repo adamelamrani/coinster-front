@@ -10,7 +10,9 @@
     "prepare": "husky install",
     "test": "jest --verbose",
     "coverage": "jest --coverage --watchAll=false",
-    "tsc-compile": "tsc --watch"
+    "tsc-compile": "tsc --watch",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "dependencies": {
     "@babel/preset-env": "^7.16.11",
@@ -32,7 +34,9 @@
     "styled-components": "^5.3.3",
     "ts-jest": "^27.1.3",
     "ts-loader": "^9.2.7",
-    "whatwg-fetch": "^3.6.2"
+    "whatwg-fetch": "^3.6.2",
+    "cypress": "6.2.0",
+    "eslint-plugin-cypress": "2.11.2"
   },
   "devDependencies": {
     "@babel/plugin-syntax-jsx": "^7.16.7",

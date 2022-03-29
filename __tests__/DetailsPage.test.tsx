@@ -2,6 +2,13 @@ import { render, screen } from "@testing-library/react";
 import DetailsPage, { getStaticProps } from "../src/pages/crypto/[id]";
 import { wrapper } from "../src/redux/store/store";
 import "whatwg-fetch";
+import userEvent from "@testing-library/user-event";
+import Router from "next/router";
+import { ToastContainer } from "react-toastify";
+
+jest.mock("next/router", () => ({
+  Router: jest.fn(),
+}));
 
 jest.mock("next/router", () => {
   const router = {
@@ -58,25 +65,9 @@ describe("Given a DetailsPage page", () => {
     test("Then it should display a button with text 'Delete' in it", () => {
       const button = "button";
       const buttonText = "Eliminar";
-      const crypto = {
-        name: "Bitcoin",
-        market_cap: "2000000",
-        percent_change_1h: "2",
-        percent_change_7d: "5",
-        platform: "null",
-        tags: "",
-        symbol: "BTC",
-        slug: "bitcoin",
-        max_supply: "200000000000",
-        total_supply: "2200000000",
-        price: "325235",
-        percent_change_24h: "12",
-        id: "622cdb2eaa2f5a4e7dd16917",
-        img: "https://cryptologos.cc/logos/filecoin-fil-logo.svg?v=022",
-      };
 
       const WrappedComponent = wrapper.withRedux(DetailsPage);
-      render(<WrappedComponent crypto={crypto} />);
+      render(<WrappedComponent />);
 
       const expectedElement = screen.getByRole(button, { name: buttonText });
       expect(expectedElement).toBeInTheDocument();
